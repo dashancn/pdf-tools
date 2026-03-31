@@ -1,7 +1,7 @@
 # Web Sustainability Guidelines (WSG 1.0) Compliance Report
 
 **Spec**: [W3C Web Sustainability Guidelines 1.0](https://www.w3.org/TR/web-sustainability-guidelines/)
-**Date**: 2026-03-10
+**Date**: 2026-03-31
 **Project**: PDF Worker — privacy-first, client-side PDF toolkit
 
 ## Summary
@@ -32,7 +32,7 @@ Guidelines not listed target server-side infrastructure or organizational proces
 |---|---|---|---|
 | 2.2 | Understand user requirements or constraints, resolving barriers to access | ✅ Full | All tools work with standard PDF files in any modern browser. No account, plugin, or installation required. |
 | 2.4 | Minimize non-essential content, interactivity, or journeys | ✅ Full | Each tool is a single-purpose page: drop a file, get a result. No onboarding wizards, pop-ups, or multi-step funnels. |
-| 2.5 | Ensure that navigation and wayfinding are well-structured | ✅ Full | Flat navigation: home page lists all 36 tools. Each tool has a descriptive name, icon, and direct URL. |
+| 2.5 | Ensure that navigation and wayfinding are well-structured | ✅ Full | Flat navigation: home page lists all 37 tools. Each tool has a descriptive name, icon, and direct URL. |
 | 2.6 | Design to assist and not to distract | ✅ Full | No autoplaying media, no animations beyond minimal transitions, no infinite scroll. |
 | 2.7 | Avoid being manipulative or deceptive | ✅ Full | No dark patterns, no fake urgency, no forced sign-ups. Tool results are delivered immediately without gates. |
 | 2.9 | Use a design system for interface consistency | ✅ Full | Tailwind CSS utility classes with a shared component library ensure visual consistency across all tools. |
@@ -44,7 +44,7 @@ Guidelines not listed target server-side infrastructure or organizational proces
 | 2.15 | Provide accessible, usable, minimal web forms | ✅ Full | Tool interfaces use minimal form elements: a file input and optional settings. No mandatory fields beyond the file itself. |
 | 2.16 | Avoid unwanted notifications | ✅ Full | Zero push notifications. No email collection. No permission requests for notifications or location. |
 | 2.17 | Reduce the impact of downloadable and physical documents | ✅ Full | Tools like compress-pdf, grayscale-pdf, and remove-blank-pages directly reduce document size and print impact. |
-| 2.19 | Audit and test for bugs or issues requiring resolution | ✅ Full | SCI profiler runs automated benchmarks across all 36 tools. Build pipeline includes type checking and linting. |
+| 2.19 | Audit and test for bugs or issues requiring resolution | ✅ Full | SCI profiler runs automated benchmarks across all 37 tools. Build pipeline includes type checking and linting. |
 | 2.21 | Regularly test and maintain compatibility | ✅ Full | Tested on Chrome, Firefox, Safari. Uses standard Web APIs and progressive enhancement. |
 
 ## ⚙️ Web Development (3.1–3.20)

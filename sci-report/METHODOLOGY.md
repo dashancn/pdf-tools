@@ -85,7 +85,7 @@ The benchmark PDF is generated once and cached in memory for the duration of the
 
 ## Profiled Services
 
-All 36 PDF tools are profiled. Tools are categorized by input type:
+All 37 PDF tools are profiled. Tools are categorized by input type:
 
 - **Direct** (28 tools): Use the benchmark PDF with minimal options
 - **Special input** (3 tools): `text-to-pdf`, `markdown-to-pdf`, `protect-pdf` use generated content
@@ -155,7 +155,7 @@ __sciProfiler.tools
 // Profile a single tool
 __sciProfiler.runBenchmark('reverse-pages')
 
-// Profile all 36 tools
+// Profile all 37 tools
 __sciProfiler.runAll()
 
 // Export JSON report (for sci-history.json)

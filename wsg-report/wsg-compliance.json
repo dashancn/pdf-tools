@@ -2,7 +2,7 @@
   "version": "WSG 1.0",
   "spec": "https://www.w3.org/TR/web-sustainability-guidelines/",
   "totalGuidelines": 80,
-  "date": "2026-03-11",
+  "date": "2026-03-31",
   "summary": {
     "full": 50,
     "partial": 1,
@@ -17,7 +17,7 @@
       "guidelines": [
         { "id": "2.2", "title": "Understand user requirements or constraints, resolving barriers to access", "status": "full", "detail": "All tools work with standard PDF files in any modern browser. No account, plugin, or installation required." },
         { "id": "2.4", "title": "Minimize non-essential content, interactivity, or journeys", "status": "full", "detail": "Each tool is a single-purpose page: drop a file, get a result. No onboarding wizards, pop-ups, or multi-step funnels." },
-        { "id": "2.5", "title": "Ensure that navigation and wayfinding are well-structured", "status": "full", "detail": "Flat navigation: home page lists all 36 tools. Each tool has a descriptive name, icon, and direct URL." },
+        { "id": "2.5", "title": "Ensure that navigation and wayfinding are well-structured", "status": "full", "detail": "Flat navigation: home page lists all 37 tools. Each tool has a descriptive name, icon, and direct URL." },
         { "id": "2.6", "title": "Design to assist and not to distract", "status": "full", "detail": "No autoplaying media, no animations beyond minimal transitions, no infinite scroll." },
         { "id": "2.7", "title": "Avoid being manipulative or deceptive", "status": "full", "detail": "No dark patterns, no fake urgency, no forced sign-ups. Tool results are delivered immediately without gates." },
         { "id": "2.9", "title": "Use a design system for interface consistency", "status": "full", "detail": "Tailwind CSS utility classes with a shared component library ensure visual consistency across all tools." },
@@ -29,7 +29,7 @@
         { "id": "2.15", "title": "Provide accessible, usable, minimal web forms", "status": "full", "detail": "Tool interfaces use minimal form elements: a file input and optional settings. No mandatory fields beyond the file itself." },
         { "id": "2.16", "title": "Avoid unwanted notifications", "status": "full", "detail": "Zero push notifications. No email collection. No permission requests for notifications or location." },
         { "id": "2.17", "title": "Reduce the impact of downloadable and physical documents", "status": "full", "detail": "Tools like compress-pdf, grayscale-pdf, and remove-blank-pages directly reduce document size and print impact." },
-        { "id": "2.19", "title": "Audit and test for bugs or issues requiring resolution", "status": "full", "detail": "SCI profiler runs automated benchmarks across all 36 tools. Vitest suite with 202 tests covering all PDF services. Build pipeline includes type checking and linting." },
+        { "id": "2.19", "title": "Audit and test for bugs or issues requiring resolution", "status": "full", "detail": "SCI profiler runs automated benchmarks across all 37 tools. Vitest suite with 212 tests covering all PDF services. Build pipeline includes type checking and linting." },
         { "id": "2.21", "title": "Regularly test and maintain compatibility", "status": "full", "detail": "Tested on Chrome, Firefox, Safari. Uses standard Web APIs and progressive enhancement." }
       ]
     },

@@ -1,7 +1,7 @@
 /**
  * SCI Profiler — tool registry and window.__sciProfiler API.
  *
- * Maps all 36 PDF tools to their worker name + argument builder.
+ * Maps all 37 PDF tools to their worker name + argument builder.
  * Attaches a global API for running benchmarks from the browser console.
  */
 import { generateBenchmarkPdf } from './benchmarkPdf';
@@ -290,6 +290,19 @@ const TOOL_REGISTRY: ToolEntry[] = [
                 elements: [
                     { type: 'text', pageIndex: 0, x: 200, y: 400, text: 'Benchmark Edit', fontSize: 16 },
                 ],
+            },
+        }),
+    },
+    {
+        name: 'add-qr-code',
+        args: (f) => ({
+            files: [f],
+            options: {
+                pageIndex: 0,
+                x: 50,
+                y: 50,
+                size: 100,
+                pngDataUrl: TINY_SIGNATURE_DATA_URL,
             },
         }),
     },

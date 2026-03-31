@@ -6,7 +6,7 @@ A privacy-first, client-side PDF toolkit that runs entirely in your browser. **Y
 
 ## Features
 
-36 tools, all running 100% client-side:
+37 tools, all running 100% client-side:
 
 | Tool | Description |
 |------|-------------|
@@ -44,6 +44,7 @@ A privacy-first, client-side PDF toolkit that runs entirely in your browser. **Y
 | Edit Metadata | View and edit PDF metadata (title, author, keywords, etc.) |
 | Repair PDF | Attempt to repair corrupted or damaged PDF files |
 | PDF Booklet | Rearrange pages for double-sided booklet printing |
+| Add QR Code | Generate and embed QR codes into PDFs with positioning |
 
 All output PDFs are automatically stamped with `creator: pdfworker.eu` and relevant keywords.
 
@@ -100,7 +101,7 @@ npm run test:watch        # watch mode (re-runs on file changes)
 npm run test:coverage     # coverage report
 ```
 
-Tests use [Vitest](https://vitest.dev/) and cover all 36 PDF services (187 tests). Each service has a co-located `.test.ts` file under `resources/js/Services/`. Canvas-dependent services (pdfjs-dist rendering) are tested via mocked canvas helpers.
+Tests use [Vitest](https://vitest.dev/) and cover all 37 PDF services (212 tests). Each service has a co-located `.test.ts` file under `resources/js/Services/`. Canvas-dependent services (pdfjs-dist rendering) are tested via mocked canvas helpers.
 
 ## Accessibility & Quality Audit
 
