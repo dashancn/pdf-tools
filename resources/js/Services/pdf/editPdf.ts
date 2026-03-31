@@ -15,6 +15,8 @@ export type EditElement =
           underline?: boolean;
           strikethrough?: boolean;
           backgroundColor?: { r: number; g: number; b: number };
+          /** When true, x/y represent the visual center of the text (as shown in the preview). */
+          centered?: boolean;
       }
     | {
           type: 'rectangle';
@@ -104,15 +106,24 @@ export async function editPdf(
                 const fontSize = element.fontSize ?? DEFAULT_FONT_SIZE;
                 const variant = getHelveticaVariant(element.bold, element.italic);
                 const font = await getFont(variant);
+                const textWidth = font.widthOfTextAtSize(element.text, fontSize);
+                const textHeight = font.heightAtSize(fontSize);
+
+                // When centered, x/y are the visual center of the text (from UI preview).
+                // Convert to pdf-lib's left-baseline anchor.
+                let drawX = element.x;
+                let drawY = element.y;
+                if (element.centered) {
+                    drawX = element.x - textWidth / 2;
+                    drawY = element.y - textHeight * 0.35;
+                }
 
                 // Draw background rectangle if set
                 if (element.backgroundColor) {
-                    const textWidth = font.widthOfTextAtSize(element.text, fontSize);
-                    const textHeight = font.heightAtSize(fontSize);
                     const padding = fontSize * 0.1;
                     page.drawRectangle({
-                        x: element.x - padding,
-                        y: element.y - padding,
+                        x: drawX - padding,
+                        y: drawY - padding,
                         width: textWidth + 2 * padding,
                         height: textHeight + 2 * padding,
                         color: rgb(
@@ -125,8 +136,8 @@ export async function editPdf(
 
                 // Draw the text
                 page.drawText(element.text, {
-                    x: element.x,
-                    y: element.y,
+                    x: drawX,
+                    y: drawY,
                     size: fontSize,
                     font,
                     color: pdfColor,
@@ -134,12 +145,11 @@ export async function editPdf(
 
                 // Draw underline
                 if (element.underline) {
-                    const textWidth = font.widthOfTextAtSize(element.text, fontSize);
                     const lineThickness = Math.max(0.5, fontSize * 0.05);
-                    const underlineY = element.y - fontSize * 0.15;
+                    const underlineY = drawY - fontSize * 0.15;
                     page.drawLine({
-                        start: { x: element.x, y: underlineY },
-                        end: { x: element.x + textWidth, y: underlineY },
+                        start: { x: drawX, y: underlineY },
+                        end: { x: drawX + textWidth, y: underlineY },
                         thickness: lineThickness,
                         color: pdfColor,
                     });
@@ -147,12 +157,11 @@ export async function editPdf(
 
                 // Draw strikethrough
                 if (element.strikethrough) {
-                    const textWidth = font.widthOfTextAtSize(element.text, fontSize);
                     const lineThickness = Math.max(0.5, fontSize * 0.05);
-                    const strikeY = element.y + fontSize * 0.3;
+                    const strikeY = drawY + fontSize * 0.3;
                     page.drawLine({
-                        start: { x: element.x, y: strikeY },
-                        end: { x: element.x + textWidth, y: strikeY },
+                        start: { x: drawX, y: strikeY },
+                        end: { x: drawX + textWidth, y: strikeY },
                         thickness: lineThickness,
                         color: pdfColor,
                     });

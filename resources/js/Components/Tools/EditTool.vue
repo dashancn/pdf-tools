@@ -297,18 +297,19 @@ function getEditElements(): EditElement[] {
     for (const [pageNum, blocks] of textBlocks.value) {
         for (const block of blocks) {
             if (!block.text.trim()) continue;
-            // CSS: xPercent/yPercent are percentage of page, origin top-left
-            // PDF: origin bottom-left, y goes up
-            const pdfX = (block.xPercent / 100) * pageWidth.value;
-            const pdfY = pageHeight.value - (block.yPercent / 100) * pageHeight.value - block.fontSize;
+            // CSS: xPercent/yPercent are the visual center of the text (translate(-50%,-50%))
+            // PDF: origin bottom-left, y goes up. We pass center coords and let the service offset.
+            const centerX = (block.xPercent / 100) * pageWidth.value;
+            const centerY = pageHeight.value - (block.yPercent / 100) * pageHeight.value;
 
             const el: EditElement = {
                 type: 'text',
                 pageIndex: pageNum - 1,
-                x: Math.max(0, pdfX),
-                y: Math.max(0, pdfY),
+                x: Math.max(0, centerX),
+                y: Math.max(0, centerY),
                 text: block.text,
                 fontSize: block.fontSize,
+                centered: true,
                 color: hexToRgb(block.color),
                 bold: block.bold || undefined,
                 italic: block.italic || undefined,
