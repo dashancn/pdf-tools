@@ -1,5 +1,5 @@
 import { PDFDocument } from 'pdf-lib';
-import { savePdfAsBlob, stampDefaultMetadata } from '../pdfUtils';
+import { savePdfAsBlob, stampDefaultMetadata, stripJsActions } from '../pdfUtils';
 
 export interface OrganizeAction {
     type: 'reorder';
@@ -48,6 +48,7 @@ export async function organizePdf(
 
         // copyPages expects an array of indices, returns an array of copied pages
         const [copiedPage] = await newPdf.copyPages(sourcePdf, [sourceIndex]);
+        stripJsActions(copiedPage);
         newPdf.addPage(copiedPage);
 
         onProgress?.(Math.round(((i + 1) / totalPages) * 100));

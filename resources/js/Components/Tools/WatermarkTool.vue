@@ -359,6 +359,7 @@ onBeforeUnmount(() => {
                     <input
                         v-model="watermarkText"
                         type="text"
+                        maxlength="500"
                         class="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-red-400 focus:outline-none focus:ring-1 focus:ring-red-400"
                         :placeholder="trans('tool.watermark.placeholder')"
                     />

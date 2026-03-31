@@ -624,5 +624,29 @@
     "tools.booklet-pdf.faq_2_q": "Do I need a special printer?",
     "tools.booklet-pdf.faq_2_a": "You need a printer that supports double-sided (duplex) printing. Print the resulting PDF double-sided, then fold and staple.",
     "tools.booklet-pdf.faq_3_q": "What if my PDF has an odd number of pages?",
-    "tools.booklet-pdf.faq_3_a": "The tool automatically adds blank pages to make the total a multiple of 4, which is required for booklet layout."
+    "tools.booklet-pdf.faq_3_a": "The tool automatically adds blank pages to make the total a multiple of 4, which is required for booklet layout.",
+
+    "tools.add-qr-code.name": "Add QR Code",
+    "tools.add-qr-code.description": "Generate and embed a QR code into your PDF. Position it anywhere on any page.",
+    "tools.add-qr-code.how_title": "How to Add a QR Code to a PDF",
+    "tools.add-qr-code.how_text": "Type any text or URL to generate a QR code, drag it to the desired position on your PDF page, then export.",
+    "tools.add-qr-code.step_1": "Upload a PDF file.",
+    "tools.add-qr-code.step_2": "Enter text or a URL to generate the QR code.",
+    "tools.add-qr-code.step_3": "Position the QR code on the page and click Add QR Code.",
+    "tools.add-qr-code.faq_1_q": "What can I encode in the QR code?",
+    "tools.add-qr-code.faq_1_a": "Any text, URL, email address, phone number, or other data up to 2000 characters. The QR code is generated with medium error correction.",
+    "tools.add-qr-code.faq_2_q": "Can I choose which page the QR code goes on?",
+    "tools.add-qr-code.faq_2_a": "Yes. Use the page navigation arrows to select the target page, then drag the QR code to position it.",
+    "tools.add-qr-code.faq_3_q": "Is the QR code permanently embedded?",
+    "tools.add-qr-code.faq_3_a": "Yes. The QR code is embedded as a PNG image in the PDF and will appear when printed or viewed in any PDF reader.",
+
+    "tool.qrcode.action": "Add QR Code",
+    "tool.qrcode.text_label": "QR Code content",
+    "tool.qrcode.text_placeholder": "Enter text or URL for the QR code...",
+    "tool.qrcode.size_label": "QR Code size",
+    "tool.qrcode.position_label": "Drag the QR code to position it",
+    "tool.qrcode.drag_hint": "Drag the QR code to reposition it on the page",
+    "tool.qrcode.preview_label": "QR code preview",
+    "tool.qrcode.no_text": "Please enter text to generate a QR code",
+    "tool.qrcode.all_pages": "Add QR code to all pages"
 }

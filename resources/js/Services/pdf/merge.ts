@@ -1,5 +1,5 @@
 import { PDFDocument } from 'pdf-lib';
-import { savePdfAsBlob, stampDefaultMetadata } from '../pdfUtils';
+import { savePdfAsBlob, stampDefaultMetadata, stripJsActions } from '../pdfUtils';
 
 /**
  * Merge multiple PDF files into a single PDF document.
@@ -29,6 +29,7 @@ export async function mergePdfs(
         const copiedPages = await mergedPdf.copyPages(sourcePdf, pageIndices);
 
         for (const page of copiedPages) {
+            stripJsActions(page);
             mergedPdf.addPage(page);
         }
 

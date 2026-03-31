@@ -1,5 +1,5 @@
 import { PDFDocument } from 'pdf-lib';
-import { loadPdf, savePdfAsBlob, stampDefaultMetadata } from '../pdfUtils';
+import { loadPdf, savePdfAsBlob, stampDefaultMetadata, stripJsActions } from '../pdfUtils';
 
 /**
  * Reverse the order of all pages in a PDF.
@@ -17,6 +17,7 @@ export async function reversePages(
     const copiedPages = await newDoc.copyPages(srcDoc, indices);
 
     for (let i = 0; i < copiedPages.length; i++) {
+        stripJsActions(copiedPages[i]);
         newDoc.addPage(copiedPages[i]);
         onProgress?.(10 + Math.round(((i + 1) / copiedPages.length) * 80));
     }

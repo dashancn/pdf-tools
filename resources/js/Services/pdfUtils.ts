@@ -1,4 +1,4 @@
-import { PDFDocument } from 'pdf-lib';
+import { PDFDocument, PDFName, PDFArray, PDFDict, PDFPage } from 'pdf-lib';
 import * as pdfjsLib from 'pdfjs-dist';
 import type { DocumentInitParameters, PDFDocumentProxy } from 'pdfjs-dist/types/src/display/api';
 
@@ -99,6 +99,54 @@ export async function savePdfAsBlob(pdfDoc: PDFDocument): Promise<Blob> {
 export function stampDefaultMetadata(pdfDoc: PDFDocument, toolName: string): void {
     pdfDoc.setCreator('pdfworker.eu');
     pdfDoc.setKeywords(['pdf worker', 'pdfworker.eu', toolName]);
+}
+
+/**
+ * Strip JavaScript actions from a PDF page's annotations and additional-actions.
+ * Removes /AA (additional actions) from the page dict, and filters out
+ * annotation entries that contain JavaScript actions (/S /JavaScript).
+ * Call this on every page obtained via copyPages() to prevent JS execution
+ * when the output PDF is opened in an external reader.
+ */
+export function stripJsActions(page: PDFPage): void {
+    const dict = page.node;
+
+    // Remove page-level additional actions (open/close/etc)
+    dict.delete(PDFName.of('AA'));
+
+    // Filter annotations
+    const annotsRef = dict.get(PDFName.of('Annots'));
+    if (!annotsRef) return;
+
+    const annots = dict.lookup(PDFName.of('Annots'));
+    if (!(annots instanceof PDFArray)) return;
+
+    const toRemove: number[] = [];
+    for (let i = 0; i < annots.size(); i++) {
+        const annot = annots.lookup(i);
+        if (!(annot instanceof PDFDict)) continue;
+
+        // Check /A action
+        const action = annot.lookup(PDFName.of('A'));
+        if (action instanceof PDFDict) {
+            const subtype = action.get(PDFName.of('S'));
+            if (subtype?.toString() === '/JavaScript') {
+                toRemove.push(i);
+                continue;
+            }
+        }
+
+        // Check /AA additional actions
+        const aa = annot.get(PDFName.of('AA'));
+        if (aa) {
+            annot.delete(PDFName.of('AA'));
+        }
+    }
+
+    // Remove JS annotations in reverse order to preserve indices
+    for (let i = toRemove.length - 1; i >= 0; i--) {
+        annots.remove(toRemove[i]);
+    }
 }
 
 /**

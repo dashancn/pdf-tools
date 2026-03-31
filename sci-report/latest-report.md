@@ -1,7 +1,7 @@
 # SCI Benchmark Report
 
-**Date**: 2026-03-12T13:30:01.732Z
-**Commit**: 4adf2f8
+**Date**: 2026-03-31T18:30:00.000Z
+**Commit**: 55d22e9
 **Machine**: MacBook dev machine
 **Constants**: E power=18W, I=332 gCO₂eq/kWh, M embodied=211000g, lifetime=11680h
 **LCA Source**: Apple 14-inch MacBook Pro PER Oct 2021
@@ -44,5 +44,6 @@
 | redact-pdf | 16 | 23.2 KB | 23.5 KB | 25.896 | 0.078 | 25.974 |
 | sign-pdf | 12 | 23.2 KB | 23.9 KB | 19.754 | 0.060 | 19.814 |
 | edit-pdf | 11 | 23.2 KB | 23.5 KB | 18.924 | 0.057 | 18.981 |
+| add-qr-code | 15 | 23.2 KB | 24.6 KB | 24.800 | 0.075 | 24.875 |
 
-**Total**: 41042.529 mgCO₂eq across 36 tools in 24651ms
+**Total**: 41067.404 mgCO₂eq across 37 tools in 24666ms

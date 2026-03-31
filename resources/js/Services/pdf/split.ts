@@ -1,5 +1,5 @@
 import { PDFDocument } from 'pdf-lib';
-import { savePdfAsBlob, stampDefaultMetadata } from '../pdfUtils';
+import { savePdfAsBlob, stampDefaultMetadata, stripJsActions } from '../pdfUtils';
 
 export type SplitMode = 'all' | 'range';
 
@@ -81,6 +81,7 @@ export async function splitPdf(
         for (let i = 0; i < pageCount; i++) {
             const newPdf = await PDFDocument.create();
             const [copiedPage] = await newPdf.copyPages(sourcePdf, [i]);
+            stripJsActions(copiedPage);
             newPdf.addPage(copiedPage);
 
             stampDefaultMetadata(newPdf, 'split pdf');
@@ -106,6 +107,7 @@ export async function splitPdf(
         const copiedPages = await newPdf.copyPages(sourcePdf, pageIndices);
 
         for (let i = 0; i < copiedPages.length; i++) {
+            stripJsActions(copiedPages[i]);
             newPdf.addPage(copiedPages[i]);
             onProgress?.(Math.round(((i + 1) / copiedPages.length) * 100));
         }

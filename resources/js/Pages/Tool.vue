@@ -25,6 +25,7 @@ const EditTool = defineAsyncComponent(() => import('@/Components/Tools/EditTool.
 const CropTool = defineAsyncComponent(() => import('@/Components/Tools/CropTool.vue'));
 const OrganizeTool = defineAsyncComponent(() => import('@/Components/Tools/OrganizeTool.vue'));
 const EditMetadataTool = defineAsyncComponent(() => import('@/Components/Tools/EditMetadataTool.vue'));
+const QrCodeTool = defineAsyncComponent(() => import('@/Components/Tools/QrCodeTool.vue'));
 const ToolLanding = defineAsyncComponent(() => import('@/Components/Tools/ToolLanding.vue'));
 
 const props = defineProps<{ tool: string }>();
@@ -134,6 +135,7 @@ const toolConfig = computed(() => {
         'repair-pdf': { accept: '.pdf', multiple: true, color: 'bg-red-500', bgColor: 'bg-red-50' },
         'pdf-to-epub': { accept: '.pdf', multiple: true, color: 'bg-violet-500', bgColor: 'bg-violet-50' },
         'booklet-pdf': { accept: '.pdf', multiple: true, color: 'bg-rose-500', bgColor: 'bg-rose-50' },
+        'add-qr-code': { accept: '.pdf', multiple: false, color: 'bg-violet-500', bgColor: 'bg-violet-50' },
     };
     return configs[props.tool] ?? configs['merge-pdf'];
 });
@@ -193,6 +195,8 @@ const editToolRef = ref<InstanceType<typeof EditTool> | null>(null);
 const organizeToolRef = ref<InstanceType<typeof OrganizeTool> | null>(null);
 // Edit Metadata ref
 const editMetadataToolRef = ref<InstanceType<typeof EditMetadataTool> | null>(null);
+// QR Code ref
+const qrCodeToolRef = ref<InstanceType<typeof QrCodeTool> | null>(null);
 // Markdown to PDF
 const markdownText = ref('');
 // Text to PDF
@@ -253,6 +257,7 @@ const actionLabel = computed(() => {
         'repair-pdf': 'tool.repair.action',
         'pdf-to-epub': 'tool.pdftoepub.action',
         'booklet-pdf': 'tool.booklet.action',
+        'add-qr-code': 'tool.qrcode.action',
     };
     return trans(labels[props.tool] ?? 'tool.process');
 });
@@ -639,6 +644,13 @@ async function process() {
                     setResult(blob, epubName);
                     break;
                 }
+                case 'add-qr-code': {
+                    const qrOpts = qrCodeToolRef.value?.getQrCodeOptions();
+                    if (!qrOpts) throw new Error(trans('tool.qrcode.no_text'));
+                    const blob = await runInWorker('add-qr-code', rawFiles, qrOpts, updateProgress) as Blob;
+                    setResult(blob, `qr_${rawFiles[0].name}`);
+                    break;
+                }
             }
         }
         finishProcessing();
@@ -735,6 +747,7 @@ const hasTextContent = computed(() => {
                     <textarea
                         v-model="markdownText"
                         rows="14"
+                        maxlength="200000"
                         class="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 font-mono text-sm text-gray-800 placeholder-gray-400 focus:border-violet-500 focus:ring-violet-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:placeholder-gray-500"
                         :placeholder="trans('tool.markdown.placeholder')"
                     />
@@ -746,6 +759,7 @@ const hasTextContent = computed(() => {
                     <textarea
                         v-model="textContent"
                         rows="14"
+                        maxlength="200000"
                         class="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 font-mono text-sm text-gray-800 placeholder-gray-400 focus:border-teal-500 focus:ring-teal-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:placeholder-gray-500"
                         :placeholder="trans('tool.texttopdf.placeholder')"
                     />
@@ -964,11 +978,11 @@ const hasTextContent = computed(() => {
                         <div class="space-y-3">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.headerfooter.header_text') }}</label>
-                                <input v-model="headerText" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-orange-500 focus:ring-orange-500" />
+                                <input v-model="headerText" type="text" maxlength="500" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-orange-500 focus:ring-orange-500" />
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.headerfooter.footer_text') }}</label>
-                                <input v-model="footerText" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-orange-500 focus:ring-orange-500" />
+                                <input v-model="footerText" type="text" maxlength="500" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-orange-500 focus:ring-orange-500" />
                             </div>
                             <p class="text-xs text-gray-400">{{ trans('tool.headerfooter.placeholder_hint') }}</p>
                             <div>
@@ -993,6 +1007,9 @@ const hasTextContent = computed(() => {
 
                     <!-- EDIT METADATA -->
                     <EditMetadataTool v-else-if="tool === 'edit-metadata'" ref="editMetadataToolRef" :pdf-file="hasFiles ? files[0]?.file ?? null : null" />
+
+                    <!-- QR CODE -->
+                    <QrCodeTool v-else-if="tool === 'add-qr-code'" ref="qrCodeToolRef" :pdf-file="hasFiles ? files[0]?.file ?? null : null" />
 
                     <!-- PDF TO WEBP -->
                     <div v-else-if="tool === 'pdf-to-webp'" class="space-y-4">

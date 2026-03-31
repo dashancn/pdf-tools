@@ -1,5 +1,5 @@
 import { PDFDocument } from 'pdf-lib';
-import { savePdfAsBlob, stampDefaultMetadata } from '../pdfUtils';
+import { savePdfAsBlob, stampDefaultMetadata, stripJsActions } from '../pdfUtils';
 
 /**
  * Attempt to repair a possibly corrupted PDF by reloading and re-saving it.
@@ -33,6 +33,7 @@ export async function repairPdf(
     const copiedPages = await newDoc.copyPages(srcDoc, indices);
 
     for (let i = 0; i < copiedPages.length; i++) {
+        stripJsActions(copiedPages[i]);
         newDoc.addPage(copiedPages[i]);
         onProgress?.(40 + Math.round(((i + 1) / copiedPages.length) * 50));
     }

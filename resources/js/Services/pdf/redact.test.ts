@@ -1,7 +1,18 @@
-import { describe, it, expect } from 'vitest';
-import { redactPdf } from '@/Services/pdf/redact';
+import { describe, it, expect, vi } from 'vitest';
 import { createSimplePdf } from '@/__tests__/helpers/fixtures';
 import { expectValidPdf, expectDefaultMetadata } from '@/__tests__/helpers/assertions';
+
+vi.mock('@/Services/pdfUtils', async (importOriginal) => {
+    const actual = await importOriginal<typeof import('@/Services/pdfUtils')>();
+    const { MockCanvas, mockCanvasToBlob } = await import('@/__tests__/helpers/canvasMock');
+    return {
+        ...actual,
+        createCanvas: (w: number, h: number) => new MockCanvas(w, h),
+        canvasToBlob: mockCanvasToBlob,
+    };
+});
+
+import { redactPdf } from '@/Services/pdf/redact';
 
 describe('redactPdf', () => {
     it('applies a redaction area to a page', async () => {

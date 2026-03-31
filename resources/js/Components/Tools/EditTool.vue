@@ -507,6 +507,7 @@ onBeforeUnmount(() => {
                         v-else
                         v-model="block.text"
                         :data-edit-id="block.id"
+                        maxlength="2000"
                         class="border-none bg-transparent p-0 outline-none"
                         :style="{
                             fontSize: 'inherit',

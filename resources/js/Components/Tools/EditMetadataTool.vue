@@ -77,28 +77,28 @@ defineExpose({ getMetadataOptions });
         <div v-else class="space-y-3">
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.metadata.title_label') }}</label>
-                <input v-model="metaTitle" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-cyan-500 focus:ring-cyan-500" />
+                <input v-model="metaTitle" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-cyan-500 focus:ring-cyan-500" maxlength="5000" />
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.metadata.author_label') }}</label>
-                <input v-model="metaAuthor" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-cyan-500 focus:ring-cyan-500" />
+                <input v-model="metaAuthor" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-cyan-500 focus:ring-cyan-500" maxlength="5000" />
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.metadata.subject_label') }}</label>
-                <input v-model="metaSubject" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-cyan-500 focus:ring-cyan-500" />
+                <input v-model="metaSubject" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-cyan-500 focus:ring-cyan-500" maxlength="5000" />
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.metadata.keywords_label') }}</label>
-                <input v-model="metaKeywords" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-cyan-500 focus:ring-cyan-500" />
+                <input v-model="metaKeywords" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-cyan-500 focus:ring-cyan-500" maxlength="5000" />
                 <p class="mt-1 text-xs text-gray-400">{{ trans('tool.metadata.keywords_hint') }}</p>
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.metadata.creator_label') }}</label>
-                <input v-model="metaCreator" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-cyan-500 focus:ring-cyan-500" />
+                <input v-model="metaCreator" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-cyan-500 focus:ring-cyan-500" maxlength="5000" />
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.metadata.producer_label') }}</label>
-                <input v-model="metaProducer" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-cyan-500 focus:ring-cyan-500" />
+                <input v-model="metaProducer" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-cyan-500 focus:ring-cyan-500" maxlength="5000" />
             </div>
 
             <!-- Read-only dates -->

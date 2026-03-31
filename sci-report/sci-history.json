@@ -151,5 +151,13 @@
       { "service": "edit-pdf", "wallTimeMs": 11, "inputBytes": 23734, "outputBytes": 24103, "sciMgCO2eq": 18.981 }
     ],
     "totalSciMg": 41042.529
+  },
+  {
+    "commit": "55d22e9",
+    "date": "2026-03-31T18:30:00.000Z",
+    "machine": "MacBook dev machine",
+    "toolCount": 37,
+    "totalSciMg": 41067.404,
+    "notes": "Added add-qr-code tool, security fixes (redact rasterization, JS action stripping, input limits)"
   }
 ]

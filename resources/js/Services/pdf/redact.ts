@@ -1,5 +1,5 @@
-import { rgb } from 'pdf-lib';
-import { loadPdf, savePdfAsBlob, stampDefaultMetadata } from '../pdfUtils';
+import { PDFDocument, rgb } from 'pdf-lib';
+import { loadPdf, savePdfAsBlob, stampDefaultMetadata, stripJsActions, getPdfjsDocument, createCanvas, canvasToBlob } from '../pdfUtils';
 
 export interface RedactArea {
     pageIndex: number; // 0-based
@@ -10,20 +10,12 @@ export interface RedactArea {
 }
 
 /**
- * Redact (censor) areas in a PDF by covering them with solid black rectangles.
+ * Redact (censor) areas in a PDF by permanently destroying content.
  *
- * Draws filled black rectangles over each specified area on the corresponding
- * page. Coordinates use the standard PDF coordinate system with the origin
- * at the bottom-left corner of the page, measured in points.
- *
- * Note: This is a visual redaction only. The underlying content remains in
- * the PDF structure. For true content removal, a flatten/re-render step
- * would be needed after redaction.
- *
- * @param file       - The source PDF File.
- * @param areas      - Array of rectangular areas to redact.
- * @param onProgress - Optional callback reporting progress from 0 to 100.
- * @returns A Blob containing the redacted PDF.
+ * Step 1: Draw black rectangles over the redacted areas.
+ * Step 2: Rasterize each redacted page to a bitmap, then re-embed it.
+ * This ensures the underlying text/vector content is irreversibly removed.
+ * Non-redacted pages are copied as-is to preserve quality.
  */
 export async function redactPdf(
     file: File,
@@ -50,7 +42,7 @@ export async function redactPdf(
         }
     }
 
-    // Group areas by page index for efficient processing
+    // Group areas by page index
     const areasByPage = new Map<number, RedactArea[]>();
     for (const area of areas) {
         const existing = areasByPage.get(area.pageIndex) ?? [];
@@ -58,12 +50,10 @@ export async function redactPdf(
         areasByPage.set(area.pageIndex, existing);
     }
 
+    // Step 1: Draw black rectangles on the original PDF
     const blackColor = rgb(0, 0, 0);
-    let processedAreas = 0;
-
     for (const [pageIndex, pageAreas] of areasByPage) {
         const page = pages[pageIndex];
-
         for (const area of pageAreas) {
             page.drawRectangle({
                 x: area.x,
@@ -72,12 +62,47 @@ export async function redactPdf(
                 height: area.height,
                 color: blackColor,
             });
-
-            processedAreas++;
-            onProgress?.(Math.round((processedAreas / areas.length) * 100));
         }
     }
 
-    stampDefaultMetadata(pdfDoc, 'redact pdf');
-    return savePdfAsBlob(pdfDoc);
+    onProgress?.(20);
+
+    // Step 2: Save intermediate PDF, then rasterize redacted pages
+    const intermediateBytes = await pdfDoc.save();
+    const pdfjsDoc = await getPdfjsDocument({ data: new Uint8Array(intermediateBytes) });
+
+    const outputDoc = await PDFDocument.create();
+    const RENDER_SCALE = 2; // 144 DPI
+
+    for (let i = 0; i < totalPages; i++) {
+        if (areasByPage.has(i)) {
+            // Rasterize this page to destroy underlying content
+            const pdfjsPage = await pdfjsDoc.getPage(i + 1);
+            const viewport = pdfjsPage.getViewport({ scale: RENDER_SCALE });
+            const canvas = createCanvas(viewport.width, viewport.height);
+            const ctx = canvas.getContext('2d') as any;
+            await pdfjsPage.render({ canvas: canvas as any, viewport }).promise;
+
+            const pngBlob = await canvasToBlob(canvas, 'image/png');
+            const pngBytes = new Uint8Array(await pngBlob.arrayBuffer());
+            const pngImage = await outputDoc.embedPng(pngBytes);
+
+            const origPage = pages[i];
+            const { width, height } = origPage.getSize();
+            const newPage = outputDoc.addPage([width, height]);
+            newPage.drawImage(pngImage, { x: 0, y: 0, width, height });
+        } else {
+            // Copy non-redacted pages as-is (preserves text/vectors)
+            const [copiedPage] = await outputDoc.copyPages(pdfDoc, [i]);
+            stripJsActions(copiedPage);
+            outputDoc.addPage(copiedPage);
+        }
+        onProgress?.(20 + Math.round(((i + 1) / totalPages) * 70));
+    }
+
+    onProgress?.(95);
+    stampDefaultMetadata(outputDoc, 'redact pdf');
+    const blob = await savePdfAsBlob(outputDoc);
+    onProgress?.(100);
+    return blob;
 }

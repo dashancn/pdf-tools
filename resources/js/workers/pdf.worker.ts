@@ -50,6 +50,7 @@ import { invertColors } from '@/Services/pdf/invertColors';
 import { repairPdf } from '@/Services/pdf/repairPdf';
 import { pdfToEpub } from '@/Services/pdf/pdfToEpub';
 import { bookletPdf } from '@/Services/pdf/bookletPdf';
+import { addQrCode, type QrCodeOptions } from '@/Services/pdf/addQrCode';
 
 self.onmessage = async (e: MessageEvent) => {
     const { id, tool, files, options } = e.data;
@@ -204,6 +205,10 @@ self.onmessage = async (e: MessageEvent) => {
 
             case 'booklet-pdf':
                 result = await bookletPdf(files[0], onProgress);
+                break;
+
+            case 'add-qr-code':
+                result = await addQrCode(files[0], options as QrCodeOptions, onProgress);
                 break;
 
             default:

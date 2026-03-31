@@ -61,6 +61,7 @@ const tools: ToolItem[] = [
     { slug: 'repair-pdf', icon: '🔧', color: 'text-red-600', bgColor: 'bg-red-50' },
     { slug: 'pdf-to-epub', icon: '📖', color: 'text-violet-600', bgColor: 'bg-violet-50' },
     { slug: 'booklet-pdf', icon: '📕', color: 'text-rose-600', bgColor: 'bg-rose-50' },
+    { slug: 'add-qr-code', icon: '🔳', color: 'text-violet-600', bgColor: 'bg-violet-50' },
 ];
 
 const filteredTools = computed(() => {

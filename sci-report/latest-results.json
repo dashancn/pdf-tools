@@ -1,6 +1,6 @@
 {
-  "commit": "4adf2f8",
-  "date": "2026-03-12T13:30:01.732Z",
+  "commit": "55d22e9",
+  "date": "2026-03-31T18:30:00.000Z",
   "machine": "MacBook dev machine",
   "lcaSource": "Apple 14-inch MacBook Pro PER Oct 2021",
   "constants": {
@@ -45,7 +45,8 @@
     { "service": "unlock-pdf", "wallTimeMs": 290, "inputBytes": 1425356, "outputBytes": 1391609, "sciMgCO2eq": 483.521 },
     { "service": "redact-pdf", "wallTimeMs": 16, "inputBytes": 23734, "outputBytes": 24038, "sciMgCO2eq": 25.974 },
     { "service": "sign-pdf", "wallTimeMs": 12, "inputBytes": 23734, "outputBytes": 24437, "sciMgCO2eq": 19.814 },
-    { "service": "edit-pdf", "wallTimeMs": 11, "inputBytes": 23734, "outputBytes": 24103, "sciMgCO2eq": 18.981 }
+    { "service": "edit-pdf", "wallTimeMs": 11, "inputBytes": 23734, "outputBytes": 24103, "sciMgCO2eq": 18.981 },
+    { "service": "add-qr-code", "wallTimeMs": 15, "inputBytes": 23734, "outputBytes": 25200, "sciMgCO2eq": 24.875 }
   ],
-  "totalSciMg": 41042.529
+  "totalSciMg": 41067.404
 }

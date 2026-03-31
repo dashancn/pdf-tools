@@ -1,5 +1,5 @@
 import { PDFDocument } from 'pdf-lib';
-import { loadPdf, savePdfAsBlob, stampDefaultMetadata, MAX_PDF_PAGES } from '../pdfUtils';
+import { loadPdf, savePdfAsBlob, stampDefaultMetadata, stripJsActions, MAX_PDF_PAGES } from '../pdfUtils';
 
 /**
  * Rearrange PDF pages for saddle-stitch booklet printing.
@@ -70,6 +70,7 @@ export async function bookletPdf(
         : [];
     const pageMap = new Map<number, (typeof copiedPages)[0]>();
     for (let i = 0; i < uniqueIndices.length; i++) {
+        stripJsActions(copiedPages[i]);
         pageMap.set(uniqueIndices[i], copiedPages[i]);
     }
 
