@@ -1,4 +1,4 @@
-import { PDFDocument, PDFName, PDFArray, PDFDict, PDFPage } from 'pdf-lib';
+import { PDFDocument, PDFName, PDFArray, PDFDict, PDFPage, PDFRef } from 'pdf-lib';
 import * as pdfjsLib from 'pdfjs-dist';
 import type { DocumentInitParameters, PDFDocumentProxy } from 'pdfjs-dist/types/src/display/api';
 
@@ -102,9 +102,30 @@ export function stampDefaultMetadata(pdfDoc: PDFDocument, toolName: string): voi
 }
 
 /**
+ * Check whether a PDF action dict (or any action in its /Next chain)
+ * contains a JavaScript action (/S /JavaScript).
+ */
+function actionContainsJs(action: PDFDict): boolean {
+    const subtype = action.get(PDFName.of('S'));
+    if (subtype?.toString() === '/JavaScript') return true;
+
+    // Recurse into /Next chain (single action or array of actions)
+    const next = action.lookup(PDFName.of('Next'));
+    if (next instanceof PDFDict) return actionContainsJs(next);
+    if (next instanceof PDFArray) {
+        for (let i = 0; i < next.size(); i++) {
+            const item = next.lookup(i);
+            if (item instanceof PDFDict && actionContainsJs(item)) return true;
+        }
+    }
+    return false;
+}
+
+/**
  * Strip JavaScript actions from a PDF page's annotations and additional-actions.
  * Removes /AA (additional actions) from the page dict, and filters out
- * annotation entries that contain JavaScript actions (/S /JavaScript).
+ * annotation entries that contain JavaScript actions (/S /JavaScript),
+ * including actions hidden in /Next chains.
  * Call this on every page obtained via copyPages() to prevent JS execution
  * when the output PDF is opened in an external reader.
  */
@@ -126,14 +147,11 @@ export function stripJsActions(page: PDFPage): void {
         const annot = annots.lookup(i);
         if (!(annot instanceof PDFDict)) continue;
 
-        // Check /A action
+        // Check /A action (including /Next chain)
         const action = annot.lookup(PDFName.of('A'));
-        if (action instanceof PDFDict) {
-            const subtype = action.get(PDFName.of('S'));
-            if (subtype?.toString() === '/JavaScript') {
-                toRemove.push(i);
-                continue;
-            }
+        if (action instanceof PDFDict && actionContainsJs(action)) {
+            toRemove.push(i);
+            continue;
         }
 
         // Check /AA additional actions
@@ -146,6 +164,33 @@ export function stripJsActions(page: PDFPage): void {
     // Remove JS annotations in reverse order to preserve indices
     for (let i = toRemove.length - 1; i >= 0; i--) {
         annots.remove(toRemove[i]);
+    }
+}
+
+/**
+ * Strip document-level JavaScript from a PDFDocument's catalog.
+ * Removes:
+ * - /OpenAction if it's a JavaScript action (or contains JS in /Next chain)
+ * - /Names/JavaScript name tree (named scripts)
+ * - /AA (document-level additional actions)
+ * Call this on the output PDFDocument before saving.
+ */
+export function stripDocumentJsActions(pdfDoc: PDFDocument): void {
+    const catalog = pdfDoc.catalog;
+
+    // Remove document-level /AA
+    catalog.delete(PDFName.of('AA'));
+
+    // Remove /OpenAction if it contains JavaScript
+    const openAction = catalog.lookup(PDFName.of('OpenAction'));
+    if (openAction instanceof PDFDict && actionContainsJs(openAction)) {
+        catalog.delete(PDFName.of('OpenAction'));
+    }
+
+    // Remove /Names/JavaScript name tree
+    const names = catalog.lookup(PDFName.of('Names'));
+    if (names instanceof PDFDict) {
+        names.delete(PDFName.of('JavaScript'));
     }
 }
 

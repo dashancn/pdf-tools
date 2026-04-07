@@ -1,5 +1,5 @@
 import { PDFDocument } from 'pdf-lib';
-import { savePdfAsBlob, stampDefaultMetadata, stripJsActions } from '../pdfUtils';
+import { savePdfAsBlob, stampDefaultMetadata, stripJsActions, stripDocumentJsActions } from '../pdfUtils';
 
 /**
  * Merge multiple PDF files into a single PDF document.
@@ -37,6 +37,7 @@ export async function mergePdfs(
         onProgress?.(Math.round((processedFiles / files.length) * 100));
     }
 
+    stripDocumentJsActions(mergedPdf);
     stampDefaultMetadata(mergedPdf, 'merge pdf');
     return savePdfAsBlob(mergedPdf);
 }

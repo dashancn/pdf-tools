@@ -208,7 +208,7 @@ Special cases:
 
 - **Included**: `resources/js/Services/**/*.ts`
 - **Excluded**: `resources/js/Services/profiler/**`
-- **All 37 PDF services covered + crypto module** (212 tests across 38 test files)
+- **All 37 PDF services covered + crypto module** (221 tests across 38 test files)
 
 ## Performance budget
 

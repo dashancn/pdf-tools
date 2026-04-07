@@ -3,29 +3,12 @@
  *
  * Polyfills required by pdfjs-dist and other browser APIs
  * that don't exist in Node.js.
+ *
+ * IMPORTANT: All polyfills must be defined BEFORE any pdfjs-dist import,
+ * because pdfjs-dist checks for DOMMatrix/Path2D at module evaluation time.
  */
 
-import * as pdfjsLib from 'pdfjs-dist';
-import { resolve } from 'path';
-import { pathToFileURL } from 'url';
-
-// --- Fix pdfjs-dist worker path for Vitest ---
-// pdfUtils.ts sets GlobalWorkerOptions.workerSrc via:
-//   new URL('pdfjs-dist/build/pdf.worker.mjs', import.meta.url)
-// In Vitest, import.meta.url points to pdfUtils.ts's file path, producing
-// an invalid worker path (resources/js/Services/pdfjs-dist/...).
-// We override the property to return the correct node_modules path and
-// silently ignore writes from pdfUtils.ts.
-const workerPath = resolve(process.cwd(), 'node_modules/pdfjs-dist/build/pdf.worker.mjs');
-const correctWorkerSrc = pathToFileURL(workerPath).href;
-
-Object.defineProperty(pdfjsLib.GlobalWorkerOptions, 'workerSrc', {
-    get: () => correctWorkerSrc,
-    set: () => {},          // silently ignore writes from pdfUtils.ts
-    configurable: true,
-});
-
-// --- DOMMatrix polyfill (pdfjs-dist requires it) ---
+// --- DOMMatrix polyfill (pdfjs-dist requires it at import time) ---
 if (typeof globalThis.DOMMatrix === 'undefined') {
     (globalThis as any).DOMMatrix = class DOMMatrix {
         a = 1; b = 0; c = 0; d = 1; e = 0; f = 0;
@@ -81,3 +64,24 @@ if (!(Map.prototype as any).getOrInsertComputed) {
         return value;
     };
 }
+
+// --- Fix pdfjs-dist worker path for Vitest ---
+// Must use dynamic import() so polyfills above run first (static imports are hoisted).
+// pdfUtils.ts sets GlobalWorkerOptions.workerSrc via:
+//   new URL('pdfjs-dist/build/pdf.worker.mjs', import.meta.url)
+// In Vitest, import.meta.url points to pdfUtils.ts's file path, producing
+// an invalid worker path (resources/js/Services/pdfjs-dist/...).
+// We override the property to return the correct node_modules path and
+// silently ignore writes from pdfUtils.ts.
+const { resolve } = await import('path');
+const { pathToFileURL } = await import('url');
+const pdfjsLib = await import('pdfjs-dist');
+
+const workerPath = resolve(process.cwd(), 'node_modules/pdfjs-dist/build/pdf.worker.mjs');
+const correctWorkerSrc = pathToFileURL(workerPath).href;
+
+Object.defineProperty(pdfjsLib.GlobalWorkerOptions, 'workerSrc', {
+    get: () => correctWorkerSrc,
+    set: () => {},          // silently ignore writes from pdfUtils.ts
+    configurable: true,
+});

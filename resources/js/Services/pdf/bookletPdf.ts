@@ -1,5 +1,5 @@
 import { PDFDocument } from 'pdf-lib';
-import { loadPdf, savePdfAsBlob, stampDefaultMetadata, stripJsActions, MAX_PDF_PAGES } from '../pdfUtils';
+import { loadPdf, savePdfAsBlob, stampDefaultMetadata, stripJsActions, stripDocumentJsActions, MAX_PDF_PAGES } from '../pdfUtils';
 
 /**
  * Rearrange PDF pages for saddle-stitch booklet printing.
@@ -84,6 +84,7 @@ export async function bookletPdf(
         onProgress?.(30 + Math.round(((i + 1) / bookletIndices.length) * 60));
     }
 
+    stripDocumentJsActions(newDoc);
     stampDefaultMetadata(newDoc, 'booklet');
     return savePdfAsBlob(newDoc);
 }

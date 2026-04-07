@@ -1,5 +1,5 @@
 import { PDFDocument, rgb } from 'pdf-lib';
-import { loadPdf, savePdfAsBlob, stampDefaultMetadata, stripJsActions, getPdfjsDocument, createCanvas, canvasToBlob } from '../pdfUtils';
+import { loadPdf, savePdfAsBlob, stampDefaultMetadata, stripJsActions, stripDocumentJsActions, getPdfjsDocument, createCanvas, canvasToBlob } from '../pdfUtils';
 
 export interface RedactArea {
     pageIndex: number; // 0-based
@@ -81,7 +81,7 @@ export async function redactPdf(
             const viewport = pdfjsPage.getViewport({ scale: RENDER_SCALE });
             const canvas = createCanvas(viewport.width, viewport.height);
             const ctx = canvas.getContext('2d') as any;
-            await pdfjsPage.render({ canvas: canvas as any, viewport }).promise;
+            await pdfjsPage.render({ canvas: canvas as any, canvasContext: ctx, viewport }).promise;
 
             const pngBlob = await canvasToBlob(canvas, 'image/png');
             const pngBytes = new Uint8Array(await pngBlob.arrayBuffer());
@@ -101,6 +101,7 @@ export async function redactPdf(
     }
 
     onProgress?.(95);
+    stripDocumentJsActions(outputDoc);
     stampDefaultMetadata(outputDoc, 'redact pdf');
     const blob = await savePdfAsBlob(outputDoc);
     onProgress?.(100);

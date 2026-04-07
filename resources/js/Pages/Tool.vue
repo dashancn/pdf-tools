@@ -832,7 +832,7 @@ const hasTextContent = computed(() => {
                                 <input v-model="splitMode" type="radio" value="range" class="h-4 w-4 text-orange-500 focus:ring-orange-500" />
                                 <span>{{ trans('tool.split.mode_range') }}</span>
                             </label>
-                            <input v-if="splitMode === 'range'" v-model="splitRanges" type="text" :placeholder="trans('tool.split.range_placeholder')" class="mt-1 rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-orange-500 focus:ring-orange-500" />
+                            <input v-if="splitMode === 'range'" v-model="splitRanges" type="text" maxlength="1000" :placeholder="trans('tool.split.range_placeholder')" class="mt-1 rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-orange-500 focus:ring-orange-500" />
                         </div>
                     </div>
 
@@ -918,11 +918,11 @@ const hasTextContent = computed(() => {
                         <div class="space-y-3">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.protect.user_password') }}</label>
-                                <input v-model="protectUserPassword" type="password" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-yellow-500 focus:ring-yellow-500" />
+                                <input v-model="protectUserPassword" type="password" maxlength="128" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-yellow-500 focus:ring-yellow-500" />
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.protect.owner_password') }}</label>
-                                <input v-model="protectOwnerPassword" type="password" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-yellow-500 focus:ring-yellow-500" />
+                                <input v-model="protectOwnerPassword" type="password" maxlength="128" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-yellow-500 focus:ring-yellow-500" />
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-300">{{ trans('tool.protect.permissions') }}</label>
@@ -940,7 +940,7 @@ const hasTextContent = computed(() => {
                         <h3 class="font-semibold text-gray-900 dark:text-white">{{ trans('tool.unlock.action') }}</h3>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.unlock.password') }}</label>
-                            <input v-model="unlockPassword" type="password" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-lime-500 focus:ring-lime-500" />
+                            <input v-model="unlockPassword" type="password" maxlength="128" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-lime-500 focus:ring-lime-500" />
                         </div>
                     </div>
 
