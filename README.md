@@ -101,7 +101,7 @@ npm run test:watch        # watch mode (re-runs on file changes)
 npm run test:coverage     # coverage report
 ```
 
-Tests use [Vitest](https://vitest.dev/) and cover all 37 PDF services (221 tests). Each service has a co-located `.test.ts` file under `resources/js/Services/`. Canvas-dependent services (pdfjs-dist rendering) are tested via mocked canvas helpers.
+Tests use [Vitest](https://vitest.dev/) and cover all 37 PDF services (224 tests). Each service has a co-located `.test.ts` file under `resources/js/Services/`. Canvas-dependent services (pdfjs-dist rendering) are tested via mocked canvas helpers.
 
 ## Accessibility & Quality Audit
 

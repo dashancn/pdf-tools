@@ -1,4 +1,4 @@
-import { PDFDocument, PDFName, PDFArray, PDFDict, PDFPage, PDFRef } from 'pdf-lib';
+import { PDFDocument, PDFName, PDFArray, PDFDict, PDFPage } from 'pdf-lib';
 import * as pdfjsLib from 'pdfjs-dist';
 import type { DocumentInitParameters, PDFDocumentProxy } from 'pdfjs-dist/types/src/display/api';
 
@@ -104,18 +104,22 @@ export function stampDefaultMetadata(pdfDoc: PDFDocument, toolName: string): voi
 /**
  * Check whether a PDF action dict (or any action in its /Next chain)
  * contains a JavaScript action (/S /JavaScript).
+ * Uses a visited set to guard against circular /Next references.
  */
-function actionContainsJs(action: PDFDict): boolean {
+function actionContainsJs(action: PDFDict, visited = new Set<PDFDict>()): boolean {
+    if (visited.has(action)) return false;
+    visited.add(action);
+
     const subtype = action.get(PDFName.of('S'));
     if (subtype?.toString() === '/JavaScript') return true;
 
     // Recurse into /Next chain (single action or array of actions)
     const next = action.lookup(PDFName.of('Next'));
-    if (next instanceof PDFDict) return actionContainsJs(next);
+    if (next instanceof PDFDict) return actionContainsJs(next, visited);
     if (next instanceof PDFArray) {
         for (let i = 0; i < next.size(); i++) {
             const item = next.lookup(i);
-            if (item instanceof PDFDict && actionContainsJs(item)) return true;
+            if (item instanceof PDFDict && actionContainsJs(item, visited)) return true;
         }
     }
     return false;

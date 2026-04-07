@@ -153,6 +153,21 @@ describe('stripJsActions', () => {
         const remaining = page.node.lookup(PDFName.of('Annots')) as PDFArray;
         expect(remaining.size()).toBe(1);
     });
+
+    it('removes annotations with JS hidden in /Next chain', async () => {
+        const doc = await PDFDocument.create();
+        const page = doc.addPage();
+        // GoTo action whose /Next is a JavaScript action
+        const jsAction = doc.context.obj({ S: 'JavaScript', JS: 'app.alert("chained")' });
+        const goToAction = doc.context.obj({ S: 'GoTo', D: 'dest', Next: jsAction });
+        const annot = doc.context.obj({ Type: 'Annot', Subtype: 'Link', A: goToAction });
+        const annots = doc.context.obj([doc.context.register(annot)]);
+        page.node.set(PDFName.of('Annots'), annots);
+
+        stripJsActions(page);
+        const remaining = page.node.lookup(PDFName.of('Annots')) as PDFArray;
+        expect(remaining.size()).toBe(0);
+    });
 });
 
 describe('stripDocumentJsActions', () => {
@@ -201,5 +216,27 @@ describe('stripDocumentJsActions', () => {
         const doc = await PDFDocument.create();
         doc.addPage();
         expect(() => stripDocumentJsActions(doc)).not.toThrow();
+    });
+
+    it('preserves /OpenAction that is an array destination', async () => {
+        const doc = await PDFDocument.create();
+        const page = doc.addPage();
+        // Array-form destination: [pageRef, /Fit]
+        const dest = doc.context.obj([page.ref, 'Fit']);
+        doc.catalog.set(PDFName.of('OpenAction'), dest);
+
+        stripDocumentJsActions(doc);
+        expect(doc.catalog.get(PDFName.of('OpenAction'))).toBeDefined();
+    });
+
+    it('removes /OpenAction with JS hidden in /Next chain', async () => {
+        const doc = await PDFDocument.create();
+        doc.addPage();
+        const jsAction = doc.context.obj({ S: 'JavaScript', JS: 'app.alert("chained")' });
+        const goToAction = doc.context.obj({ S: 'GoTo', D: 'page1', Next: jsAction });
+        doc.catalog.set(PDFName.of('OpenAction'), goToAction);
+
+        stripDocumentJsActions(doc);
+        expect(doc.catalog.get(PDFName.of('OpenAction'))).toBeUndefined();
     });
 });
