@@ -15,7 +15,7 @@ const checkLabels: Record<string, string> = {
     'document-title': 'Document Title',
     'bookmarks': 'Bookmarks / Outlines',
     'alt-text': 'Alt Text on Figures',
-    'reading-order': 'Structure Tree (reading order)',
+    'structure-tree': 'Structure Tree',
     'font-embedding': 'Font Embedding',
     'form-labels': 'Form Field Labels (/TU)',
     'tab-order': 'Tab Order (/Tabs)',

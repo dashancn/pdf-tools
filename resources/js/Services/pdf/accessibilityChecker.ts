@@ -46,8 +46,9 @@ export async function checkAccessibility(
 
     // 2. Document language (/Lang)
     const lang = catalog.lookup(PDFName.of('Lang'));
-    if ((lang instanceof PDFString || lang instanceof PDFHexString) && lang.toString().length > 0) {
-        checks.push({ id: 'document-language', status: 'pass', detail: `Document language is set: ${lang.toString()}.` });
+    const langText = (lang instanceof PDFString || lang instanceof PDFHexString) ? lang.decodeText() : '';
+    if (langText.trim().length > 0) {
+        checks.push({ id: 'document-language', status: 'pass', detail: `Document language is set: ${langText}.` });
     } else {
         checks.push({ id: 'document-language', status: 'fail', detail: 'No document language (/Lang) specified.' });
     }
@@ -73,7 +74,7 @@ export async function checkAccessibility(
     // 5. Structure tree and alt text on figures
     const structTreeRoot = catalog.lookup(PDFName.of('StructTreeRoot'));
     if (structTreeRoot instanceof PDFDict) {
-        checks.push({ id: 'reading-order', status: 'pass', detail: 'Structure tree (/StructTreeRoot) exists for reading order.' });
+        checks.push({ id: 'structure-tree', status: 'pass', detail: 'Structure tree (/StructTreeRoot) is present.' });
 
         // Walk structure tree to find /Figure elements missing /Alt
         const { totalFigures, missingAlt } = walkStructureTree(structTreeRoot, pdfDoc);
@@ -85,7 +86,7 @@ export async function checkAccessibility(
             checks.push({ id: 'alt-text', status: 'fail', detail: `${missingAlt} of ${totalFigures} figure(s) missing alt text.` });
         }
     } else {
-        checks.push({ id: 'reading-order', status: 'fail', detail: 'No structure tree found. Screen readers cannot determine reading order.' });
+        checks.push({ id: 'structure-tree', status: 'fail', detail: 'No structure tree found. Screen readers cannot determine reading order.' });
         checks.push({ id: 'alt-text', status: 'warn', detail: 'Cannot check alt text — no structure tree present.' });
     }
 
@@ -138,7 +139,8 @@ export async function checkAccessibility(
             let missingLabels = 0;
             for (const field of fields) {
                 const tu = field.acroField.dict.lookup(PDFName.of('TU'));
-                if (!tu || tu.toString().length === 0) missingLabels++;
+                const tuText = (tu instanceof PDFString || tu instanceof PDFHexString) ? tu.decodeText() : '';
+                if (!tuText.trim()) missingLabels++;
             }
             if (missingLabels === 0) {
                 checks.push({ id: 'form-labels', status: 'pass', detail: `All ${fields.length} form field(s) have labels (/TU).` });
@@ -198,8 +200,10 @@ export async function checkAccessibility(
 function walkStructureTree(root: PDFDict, pdfDoc: PDFDocument): { totalFigures: number; missingAlt: number } {
     let totalFigures = 0;
     let missingAlt = 0;
-    const visited = new Set<PDFRef>();
+    const visitedRefs = new Set<PDFRef>();
+    const visitedDicts = new Set<PDFDict>();
     const queue: PDFDict[] = [root];
+    visitedDicts.add(root);
 
     while (queue.length > 0) {
         const node = queue.shift()!;
@@ -207,7 +211,8 @@ function walkStructureTree(root: PDFDict, pdfDoc: PDFDocument): { totalFigures: 
         if (role?.toString() === '/Figure') {
             totalFigures++;
             const alt = node.lookup(PDFName.of('Alt'));
-            if (!alt || alt.toString().length === 0) missingAlt++;
+            const altText = (alt instanceof PDFString || alt instanceof PDFHexString) ? alt.decodeText() : '';
+            if (!altText.trim()) missingAlt++;
         }
 
         // Enqueue children (/K can be a single dict, ref, or array)
@@ -216,16 +221,24 @@ function walkStructureTree(root: PDFDict, pdfDoc: PDFDocument): { totalFigures: 
 
         const kidsResolved = node.lookup(PDFName.of('K'));
         if (kidsResolved instanceof PDFDict) {
-            queue.push(kidsResolved);
+            if (!visitedDicts.has(kidsResolved)) {
+                visitedDicts.add(kidsResolved);
+                queue.push(kidsResolved);
+            }
         } else if (kidsResolved instanceof PDFArray) {
             for (let i = 0; i < kidsResolved.size(); i++) {
                 const ref = kidsResolved.get(i);
                 if (ref instanceof PDFRef) {
-                    if (visited.has(ref)) continue;
-                    visited.add(ref);
+                    if (visitedRefs.has(ref)) continue;
+                    visitedRefs.add(ref);
                 }
                 const child = kidsResolved.lookup(i);
-                if (child instanceof PDFDict) queue.push(child);
+                if (child instanceof PDFDict) {
+                    if (!visitedDicts.has(child)) {
+                        visitedDicts.add(child);
+                        queue.push(child);
+                    }
+                }
             }
         }
     }
