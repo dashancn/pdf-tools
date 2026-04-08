@@ -632,5 +632,20 @@
     "tool.qrcode.drag_hint": "Arraste o QR code para o reposicionar na página",
     "tool.qrcode.preview_label": "Pré-visualização do QR code",
     "tool.qrcode.no_text": "Introduza um texto para gerar um QR code",
-    "tool.qrcode.all_pages": "Adicionar QR code a todas as páginas"
+    "tool.qrcode.all_pages": "Adicionar QR code a todas as páginas",
+
+    "tools.check-accessibility.name": "Verificador de Acessibilidade",
+    "tools.check-accessibility.description": "Analise o seu PDF em busca de problemas de acessibilidade: tags, alt text, idioma, fontes e mais.",
+    "tools.check-accessibility.how_title": "Como verificar a acessibilidade do PDF",
+    "tools.check-accessibility.how_text": "Carregue um PDF para obter um relatório detalhado de acessibilidade que abrange 10 critérios, incluindo marcação, idioma do documento, incorporação de fontes, alt text em imagens e rótulos de campos de formulário.",
+    "tools.check-accessibility.step_1": "Carregue um ficheiro PDF.",
+    "tools.check-accessibility.step_2": "Clique em Verificar Acessibilidade.",
+    "tools.check-accessibility.step_3": "Reveja o relatório de acessibilidade no seu navegador.",
+    "tools.check-accessibility.faq_1_q": "O que significa 'Tagged PDF'?",
+    "tools.check-accessibility.faq_1_a": "Um Tagged PDF contém uma árvore de estrutura que os leitores de ecrã utilizam para determinar a ordem de leitura e os papéis dos elementos. Sem tags, as tecnologias de assistência não conseguem interpretar o documento de forma fiável.",
+    "tools.check-accessibility.faq_2_q": "Esta ferramenta pode corrigir problemas de acessibilidade?",
+    "tools.check-accessibility.faq_2_a": "Não. Esta ferramenta apenas reporta problemas. Para os corrigir é necessário editar a fonte do PDF ou utilizar uma ferramenta de criação que suporte funcionalidades de acessibilidade.",
+    "tools.check-accessibility.faq_3_q": "O verificador carrega o meu ficheiro?",
+    "tools.check-accessibility.faq_3_a": "Não. Toda a análise é executada inteiramente no seu navegador. O seu ficheiro nunca sai do seu dispositivo.",
+    "tool.accessibility.action": "Verificar Acessibilidade"
 }

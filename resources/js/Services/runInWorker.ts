@@ -33,7 +33,7 @@ function getWorker(): Worker {
         );
 
         worker.onmessage = (e: MessageEvent) => {
-            const { id, type, progress, blob, results, error } = e.data;
+            const { id, type, progress, blob, results, report, error } = e.data;
             const handler = pending.get(id);
             if (!handler) return;
 
@@ -41,7 +41,7 @@ function getWorker(): Worker {
                 handler.onProgress?.(progress);
             } else if (type === 'done') {
                 pending.delete(id);
-                handler.resolve(results ?? blob);
+                handler.resolve(report ?? results ?? blob);
                 resetIdleTimer();
             } else if (type === 'error') {
                 pending.delete(id);

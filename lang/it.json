@@ -643,5 +643,20 @@
     "tool.qrcode.drag_hint": "Trascina il QR code per riposizionarlo sulla pagina",
     "tool.qrcode.preview_label": "Anteprima del QR code",
     "tool.qrcode.no_text": "Inserisci un testo per generare un QR code",
-    "tool.qrcode.all_pages": "Aggiungi QR code a tutte le pagine"
+    "tool.qrcode.all_pages": "Aggiungi QR code a tutte le pagine",
+
+    "tools.check-accessibility.name": "Controllo Accessibilità",
+    "tools.check-accessibility.description": "Analizza il tuo PDF per problemi di accessibilità: tag, alt text, lingua, font e altro.",
+    "tools.check-accessibility.how_title": "Come controllare l'accessibilità del PDF",
+    "tools.check-accessibility.how_text": "Carica un PDF per ottenere un rapporto dettagliato sull'accessibilità che copre 10 criteri tra cui tag, lingua del documento, incorporamento dei font, alt text sulle immagini e etichette dei campi modulo.",
+    "tools.check-accessibility.step_1": "Carica un file PDF.",
+    "tools.check-accessibility.step_2": "Clicca Controlla Accessibilità.",
+    "tools.check-accessibility.step_3": "Consulta il rapporto di accessibilità nel tuo browser.",
+    "tools.check-accessibility.faq_1_q": "Cosa significa 'Tagged PDF'?",
+    "tools.check-accessibility.faq_1_a": "Un Tagged PDF contiene un albero strutturale che gli screen reader utilizzano per determinare l'ordine di lettura e i ruoli degli elementi. Senza tag, le tecnologie assistive non possono interpretare il documento in modo affidabile.",
+    "tools.check-accessibility.faq_2_q": "Questo strumento può correggere i problemi di accessibilità?",
+    "tools.check-accessibility.faq_2_a": "No. Questo strumento segnala solo i problemi. Per correggerli è necessario modificare il sorgente del PDF o utilizzare uno strumento di authoring che supporti le funzionalità di accessibilità.",
+    "tools.check-accessibility.faq_3_q": "Il controllo carica il mio file?",
+    "tools.check-accessibility.faq_3_a": "No. Tutta l'analisi avviene interamente nel tuo browser. Il tuo file non lascia mai il tuo dispositivo.",
+    "tool.accessibility.action": "Controlla Accessibilità"
 }

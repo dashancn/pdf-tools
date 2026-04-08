@@ -599,5 +599,20 @@
     "tool.qrcode.drag_hint": "Vedä QR code siirtääksesi sen sivulla",
     "tool.qrcode.preview_label": "QR code esikatselu",
     "tool.qrcode.no_text": "Syötä teksti luodaksesi QR code",
-    "tool.qrcode.all_pages": "Lisää QR-koodi kaikille sivuille"
+    "tool.qrcode.all_pages": "Lisää QR-koodi kaikille sivuille",
+
+    "tools.check-accessibility.name": "Saavutettavuustarkistus",
+    "tools.check-accessibility.description": "Analysoi PDF-tiedostosi saavutettavuusongelmien varalta: tunnisteet, alt text, kieli, fontit ja muuta.",
+    "tools.check-accessibility.how_title": "Kuinka tarkistaa PDF:n saavutettavuus",
+    "tools.check-accessibility.how_text": "Lataa PDF saadaksesi yksityiskohtaisen saavutettavuusraportin, joka kattaa 10 kriteeriä mukaan lukien tunnisteet, asiakirjan kieli, fonttien upotus, alt text kuvissa ja lomakekenttien nimiöt.",
+    "tools.check-accessibility.step_1": "Lataa PDF-tiedosto.",
+    "tools.check-accessibility.step_2": "Napsauta Tarkista Saavutettavuus.",
+    "tools.check-accessibility.step_3": "Tarkastele saavutettavuusraporttia selaimessasi.",
+    "tools.check-accessibility.faq_1_q": "Mitä 'Tagged PDF' tarkoittaa?",
+    "tools.check-accessibility.faq_1_a": "Tagged PDF sisältää rakenteellisen puun, jota ruudunlukijat käyttävät lukujärjestyksen ja elementtien roolien määrittämiseen. Ilman tunnisteita avustavat teknologiat eivät voi tulkita asiakirjaa luotettavasti.",
+    "tools.check-accessibility.faq_2_q": "Voiko tämä työkalu korjata saavutettavuusongelmia?",
+    "tools.check-accessibility.faq_2_a": "Ei. Tämä työkalu vain raportoi ongelmat. Niiden korjaaminen edellyttää PDF-lähteen muokkaamista tai saavutettavuusominaisuuksia tukevan luontityökalun käyttöä.",
+    "tools.check-accessibility.faq_3_q": "Lataako tarkistus tiedostoni palvelimelle?",
+    "tools.check-accessibility.faq_3_a": "Ei. Kaikki analyysi suoritetaan kokonaan selaimessasi. Tiedostosi ei koskaan poistu laitteeltasi.",
+    "tool.accessibility.action": "Tarkista Saavutettavuus"
 }

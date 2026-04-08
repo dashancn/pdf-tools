@@ -1,7 +1,7 @@
 /**
  * SCI Profiler — tool registry and window.__sciProfiler API.
  *
- * Maps all 37 PDF tools to their worker name + argument builder.
+ * Maps all 38 PDF tools to their worker name + argument builder.
  * Attaches a global API for running benchmarks from the browser console.
  */
 import { generateBenchmarkPdf } from './benchmarkPdf';
@@ -20,9 +20,11 @@ import {
 } from '../../../../lib/sci-profiler/src/sciProfiler';
 
 // ── Project-specific helpers ────────────────────────────────────────────────
-function blobSize(result: Blob | { name: string; blob: Blob }[]): number {
+function blobSize(result: Blob | { name: string; blob: Blob }[] | Record<string, any>): number {
     if (result instanceof Blob) return result.size;
-    return result.reduce((sum, r) => sum + r.blob.size, 0);
+    if (Array.isArray(result)) return result.reduce((sum, r) => sum + r.blob.size, 0);
+    // Non-blob results (e.g. AccessibilityReport): estimate serialized size
+    return new Blob([JSON.stringify(result)]).size;
 }
 
 function totalFileSize(files: File[]): number {
@@ -305,6 +307,10 @@ const TOOL_REGISTRY: ToolEntry[] = [
                 pngDataUrl: TINY_SIGNATURE_DATA_URL,
             },
         }),
+    },
+    {
+        name: 'check-accessibility',
+        args: (f) => ({ files: [f], options: {} }),
     },
 ];
 

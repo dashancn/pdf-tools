@@ -599,5 +599,20 @@
     "tool.qrcode.drag_hint": "Přetáhněte QR code pro přemístění na stránce",
     "tool.qrcode.preview_label": "Náhled QR code",
     "tool.qrcode.no_text": "Zadejte text pro vygenerování QR code",
-    "tool.qrcode.all_pages": "Přidat QR kód na všechny stránky"
+    "tool.qrcode.all_pages": "Přidat QR kód na všechny stránky",
+
+    "tools.check-accessibility.name": "Kontrola přístupnosti",
+    "tools.check-accessibility.description": "Analyzujte svůj PDF na problémy s přístupností: značky, alt text, jazyk, písma a další.",
+    "tools.check-accessibility.how_title": "Jak zkontrolovat přístupnost PDF",
+    "tools.check-accessibility.how_text": "Nahrajte PDF a získejte podrobnou zprávu o přístupnosti pokrývající 10 kritérií včetně značkování, jazyka dokumentu, vložení písem, alt text u obrázků a popisků formulářových polí.",
+    "tools.check-accessibility.step_1": "Nahrajte soubor PDF.",
+    "tools.check-accessibility.step_2": "Klikněte na Zkontrolovat přístupnost.",
+    "tools.check-accessibility.step_3": "Prohlédněte si zprávu o přístupnosti ve svém prohlížeči.",
+    "tools.check-accessibility.faq_1_q": "Co znamená 'Tagged PDF'?",
+    "tools.check-accessibility.faq_1_a": "Tagged PDF obsahuje strukturní strom, který čtečky obrazovky používají k určení pořadí čtení a rolí prvků. Bez značek nemohou asistenční technologie dokument spolehlivě interpretovat.",
+    "tools.check-accessibility.faq_2_q": "Může tento nástroj opravit problémy s přístupností?",
+    "tools.check-accessibility.faq_2_a": "Ne. Tento nástroj pouze hlásí problémy. K jejich opravě je nutné upravit zdroj PDF nebo použít autorský nástroj podporující funkce přístupnosti.",
+    "tools.check-accessibility.faq_3_q": "Nahrává kontrola můj soubor?",
+    "tools.check-accessibility.faq_3_a": "Ne. Veškerá analýza probíhá zcela ve vašem prohlížeči. Váš soubor nikdy neopustí vaše zařízení.",
+    "tool.accessibility.action": "Zkontrolovat přístupnost"
 }

@@ -598,5 +598,20 @@
     "tool.qrcode.drag_hint": "Dra QR code för att flytta den på sidan",
     "tool.qrcode.preview_label": "Förhandsvisning av QR code",
     "tool.qrcode.no_text": "Ange en text för att generera en QR code",
-    "tool.qrcode.all_pages": "Lägg till QR-kod på alla sidor"
+    "tool.qrcode.all_pages": "Lägg till QR-kod på alla sidor",
+
+    "tools.check-accessibility.name": "Tillgänglighetskontroll",
+    "tools.check-accessibility.description": "Analysera din PDF för tillgänglighetsproblem: taggar, alt text, språk, teckensnitt och mer.",
+    "tools.check-accessibility.how_title": "Hur man kontrollerar PDF-tillgänglighet",
+    "tools.check-accessibility.how_text": "Ladda upp en PDF för att få en detaljerad tillgänglighetsrapport som täcker 10 kriterier inklusive taggning, dokumentspråk, teckensnittsinbäddning, alt text på bilder och etiketter för formulärfält.",
+    "tools.check-accessibility.step_1": "Ladda upp en PDF-fil.",
+    "tools.check-accessibility.step_2": "Klicka på Kontrollera Tillgänglighet.",
+    "tools.check-accessibility.step_3": "Granska tillgänglighetsrapporten i din webbläsare.",
+    "tools.check-accessibility.faq_1_q": "Vad betyder 'Tagged PDF'?",
+    "tools.check-accessibility.faq_1_a": "En Tagged PDF innehåller ett strukturträd som skärmläsare använder för att bestämma läsordning och elementroller. Utan taggar kan hjälpmedel inte tolka dokumentet på ett tillförlitligt sätt.",
+    "tools.check-accessibility.faq_2_q": "Kan detta verktyg åtgärda tillgänglighetsproblem?",
+    "tools.check-accessibility.faq_2_a": "Nej. Detta verktyg rapporterar bara problem. För att åtgärda dem krävs redigering av PDF-källan eller ett författarverktyg som stöder tillgänglighetsfunktioner.",
+    "tools.check-accessibility.faq_3_q": "Laddar kontrollen upp min fil?",
+    "tools.check-accessibility.faq_3_a": "Nej. All analys körs helt i din webbläsare. Din fil lämnar aldrig din enhet.",
+    "tool.accessibility.action": "Kontrollera Tillgänglighet"
 }

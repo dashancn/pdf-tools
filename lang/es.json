@@ -632,5 +632,20 @@
     "tool.qrcode.drag_hint": "Arrastra el QR code para reposicionarlo en la página",
     "tool.qrcode.preview_label": "Vista previa del QR code",
     "tool.qrcode.no_text": "Introduce un texto para generar un QR code",
-    "tool.qrcode.all_pages": "Añadir QR code a todas las páginas"
+    "tool.qrcode.all_pages": "Añadir QR code a todas las páginas",
+
+    "tools.check-accessibility.name": "Comprobador de Accesibilidad",
+    "tools.check-accessibility.description": "Analiza tu PDF en busca de problemas de accesibilidad: etiquetas, alt text, idioma, fuentes y más.",
+    "tools.check-accessibility.how_title": "Cómo comprobar la accesibilidad del PDF",
+    "tools.check-accessibility.how_text": "Sube un PDF para obtener un informe detallado de accesibilidad que cubre 10 criterios, incluyendo etiquetado, idioma del documento, incrustación de fuentes, alt text en imágenes y etiquetas de campos de formulario.",
+    "tools.check-accessibility.step_1": "Sube un archivo PDF.",
+    "tools.check-accessibility.step_2": "Haz clic en Comprobar Accesibilidad.",
+    "tools.check-accessibility.step_3": "Revisa el informe de accesibilidad en tu navegador.",
+    "tools.check-accessibility.faq_1_q": "¿Qué significa 'Tagged PDF'?",
+    "tools.check-accessibility.faq_1_a": "Un Tagged PDF contiene un árbol de estructura que los lectores de pantalla utilizan para determinar el orden de lectura y los roles de los elementos. Sin etiquetas, las tecnologías de asistencia no pueden interpretar el documento de forma fiable.",
+    "tools.check-accessibility.faq_2_q": "¿Puede esta herramienta corregir problemas de accesibilidad?",
+    "tools.check-accessibility.faq_2_a": "No. Esta herramienta solo informa de los problemas. Para corregirlos es necesario editar el origen del PDF o utilizar una herramienta de creación que admita funciones de accesibilidad.",
+    "tools.check-accessibility.faq_3_q": "¿El comprobador sube mi archivo?",
+    "tools.check-accessibility.faq_3_a": "No. Todo el análisis se ejecuta completamente en tu navegador. Tu archivo nunca sale de tu dispositivo.",
+    "tool.accessibility.action": "Comprobar Accesibilidad"
 }

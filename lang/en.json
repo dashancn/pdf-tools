@@ -648,5 +648,20 @@
     "tool.qrcode.drag_hint": "Drag the QR code to reposition it on the page",
     "tool.qrcode.preview_label": "QR code preview",
     "tool.qrcode.no_text": "Please enter text to generate a QR code",
-    "tool.qrcode.all_pages": "Add QR code to all pages"
+    "tool.qrcode.all_pages": "Add QR code to all pages",
+
+    "tools.check-accessibility.name": "Accessibility Checker",
+    "tools.check-accessibility.description": "Analyze your PDF for accessibility issues: tags, alt text, language, fonts, and more.",
+    "tools.check-accessibility.how_title": "How to Check PDF Accessibility",
+    "tools.check-accessibility.how_text": "Upload a PDF to get a detailed accessibility report covering 10 criteria including tagging, document language, font embedding, alt text on images, and form field labels.",
+    "tools.check-accessibility.step_1": "Upload a PDF file.",
+    "tools.check-accessibility.step_2": "Click Check Accessibility.",
+    "tools.check-accessibility.step_3": "Review the accessibility report in your browser.",
+    "tools.check-accessibility.faq_1_q": "What does 'Tagged PDF' mean?",
+    "tools.check-accessibility.faq_1_a": "A tagged PDF contains a structure tree that screen readers use to determine reading order and element roles (headings, paragraphs, lists, figures). Without tags, assistive technologies cannot reliably interpret the document.",
+    "tools.check-accessibility.faq_2_q": "Can this tool fix accessibility issues?",
+    "tools.check-accessibility.faq_2_a": "No. This tool only reports issues. Fixing them requires editing the PDF source or using an authoring tool that supports accessibility features.",
+    "tools.check-accessibility.faq_3_q": "Does the checker upload my file?",
+    "tools.check-accessibility.faq_3_a": "No. All analysis runs entirely in your browser. Your file never leaves your device.",
+    "tool.accessibility.action": "Check Accessibility"
 }

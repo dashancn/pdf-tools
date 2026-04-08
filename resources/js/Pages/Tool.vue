@@ -16,6 +16,7 @@ import type { PaperSize } from '@/Services/pdf/resizePage';
 import type { CompressionLevel } from '@/Services/pdf/compress';
 import type { SplitMode } from '@/Services/pdf/split';
 import type { RotationAngle } from '@/Services/pdf/rotate';
+import type { AccessibilityReport } from '@/Services/pdf/accessibilityChecker';
 
 // Lazy-loaded heavy tool components
 const WatermarkTool = defineAsyncComponent(() => import('@/Components/Tools/WatermarkTool.vue'));
@@ -26,6 +27,7 @@ const CropTool = defineAsyncComponent(() => import('@/Components/Tools/CropTool.
 const OrganizeTool = defineAsyncComponent(() => import('@/Components/Tools/OrganizeTool.vue'));
 const EditMetadataTool = defineAsyncComponent(() => import('@/Components/Tools/EditMetadataTool.vue'));
 const QrCodeTool = defineAsyncComponent(() => import('@/Components/Tools/QrCodeTool.vue'));
+const AccessibilityReportViewer = defineAsyncComponent(() => import('@/Components/Tools/AccessibilityReportViewer.vue'));
 const ToolLanding = defineAsyncComponent(() => import('@/Components/Tools/ToolLanding.vue'));
 
 const props = defineProps<{ tool: string }>();
@@ -89,6 +91,7 @@ watchEffect(() => {
 });
 
 const multiResultUrls = ref<string[]>([]);
+const accessibilityReport = ref<AccessibilityReport | null>(null);
 
 function createObjectURL(blob: Blob): string {
     const url = window.URL.createObjectURL(blob);
@@ -136,6 +139,7 @@ const toolConfig = computed(() => {
         'pdf-to-epub': { accept: '.pdf', multiple: true, color: 'bg-violet-500', bgColor: 'bg-violet-50' },
         'booklet-pdf': { accept: '.pdf', multiple: true, color: 'bg-rose-500', bgColor: 'bg-rose-50' },
         'add-qr-code': { accept: '.pdf', multiple: false, color: 'bg-violet-500', bgColor: 'bg-violet-50' },
+        'check-accessibility': { accept: '.pdf', multiple: false, color: 'bg-teal-500', bgColor: 'bg-teal-50' },
     };
     return configs[props.tool] ?? configs['merge-pdf'];
 });
@@ -258,6 +262,7 @@ const actionLabel = computed(() => {
         'pdf-to-epub': 'tool.pdftoepub.action',
         'booklet-pdf': 'tool.booklet.action',
         'add-qr-code': 'tool.qrcode.action',
+        'check-accessibility': 'tool.accessibility.action',
     };
     return trans(labels[props.tool] ?? 'tool.process');
 });
@@ -651,6 +656,11 @@ async function process() {
                     setResult(blob, `qr_${rawFiles[0].name}`);
                     break;
                 }
+                case 'check-accessibility': {
+                    const report = await runInWorker('check-accessibility', rawFiles, {}, updateProgress) as AccessibilityReport;
+                    accessibilityReport.value = report;
+                    break;
+                }
             }
         }
         finishProcessing();
@@ -682,6 +692,7 @@ function resetTool() {
     multiResults.value = [];
     multiResultUrls.value.forEach(url => URL.revokeObjectURL(url));
     multiResultUrls.value = [];
+    accessibilityReport.value = null;
     markdownText.value = '';
     textContent.value = '';
 }
@@ -702,7 +713,7 @@ function onAddMoreFiles(event: Event) {
 
 // Tools that don't need extra options panel
 const noOptionsTools = ['merge-pdf', 'extract-images', 'grayscale-pdf', 'flatten-pdf', 'pdf-to-text',
-    'remove-blank-pages', 'reverse-pages', 'invert-colors', 'repair-pdf', 'pdf-to-epub', 'compare-pdf', 'booklet-pdf'];
+    'remove-blank-pages', 'reverse-pages', 'invert-colors', 'repair-pdf', 'pdf-to-epub', 'compare-pdf', 'booklet-pdf', 'check-accessibility'];
 
 // Text-input tools (no file upload)
 const isTextInputTool = computed(() => props.tool === 'markdown-to-pdf' || props.tool === 'text-to-pdf');
@@ -1113,6 +1124,17 @@ const hasTextContent = computed(() => {
                 <div class="text-center">
                     <button type="button" class="text-sm text-gray-500 hover:text-gray-700 underline" @click="resetTool">{{ trans('tool.process') }}</button>
                 </div>
+            </div>
+            </Transition>
+
+            <!-- Accessibility Report -->
+            <Transition
+                enter-active-class="transition ease-out duration-300"
+                enter-from-class="opacity-0 scale-95"
+                enter-to-class="opacity-100 scale-100"
+            >
+            <div v-if="state.status === 'done' && tool === 'check-accessibility' && accessibilityReport">
+                <AccessibilityReportViewer :report="accessibilityReport" @reset="resetTool" />
             </div>
             </Transition>
         </div>

@@ -634,5 +634,20 @@
     "tool.qrcode.drag_hint": "Faites glisser le QR code pour le repositionner sur la page",
     "tool.qrcode.preview_label": "Aperçu du QR code",
     "tool.qrcode.no_text": "Veuillez saisir un texte pour générer un QR code",
-    "tool.qrcode.all_pages": "Ajouter le QR code à toutes les pages"
+    "tool.qrcode.all_pages": "Ajouter le QR code à toutes les pages",
+
+    "tools.check-accessibility.name": "Vérificateur d'Accessibilité",
+    "tools.check-accessibility.description": "Analysez votre PDF pour détecter les problèmes d'accessibilité : balises, alt text, langue, polices et plus.",
+    "tools.check-accessibility.how_title": "Comment vérifier l'accessibilité d'un PDF",
+    "tools.check-accessibility.how_text": "Téléchargez un PDF pour obtenir un rapport d'accessibilité détaillé couvrant 10 critères, dont le balisage, la langue du document, l'intégration des polices, le alt text des images et les étiquettes des champs de formulaire.",
+    "tools.check-accessibility.step_1": "Téléchargez un fichier PDF.",
+    "tools.check-accessibility.step_2": "Cliquez sur Vérifier l'Accessibilité.",
+    "tools.check-accessibility.step_3": "Consultez le rapport d'accessibilité dans votre navigateur.",
+    "tools.check-accessibility.faq_1_q": "Que signifie 'Tagged PDF' ?",
+    "tools.check-accessibility.faq_1_a": "Un Tagged PDF contient un arbre de structure que les lecteurs d'écran utilisent pour déterminer l'ordre de lecture et les rôles des éléments. Sans balises, les technologies d'assistance ne peuvent pas interpréter le document de manière fiable.",
+    "tools.check-accessibility.faq_2_q": "Cet outil peut-il corriger les problèmes d'accessibilité ?",
+    "tools.check-accessibility.faq_2_a": "Non. Cet outil ne fait que signaler les problèmes. Pour les corriger, il faut modifier le source du PDF ou utiliser un outil de création prenant en charge les fonctionnalités d'accessibilité.",
+    "tools.check-accessibility.faq_3_q": "Le vérificateur télécharge-t-il mon fichier ?",
+    "tools.check-accessibility.faq_3_a": "Non. Toute l'analyse s'exécute entièrement dans votre navigateur. Votre fichier ne quitte jamais votre appareil.",
+    "tool.accessibility.action": "Vérifier l'Accessibilité"
 }

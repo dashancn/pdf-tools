@@ -599,5 +599,20 @@
     "tool.qrcode.drag_hint": "Povlecite QR code, da ga premaknete na strani",
     "tool.qrcode.preview_label": "Predogled QR code",
     "tool.qrcode.no_text": "Vnesite besedilo za ustvarjanje QR code",
-    "tool.qrcode.all_pages": "Dodaj QR kodo na vse strani"
+    "tool.qrcode.all_pages": "Dodaj QR kodo na vse strani",
+
+    "tools.check-accessibility.name": "Preverjanje dostopnosti",
+    "tools.check-accessibility.description": "Analizirajte svoj PDF za težave z dostopnostjo: oznake, alt text, jezik, pisave in več.",
+    "tools.check-accessibility.how_title": "Kako preveriti dostopnost PDF-ja",
+    "tools.check-accessibility.how_text": "Naložite PDF, da dobite podrobno poročilo o dostopnosti, ki zajema 10 kriterijev, vključno z označevanjem, jezikom dokumenta, vdelavo pisav, alt text pri slikah in oznakami polj obrazcev.",
+    "tools.check-accessibility.step_1": "Naložite datoteko PDF.",
+    "tools.check-accessibility.step_2": "Kliknite Preveri dostopnost.",
+    "tools.check-accessibility.step_3": "Preglejte poročilo o dostopnosti v svojem brskalniku.",
+    "tools.check-accessibility.faq_1_q": "Kaj pomeni 'Tagged PDF'?",
+    "tools.check-accessibility.faq_1_a": "Tagged PDF vsebuje strukturno drevo, ki ga bralniki zaslona uporabljajo za določanje vrstnega reda branja in vlog elementov. Brez oznak podporne tehnologije ne morejo zanesljivo interpretirati dokumenta.",
+    "tools.check-accessibility.faq_2_q": "Ali lahko to orodje odpravi težave z dostopnostjo?",
+    "tools.check-accessibility.faq_2_a": "Ne. To orodje samo poroča o težavah. Za njihovo odpravo je potrebno urediti vir PDF-ja ali uporabiti orodje za ustvarjanje, ki podpira funkcije dostopnosti.",
+    "tools.check-accessibility.faq_3_q": "Ali preverjanje naloži mojo datoteko?",
+    "tools.check-accessibility.faq_3_a": "Ne. Vsa analiza se izvaja v celoti v vašem brskalniku. Vaša datoteka nikoli ne zapusti vaše naprave.",
+    "tool.accessibility.action": "Preveri dostopnost"
 }

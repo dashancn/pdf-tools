@@ -634,5 +634,20 @@
     "tool.qrcode.drag_hint": "Ziehen Sie den QR Code, um ihn auf der Seite neu zu positionieren",
     "tool.qrcode.preview_label": "QR Code-Vorschau",
     "tool.qrcode.no_text": "Bitte geben Sie einen Text ein, um einen QR Code zu erstellen",
-    "tool.qrcode.all_pages": "QR-Code auf alle Seiten setzen"
+    "tool.qrcode.all_pages": "QR-Code auf alle Seiten setzen",
+
+    "tools.check-accessibility.name": "Barrierefreiheitsprüfung",
+    "tools.check-accessibility.description": "Analysieren Sie Ihr PDF auf Barrierefreiheitsprobleme: Tags, alt text, Sprache, Schriften und mehr.",
+    "tools.check-accessibility.how_title": "So prüfen Sie die Barrierefreiheit eines PDF",
+    "tools.check-accessibility.how_text": "Laden Sie ein PDF hoch, um einen detaillierten Barrierefreiheitsbericht zu erhalten, der 10 Kriterien abdeckt, darunter Tagging, Dokumentsprache, Schrifteinbettung, alt text bei Bildern und Beschriftungen von Formularfeldern.",
+    "tools.check-accessibility.step_1": "Laden Sie eine PDF-Datei hoch.",
+    "tools.check-accessibility.step_2": "Klicken Sie auf Barrierefreiheit prüfen.",
+    "tools.check-accessibility.step_3": "Überprüfen Sie den Barrierefreiheitsbericht in Ihrem Browser.",
+    "tools.check-accessibility.faq_1_q": "Was bedeutet 'Tagged PDF'?",
+    "tools.check-accessibility.faq_1_a": "Ein Tagged PDF enthält einen Strukturbaum, den Screenreader verwenden, um die Lesereihenfolge und Elementrollen zu bestimmen. Ohne Tags können assistive Technologien das Dokument nicht zuverlässig interpretieren.",
+    "tools.check-accessibility.faq_2_q": "Kann dieses Tool Barrierefreiheitsprobleme beheben?",
+    "tools.check-accessibility.faq_2_a": "Nein. Dieses Tool meldet nur Probleme. Zur Behebung muss die PDF-Quelle bearbeitet oder ein Erstellungstool mit Barrierefreiheitsfunktionen verwendet werden.",
+    "tools.check-accessibility.faq_3_q": "Lädt die Prüfung meine Datei hoch?",
+    "tools.check-accessibility.faq_3_a": "Nein. Die gesamte Analyse läuft vollständig in Ihrem Browser. Ihre Datei verlässt niemals Ihr Gerät.",
+    "tool.accessibility.action": "Barrierefreiheit prüfen"
 }

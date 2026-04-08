@@ -51,6 +51,8 @@ import { repairPdf } from '@/Services/pdf/repairPdf';
 import { pdfToEpub } from '@/Services/pdf/pdfToEpub';
 import { bookletPdf } from '@/Services/pdf/bookletPdf';
 import { addQrCode, type QrCodeOptions } from '@/Services/pdf/addQrCode';
+import { checkAccessibility } from '@/Services/pdf/accessibilityChecker';
+import type { AccessibilityReport } from '@/Services/pdf/accessibilityChecker';
 
 self.onmessage = async (e: MessageEvent) => {
     const { id, tool, files, options } = e.data;
@@ -60,7 +62,7 @@ self.onmessage = async (e: MessageEvent) => {
     };
 
     try {
-        let result: Blob | { name: string; blob: Blob }[];
+        let result: Blob | { name: string; blob: Blob }[] | AccessibilityReport;
 
         switch (tool) {
             case 'merge-pdf':
@@ -211,11 +213,17 @@ self.onmessage = async (e: MessageEvent) => {
                 result = await addQrCode(files[0], options as QrCodeOptions, onProgress);
                 break;
 
+            case 'check-accessibility':
+                result = await checkAccessibility(files[0], onProgress);
+                break;
+
             default:
                 throw new Error(`Unknown tool: ${tool}`);
         }
 
-        if (Array.isArray(result)) {
+        if (result && typeof result === 'object' && 'checks' in result) {
+            self.postMessage({ id, type: 'done', report: result });
+        } else if (Array.isArray(result)) {
             self.postMessage({ id, type: 'done', results: result });
         } else {
             self.postMessage({ id, type: 'done', blob: result });
