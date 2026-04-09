@@ -51,6 +51,7 @@ import { repairPdf } from '@/Services/pdf/repairPdf';
 import { pdfToEpub } from '@/Services/pdf/pdfToEpub';
 import { bookletPdf } from '@/Services/pdf/bookletPdf';
 import { addQrCode, type QrCodeOptions } from '@/Services/pdf/addQrCode';
+import { pdfToMarkdown } from '@/Services/pdf/pdfToMarkdown';
 import { checkAccessibility } from '@/Services/pdf/accessibilityChecker';
 import type { AccessibilityReport } from '@/Services/pdf/accessibilityChecker';
 
@@ -211,6 +212,10 @@ self.onmessage = async (e: MessageEvent) => {
 
             case 'add-qr-code':
                 result = await addQrCode(files[0], options as QrCodeOptions, onProgress);
+                break;
+
+            case 'pdf-to-markdown':
+                result = await pdfToMarkdown(files[0], onProgress);
                 break;
 
             case 'check-accessibility':

@@ -139,6 +139,7 @@ const toolConfig = computed(() => {
         'pdf-to-epub': { accept: '.pdf', multiple: true, color: 'bg-violet-500', bgColor: 'bg-violet-50' },
         'booklet-pdf': { accept: '.pdf', multiple: true, color: 'bg-rose-500', bgColor: 'bg-rose-50' },
         'add-qr-code': { accept: '.pdf', multiple: false, color: 'bg-violet-500', bgColor: 'bg-violet-50' },
+        'pdf-to-markdown': { accept: '.pdf', multiple: true, color: 'bg-gray-500', bgColor: 'bg-gray-50' },
         'check-accessibility': { accept: '.pdf', multiple: false, color: 'bg-teal-500', bgColor: 'bg-teal-50' },
     };
     return configs[props.tool] ?? configs['merge-pdf'];
@@ -262,6 +263,7 @@ const actionLabel = computed(() => {
         'pdf-to-epub': 'tool.pdftoepub.action',
         'booklet-pdf': 'tool.booklet.action',
         'add-qr-code': 'tool.qrcode.action',
+        'pdf-to-markdown': 'tool.pdftomarkdown.action',
         'check-accessibility': 'tool.accessibility.action',
     };
     return trans(labels[props.tool] ?? 'tool.process');
@@ -275,7 +277,7 @@ const batchEligibleTools = [
     'edit-metadata',
     'pdf-to-webp', 'nup-pdf', 'add-blank-page', 'remove-blank-pages',
     'ocr-pdf', 'reverse-pages', 'invert-colors', 'repair-pdf', 'pdf-to-epub',
-    'booklet-pdf',
+    'booklet-pdf', 'pdf-to-markdown',
 ];
 const isBatchMode = computed(() =>
     batchEligibleTools.includes(props.tool) && files.value.length > 1
@@ -391,6 +393,10 @@ async function processSingleFile(
         case 'pdf-to-epub': {
             const blob = await runInWorker('pdf-to-epub', [file], {}, onProgress) as Blob;
             return { name: `${baseName}.epub`, blob };
+        }
+        case 'pdf-to-markdown': {
+            const blob = await runInWorker('pdf-to-markdown', [file], {}, onProgress) as Blob;
+            return { name: `${baseName}.md`, blob };
         }
         default:
             throw new Error(`Tool ${toolName} does not support batch processing`);
@@ -649,6 +655,12 @@ async function process() {
                     setResult(blob, epubName);
                     break;
                 }
+                case 'pdf-to-markdown': {
+                    const blob = await runInWorker('pdf-to-markdown', rawFiles, {}, updateProgress) as Blob;
+                    const mdName = rawFiles[0].name.replace(/\.pdf$/i, '.md');
+                    setResult(blob, mdName);
+                    break;
+                }
                 case 'add-qr-code': {
                     const qrOpts = qrCodeToolRef.value?.getQrCodeOptions();
                     if (!qrOpts) throw new Error(trans('tool.qrcode.no_text'));
@@ -713,7 +725,7 @@ function onAddMoreFiles(event: Event) {
 
 // Tools that don't need extra options panel
 const noOptionsTools = ['merge-pdf', 'extract-images', 'grayscale-pdf', 'flatten-pdf', 'pdf-to-text',
-    'remove-blank-pages', 'reverse-pages', 'invert-colors', 'repair-pdf', 'pdf-to-epub', 'compare-pdf', 'booklet-pdf', 'check-accessibility'];
+    'remove-blank-pages', 'reverse-pages', 'invert-colors', 'repair-pdf', 'pdf-to-epub', 'compare-pdf', 'booklet-pdf', 'pdf-to-markdown', 'check-accessibility'];
 
 // Text-input tools (no file upload)
 const isTextInputTool = computed(() => props.tool === 'markdown-to-pdf' || props.tool === 'text-to-pdf');

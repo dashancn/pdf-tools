@@ -430,6 +430,12 @@
     "home.search_placeholder": "Search tools...",
     "home.no_results": "No tools found. Try a different search.",
 
+    "home.section.organize": "Organize &amp; Edit",
+    "home.section.convert": "Convert",
+    "home.section.annotate": "Annotate &amp; Enhance",
+    "home.section.optimize": "Optimize &amp; Repair",
+    "home.section.security": "Security &amp; Privacy",
+    "home.section.analyze": "Analyze",
     "nav.blog": "Blog",
     "blog.title": "Blog",
     "blog.subtitle": "Tips, tutorials and guides for working with PDF files",
@@ -663,5 +669,19 @@
     "tools.check-accessibility.faq_2_a": "No. This tool only reports issues. Fixing them requires editing the PDF source or using an authoring tool that supports accessibility features.",
     "tools.check-accessibility.faq_3_q": "Does the checker upload my file?",
     "tools.check-accessibility.faq_3_a": "No. All analysis runs entirely in your browser. Your file never leaves your device.",
-    "tool.accessibility.action": "Check Accessibility"
+    "tool.accessibility.action": "Check Accessibility",
+    "tools.pdf-to-markdown.name": "PDF to Markdown",
+    "tools.pdf-to-markdown.description": "Convert your PDF into Markdown format with heading detection, bold/italic preservation, and list recognition.",
+    "tools.pdf-to-markdown.how_title": "How to Convert PDF to Markdown",
+    "tools.pdf-to-markdown.how_text": "Upload a PDF to extract its text content as clean Markdown. The converter detects headings by font size, preserves bold and italic formatting, and recognizes bullet and numbered lists.",
+    "tools.pdf-to-markdown.step_1": "Upload a PDF file.",
+    "tools.pdf-to-markdown.step_2": "Click Convert to Markdown.",
+    "tools.pdf-to-markdown.step_3": "Download the .md file.",
+    "tools.pdf-to-markdown.faq_1_q": "Does it preserve images?",
+    "tools.pdf-to-markdown.faq_1_a": "No. This tool extracts text content only. Images are not included in the Markdown output.",
+    "tools.pdf-to-markdown.faq_2_q": "How are headings detected?",
+    "tools.pdf-to-markdown.faq_2_a": "The converter analyzes font sizes and bold styling. Text that is bold and shorter than 80 characters is treated as a heading.",
+    "tools.pdf-to-markdown.faq_3_q": "Does conversion upload my file?",
+    "tools.pdf-to-markdown.faq_3_a": "No. All conversion runs entirely in your browser. Your file never leaves your device.",
+    "tool.pdftomarkdown.action": "Convert to Markdown"
 }

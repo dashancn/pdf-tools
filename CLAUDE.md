@@ -1,6 +1,6 @@
 # PDF Worker
 
-Privacy-first, client-side PDF toolkit with 38 tools. All processing runs in the browser via Web Workers — no files leave the user's device.
+Privacy-first, client-side PDF toolkit with 39 tools. All processing runs in the browser via Web Workers — no files leave the user's device.
 
 - **Domain**: www.pdfworker.eu / fullo.github.io/pdf-worker
 - **Stack**: Vue 3 + TypeScript + Vite + Tailwind CSS
@@ -208,7 +208,7 @@ Special cases:
 
 - **Included**: `resources/js/Services/**/*.ts`
 - **Excluded**: `resources/js/Services/profiler/**`
-- **All 38 PDF services covered + crypto module** (231 tests across 39 test files)
+- **All 39 PDF services covered + crypto module** (236 tests across 40 test files)
 
 ## Performance budget
 

@@ -419,6 +419,13 @@
 
     "home.search_placeholder": "Buscar herramientas...",
     "home.no_results": "No se encontraron herramientas. Intenta otra búsqueda.",
+
+    "home.section.organize": "Organizar y Editar",
+    "home.section.convert": "Convertir",
+    "home.section.annotate": "Anotar y Mejorar",
+    "home.section.optimize": "Optimizar y Reparar",
+    "home.section.security": "Seguridad y Privacidad",
+    "home.section.analyze": "Analizar",
     "nav.blog": "Blog",
     "blog.title": "Blog",
     "blog.subtitle": "Consejos, tutoriales y guías para trabajar con archivos PDF",
@@ -647,5 +654,19 @@
     "tools.check-accessibility.faq_2_a": "No. Esta herramienta solo informa de los problemas. Para corregirlos es necesario editar el origen del PDF o utilizar una herramienta de creación que admita funciones de accesibilidad.",
     "tools.check-accessibility.faq_3_q": "¿El comprobador sube mi archivo?",
     "tools.check-accessibility.faq_3_a": "No. Todo el análisis se ejecuta completamente en tu navegador. Tu archivo nunca sale de tu dispositivo.",
-    "tool.accessibility.action": "Comprobar Accesibilidad"
+    "tool.accessibility.action": "Comprobar Accesibilidad",
+    "tools.pdf-to-markdown.name": "PDF a Markdown",
+    "tools.pdf-to-markdown.description": "Convierte tu PDF a formato Markdown con detección de encabezados, preservación de negrita/cursiva y reconocimiento de listas.",
+    "tools.pdf-to-markdown.how_title": "Cómo Convertir PDF a Markdown",
+    "tools.pdf-to-markdown.how_text": "Sube un PDF para extraer su contenido de texto como Markdown limpio. El convertidor detecta encabezados por tamaño de fuente, preserva el formato de negrita y cursiva, y reconoce listas con viñetas y numeradas.",
+    "tools.pdf-to-markdown.step_1": "Sube un archivo PDF.",
+    "tools.pdf-to-markdown.step_2": "Haz clic en Convertir a Markdown.",
+    "tools.pdf-to-markdown.step_3": "Descarga el archivo .md.",
+    "tools.pdf-to-markdown.faq_1_q": "¿Preserva las imágenes?",
+    "tools.pdf-to-markdown.faq_1_a": "No. Esta herramienta extrae solo el contenido de texto. Las imágenes no se incluyen en la salida Markdown.",
+    "tools.pdf-to-markdown.faq_2_q": "¿Cómo se detectan los encabezados?",
+    "tools.pdf-to-markdown.faq_2_a": "El convertidor analiza los tamaños de fuente y el estilo en negrita. El texto en negrita y de menos de 80 caracteres se trata como encabezado.",
+    "tools.pdf-to-markdown.faq_3_q": "¿La conversión sube mi archivo?",
+    "tools.pdf-to-markdown.faq_3_a": "No. Toda la conversión se ejecuta completamente en tu navegador. Tu archivo nunca sale de tu dispositivo.",
+    "tool.pdftomarkdown.action": "Convertir a Markdown"
 }

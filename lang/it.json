@@ -430,6 +430,12 @@
     "home.search_placeholder": "Cerca strumenti...",
     "home.no_results": "Nessuno strumento trovato. Prova una ricerca diversa.",
 
+    "home.section.organize": "Organizza e Modifica",
+    "home.section.convert": "Converti",
+    "home.section.annotate": "Annota e Migliora",
+    "home.section.optimize": "Ottimizza e Ripara",
+    "home.section.security": "Sicurezza e Privacy",
+    "home.section.analyze": "Analizza",
     "nav.blog": "Blog",
     "blog.title": "Blog",
     "blog.subtitle": "Consigli, tutorial e guide per lavorare con i file PDF",
@@ -658,5 +664,19 @@
     "tools.check-accessibility.faq_2_a": "No. Questo strumento segnala solo i problemi. Per correggerli è necessario modificare il sorgente del PDF o utilizzare uno strumento di authoring che supporti le funzionalità di accessibilità.",
     "tools.check-accessibility.faq_3_q": "Il controllo carica il mio file?",
     "tools.check-accessibility.faq_3_a": "No. Tutta l'analisi avviene interamente nel tuo browser. Il tuo file non lascia mai il tuo dispositivo.",
-    "tool.accessibility.action": "Controlla Accessibilità"
+    "tool.accessibility.action": "Controlla Accessibilità",
+    "tools.pdf-to-markdown.name": "PDF in Markdown",
+    "tools.pdf-to-markdown.description": "Converti il tuo PDF in formato Markdown con rilevamento dei titoli, preservazione di grassetto/corsivo e riconoscimento delle liste.",
+    "tools.pdf-to-markdown.how_title": "Come Convertire PDF in Markdown",
+    "tools.pdf-to-markdown.how_text": "Carica un PDF per estrarre il contenuto testuale come Markdown pulito. Il convertitore rileva i titoli in base alla dimensione del carattere, preserva la formattazione grassetto e corsivo e riconosce elenchi puntati e numerati.",
+    "tools.pdf-to-markdown.step_1": "Carica un file PDF.",
+    "tools.pdf-to-markdown.step_2": "Clicca Converti in Markdown.",
+    "tools.pdf-to-markdown.step_3": "Scarica il file .md.",
+    "tools.pdf-to-markdown.faq_1_q": "Preserva le immagini?",
+    "tools.pdf-to-markdown.faq_1_a": "No. Questo strumento estrae solo il contenuto testuale. Le immagini non sono incluse nell'output Markdown.",
+    "tools.pdf-to-markdown.faq_2_q": "Come vengono rilevati i titoli?",
+    "tools.pdf-to-markdown.faq_2_a": "Il convertitore analizza le dimensioni dei caratteri e lo stile grassetto. Il testo in grassetto e più corto di 80 caratteri viene trattato come titolo.",
+    "tools.pdf-to-markdown.faq_3_q": "La conversione carica il mio file?",
+    "tools.pdf-to-markdown.faq_3_a": "No. Tutta la conversione avviene interamente nel tuo browser. Il tuo file non lascia mai il tuo dispositivo.",
+    "tool.pdftomarkdown.action": "Converti in Markdown"
 }

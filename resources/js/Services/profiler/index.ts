@@ -1,7 +1,7 @@
 /**
  * SCI Profiler — tool registry and window.__sciProfiler API.
  *
- * Maps all 38 PDF tools to their worker name + argument builder.
+ * Maps all 39 PDF tools to their worker name + argument builder.
  * Attaches a global API for running benchmarks from the browser console.
  */
 import { generateBenchmarkPdf } from './benchmarkPdf';
@@ -307,6 +307,10 @@ const TOOL_REGISTRY: ToolEntry[] = [
                 pngDataUrl: TINY_SIGNATURE_DATA_URL,
             },
         }),
+    },
+    {
+        name: 'pdf-to-markdown',
+        args: (f) => ({ files: [f], options: {} }),
     },
     {
         name: 'check-accessibility',

@@ -419,6 +419,13 @@
 
     "home.search_placeholder": "Pesquisar ferramentas...",
     "home.no_results": "Nenhuma ferramenta encontrada. Tente outra pesquisa.",
+
+    "home.section.organize": "Organizar e Editar",
+    "home.section.convert": "Converter",
+    "home.section.annotate": "Anotar e Melhorar",
+    "home.section.optimize": "Otimizar e Reparar",
+    "home.section.security": "Segurança e Privacidade",
+    "home.section.analyze": "Analisar",
     "nav.blog": "Blog",
     "blog.title": "Blog",
     "blog.subtitle": "Dicas, tutoriais e guias para trabalhar com ficheiros PDF",
@@ -647,5 +654,19 @@
     "tools.check-accessibility.faq_2_a": "Não. Esta ferramenta apenas reporta problemas. Para os corrigir é necessário editar a fonte do PDF ou utilizar uma ferramenta de criação que suporte funcionalidades de acessibilidade.",
     "tools.check-accessibility.faq_3_q": "O verificador carrega o meu ficheiro?",
     "tools.check-accessibility.faq_3_a": "Não. Toda a análise é executada inteiramente no seu navegador. O seu ficheiro nunca sai do seu dispositivo.",
-    "tool.accessibility.action": "Verificar Acessibilidade"
+    "tool.accessibility.action": "Verificar Acessibilidade",
+    "tools.pdf-to-markdown.name": "PDF para Markdown",
+    "tools.pdf-to-markdown.description": "Converta seu PDF para formato Markdown com detecção de títulos, preservação de negrito/itálico e reconhecimento de listas.",
+    "tools.pdf-to-markdown.how_title": "Como Converter PDF para Markdown",
+    "tools.pdf-to-markdown.how_text": "Carregue um PDF para extrair seu conteúdo de texto como Markdown limpo. O conversor detecta títulos pelo tamanho da fonte, preserva a formatação em negrito e itálico, e reconhece listas com marcadores e numeradas.",
+    "tools.pdf-to-markdown.step_1": "Carregue um arquivo PDF.",
+    "tools.pdf-to-markdown.step_2": "Clique em Converter para Markdown.",
+    "tools.pdf-to-markdown.step_3": "Baixe o arquivo .md.",
+    "tools.pdf-to-markdown.faq_1_q": "Preserva as imagens?",
+    "tools.pdf-to-markdown.faq_1_a": "Não. Esta ferramenta extrai apenas o conteúdo de texto. As imagens não são incluídas na saída Markdown.",
+    "tools.pdf-to-markdown.faq_2_q": "Como os títulos são detectados?",
+    "tools.pdf-to-markdown.faq_2_a": "O conversor analisa os tamanhos de fonte e o estilo em negrito. Texto em negrito e com menos de 80 caracteres é tratado como título.",
+    "tools.pdf-to-markdown.faq_3_q": "A conversão envia meu arquivo?",
+    "tools.pdf-to-markdown.faq_3_a": "Não. Toda a conversão é executada inteiramente no seu navegador. Seu arquivo nunca sai do seu dispositivo.",
+    "tool.pdftomarkdown.action": "Converter para Markdown"
 }

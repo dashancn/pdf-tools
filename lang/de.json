@@ -421,6 +421,13 @@
 
     "home.search_placeholder": "Werkzeuge suchen...",
     "home.no_results": "Keine Werkzeuge gefunden. Versuchen Sie eine andere Suche.",
+
+    "home.section.organize": "Organisieren und Bearbeiten",
+    "home.section.convert": "Konvertieren",
+    "home.section.annotate": "Annotieren und Verbessern",
+    "home.section.optimize": "Optimieren und Reparieren",
+    "home.section.security": "Sicherheit und Datenschutz",
+    "home.section.analyze": "Analysieren",
     "nav.blog": "Blog",
     "blog.title": "Blog",
     "blog.subtitle": "Tipps, Tutorials und Anleitungen zur Arbeit mit PDF-Dateien",
@@ -649,5 +656,19 @@
     "tools.check-accessibility.faq_2_a": "Nein. Dieses Tool meldet nur Probleme. Zur Behebung muss die PDF-Quelle bearbeitet oder ein Erstellungstool mit Barrierefreiheitsfunktionen verwendet werden.",
     "tools.check-accessibility.faq_3_q": "Lädt die Prüfung meine Datei hoch?",
     "tools.check-accessibility.faq_3_a": "Nein. Die gesamte Analyse läuft vollständig in Ihrem Browser. Ihre Datei verlässt niemals Ihr Gerät.",
-    "tool.accessibility.action": "Barrierefreiheit prüfen"
+    "tool.accessibility.action": "Barrierefreiheit prüfen",
+    "tools.pdf-to-markdown.name": "PDF zu Markdown",
+    "tools.pdf-to-markdown.description": "Konvertieren Sie Ihr PDF in Markdown-Format mit Überschriftenerkennung, Fett-/Kursiverhaltung und Listenerkennung.",
+    "tools.pdf-to-markdown.how_title": "Wie man PDF in Markdown konvertiert",
+    "tools.pdf-to-markdown.how_text": "Laden Sie ein PDF hoch, um den Textinhalt als sauberes Markdown zu extrahieren. Der Konverter erkennt Überschriften anhand der Schriftgröße, behält Fett- und Kursivformatierung bei und erkennt Aufzählungs- und nummerierte Listen.",
+    "tools.pdf-to-markdown.step_1": "Laden Sie eine PDF-Datei hoch.",
+    "tools.pdf-to-markdown.step_2": "Klicken Sie auf In Markdown konvertieren.",
+    "tools.pdf-to-markdown.step_3": "Laden Sie die .md-Datei herunter.",
+    "tools.pdf-to-markdown.faq_1_q": "Werden Bilder beibehalten?",
+    "tools.pdf-to-markdown.faq_1_a": "Nein. Dieses Tool extrahiert nur Textinhalte. Bilder sind in der Markdown-Ausgabe nicht enthalten.",
+    "tools.pdf-to-markdown.faq_2_q": "Wie werden Überschriften erkannt?",
+    "tools.pdf-to-markdown.faq_2_a": "Der Konverter analysiert Schriftgrößen und Fettschrift. Text, der fett und kürzer als 80 Zeichen ist, wird als Überschrift behandelt.",
+    "tools.pdf-to-markdown.faq_3_q": "Lädt die Konvertierung meine Datei hoch?",
+    "tools.pdf-to-markdown.faq_3_a": "Nein. Die gesamte Konvertierung läuft vollständig in Ihrem Browser. Ihre Datei verlässt niemals Ihr Gerät.",
+    "tool.pdftomarkdown.action": "In Markdown konvertieren"
 }
