@@ -134,6 +134,20 @@ const hasResults = computed(() => filteredSections.value.some(s => s.tools.lengt
         <HeroSection />
 
         <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+            <!-- Quick nav -->
+            <nav class="mb-6 flex flex-wrap justify-center gap-2">
+                <a
+                    v-for="section in sections"
+                    :key="section.key"
+                    :href="`#${section.key}`"
+                    :class="['rounded-full border px-4 py-1.5 text-sm font-medium transition-colors hover:shadow-sm',
+                        section.color,
+                        'border-gray-200 bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700']"
+                >
+                    {{ trans(`home.section.${section.key}`) }}
+                </a>
+            </nav>
+
             <!-- Search -->
             <div class="mb-10">
                 <ToolSearch v-model="searchQuery" />
@@ -148,7 +162,7 @@ const hasResults = computed(() => filteredSections.value.some(s => s.tools.lengt
             </p>
 
             <!-- Sections -->
-            <div v-for="section in filteredSections" :key="section.key" class="mb-12 last:mb-0">
+            <div v-for="section in filteredSections" :key="section.key" :id="section.key" class="mb-12 last:mb-0 scroll-mt-20">
                 <h2 :class="['mb-5 text-lg font-semibold', section.color]">
                     {{ trans(`home.section.${section.key}`) }}
                 </h2>
