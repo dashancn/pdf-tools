@@ -127,6 +127,10 @@ const filteredSections = computed(() => {
 });
 
 const hasResults = computed(() => filteredSections.value.some(s => s.tools.length > 0));
+
+function scrollToSection(key: string) {
+    document.getElementById(key)?.scrollIntoView({ behavior: 'smooth' });
+}
 </script>
 
 <template>
@@ -139,10 +143,11 @@ const hasResults = computed(() => filteredSections.value.some(s => s.tools.lengt
                 <a
                     v-for="section in sections"
                     :key="section.key"
-                    :href="`#${section.key}`"
-                    :class="['rounded-full border px-4 py-1.5 text-sm font-medium transition-colors hover:shadow-sm',
+                    href="#"
+                    :class="['rounded-full border px-4 py-1.5 text-sm font-medium transition-colors hover:shadow-sm cursor-pointer',
                         section.color,
                         'border-gray-200 bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700']"
+                    @click.prevent="scrollToSection(section.key)"
                 >
                     {{ trans(`home.section.${section.key}`) }}
                 </a>

@@ -1,29 +1,5 @@
 import * as pdfjsLib from 'pdfjs-dist';
-import { createCanvas, canvasToBlob, MAX_PDF_PAGES, getPdfjsDocument } from '../pdfUtils';
-
-/**
- * Convert image data from pdfjs to a PNG Blob.
- */
-async function imageDataToBlob(img: any): Promise<Blob> {
-    const canvas = createCanvas(img.width, img.height);
-    const ctx = canvas.getContext('2d');
-    if (!ctx) throw new Error('Failed to get canvas 2d context');
-
-    if (img.bitmap) {
-        (ctx as any).drawImage(img.bitmap, 0, 0);
-    } else if (img.data) {
-        const imageData = new ImageData(
-            new Uint8ClampedArray(img.data),
-            img.width,
-            img.height
-        );
-        (ctx as any).putImageData(imageData, 0, 0);
-    } else {
-        throw new Error('Image object has neither data nor bitmap');
-    }
-
-    return canvasToBlob(canvas, 'image/png');
-}
+import { imageDataToBlob, MAX_PDF_PAGES, getPdfjsDocument } from '../pdfUtils';
 
 /**
  * Extract all embedded images from a PDF file.

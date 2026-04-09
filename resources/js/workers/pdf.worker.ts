@@ -151,7 +151,7 @@ self.onmessage = async (e: MessageEvent) => {
                 break;
 
             case 'pdf-to-text':
-                result = await pdfToText(files[0], onProgress);
+                result = await pdfToText(files[0], options, onProgress);
                 break;
 
             case 'markdown-to-pdf':
@@ -215,7 +215,7 @@ self.onmessage = async (e: MessageEvent) => {
                 break;
 
             case 'pdf-to-markdown':
-                result = await pdfToMarkdown(files[0], onProgress);
+                result = await pdfToMarkdown(files[0], options, onProgress);
                 break;
 
             case 'check-accessibility':

@@ -9,14 +9,14 @@ describe('pdfToMarkdown', () => {
         const file = await createTextPdf(2, ['Hello world', 'Second page']);
         const result = await pdfToMarkdown(file);
         expect(result).toBeInstanceOf(Blob);
-        expect(result.type).toBe('text/markdown');
-        expect(result.size).toBeGreaterThan(0);
+        expect((result as Blob).type).toBe('text/markdown');
+        expect((result as Blob).size).toBeGreaterThan(0);
     });
 
     it('contains the source text', async () => {
         const file = await createTextPdf(1, ['Markdown conversion test']);
         const result = await pdfToMarkdown(file);
-        const text = await result.text();
+        const text = await (result as Blob).text();
         expect(text).toContain('Markdown');
         expect(text).toContain('conversion');
     });
@@ -24,14 +24,14 @@ describe('pdfToMarkdown', () => {
     it('separates pages with horizontal rules', async () => {
         const file = await createTextPdf(2, ['Page one text', 'Page two text']);
         const result = await pdfToMarkdown(file);
-        const text = await result.text();
+        const text = await (result as Blob).text();
         expect(text).toContain('---');
     });
 
     it('reports progress', async () => {
         const file = await createTextPdf(2, ['First', 'Second']);
         const values: number[] = [];
-        await pdfToMarkdown(file, (p) => values.push(p));
+        await pdfToMarkdown(file, {}, (p) => values.push(p));
         expect(values.length).toBeGreaterThan(0);
         expect(values[values.length - 1]).toBe(100);
     });

@@ -214,6 +214,10 @@ const nupLayout = ref<2 | 4 | 9>(4);
 const blankPagePosition = ref<'start' | 'end'>('end');
 // OCR
 const ocrLanguage = ref('eng');
+// Text extraction options (pdf-to-text, pdf-to-markdown)
+const textExtractImages = ref(false);
+const textOcr = ref(false);
+const textOcrLanguage = ref('eng');
 
 // Multi-file results
 const multiResults = ref<{ name: string; blob: Blob }[]>([]);
@@ -346,7 +350,11 @@ async function processSingleFile(
         case 'extract-images':
             return await runInWorker('extract-images', [file], {}, onProgress) as { name: string; blob: Blob }[];
         case 'pdf-to-text': {
-            const blob = await runInWorker('pdf-to-text', [file], {}, onProgress) as Blob;
+            const textOpts = { extractImages: textExtractImages.value, ocr: textOcr.value, ocrLanguage: textOcrLanguage.value };
+            if (textOpts.extractImages) {
+                return await runInWorker('pdf-to-text', [file], textOpts, onProgress) as { name: string; blob: Blob }[];
+            }
+            const blob = await runInWorker('pdf-to-text', [file], textOpts, onProgress) as Blob;
             return { name: `${baseName}.txt`, blob };
         }
         case 'split-pdf':
@@ -395,7 +403,11 @@ async function processSingleFile(
             return { name: `${baseName}.epub`, blob };
         }
         case 'pdf-to-markdown': {
-            const blob = await runInWorker('pdf-to-markdown', [file], {}, onProgress) as Blob;
+            const mdOpts = { extractImages: textExtractImages.value, ocr: textOcr.value, ocrLanguage: textOcrLanguage.value };
+            if (mdOpts.extractImages) {
+                return await runInWorker('pdf-to-markdown', [file], mdOpts, onProgress) as { name: string; blob: Blob }[];
+            }
+            const blob = await runInWorker('pdf-to-markdown', [file], mdOpts, onProgress) as Blob;
             return { name: `${baseName}.md`, blob };
         }
         default:
@@ -577,9 +589,15 @@ async function process() {
                     break;
                 }
                 case 'pdf-to-text': {
-                    const blob = await runInWorker('pdf-to-text', rawFiles, {}, updateProgress) as Blob;
-                    const name = rawFiles[0].name.replace(/\.pdf$/i, '.txt');
-                    setResult(blob, name);
+                    const textOpts = { extractImages: textExtractImages.value, ocr: textOcr.value, ocrLanguage: textOcrLanguage.value };
+                    if (textOpts.extractImages) {
+                        const results = await runInWorker('pdf-to-text', rawFiles, textOpts, updateProgress) as { name: string; blob: Blob }[];
+                        multiResults.value = results;
+                    } else {
+                        const blob = await runInWorker('pdf-to-text', rawFiles, textOpts, updateProgress) as Blob;
+                        const name = rawFiles[0].name.replace(/\.pdf$/i, '.txt');
+                        setResult(blob, name);
+                    }
                     break;
                 }
                 case 'markdown-to-pdf': {
@@ -656,9 +674,15 @@ async function process() {
                     break;
                 }
                 case 'pdf-to-markdown': {
-                    const blob = await runInWorker('pdf-to-markdown', rawFiles, {}, updateProgress) as Blob;
-                    const mdName = rawFiles[0].name.replace(/\.pdf$/i, '.md');
-                    setResult(blob, mdName);
+                    const mdOpts = { extractImages: textExtractImages.value, ocr: textOcr.value, ocrLanguage: textOcrLanguage.value };
+                    if (mdOpts.extractImages) {
+                        const results = await runInWorker('pdf-to-markdown', rawFiles, mdOpts, updateProgress) as { name: string; blob: Blob }[];
+                        multiResults.value = results;
+                    } else {
+                        const blob = await runInWorker('pdf-to-markdown', rawFiles, mdOpts, updateProgress) as Blob;
+                        const mdName = rawFiles[0].name.replace(/\.pdf$/i, '.md');
+                        setResult(blob, mdName);
+                    }
                     break;
                 }
                 case 'add-qr-code': {
@@ -724,8 +748,8 @@ function onAddMoreFiles(event: Event) {
 }
 
 // Tools that don't need extra options panel
-const noOptionsTools = ['merge-pdf', 'extract-images', 'grayscale-pdf', 'flatten-pdf', 'pdf-to-text',
-    'remove-blank-pages', 'reverse-pages', 'invert-colors', 'repair-pdf', 'pdf-to-epub', 'compare-pdf', 'booklet-pdf', 'pdf-to-markdown', 'check-accessibility'];
+const noOptionsTools = ['merge-pdf', 'extract-images', 'grayscale-pdf', 'flatten-pdf',
+    'remove-blank-pages', 'reverse-pages', 'invert-colors', 'repair-pdf', 'pdf-to-epub', 'compare-pdf', 'booklet-pdf', 'check-accessibility'];
 
 // Text-input tools (no file upload)
 const isTextInputTool = computed(() => props.tool === 'markdown-to-pdf' || props.tool === 'text-to-pdf');
@@ -1086,6 +1110,38 @@ const hasTextContent = computed(() => {
                             </select>
                         </div>
                         <p class="text-xs text-gray-400">{{ trans('tool.ocr.hint') }}</p>
+                    </div>
+
+                    <!-- PDF to Text / PDF to Markdown options -->
+                    <div v-else-if="tool === 'pdf-to-text' || tool === 'pdf-to-markdown'" class="space-y-4">
+                        <h3 class="font-semibold text-gray-900 dark:text-white">{{ trans('tool.text.options_title') }}</h3>
+                        <label class="flex items-center gap-3 cursor-pointer">
+                            <input v-model="textExtractImages" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-500" />
+                            <span class="text-sm text-gray-700 dark:text-gray-300">{{ trans('tool.text.extract_images') }}</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer">
+                            <input v-model="textOcr" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-500" />
+                            <span class="text-sm text-gray-700 dark:text-gray-300">{{ trans('tool.text.ocr_enable') }}</span>
+                        </label>
+                        <div v-if="textOcr">
+                            <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.ocr.language') }}</label>
+                            <select v-model="textOcrLanguage" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-purple-500 focus:ring-purple-500">
+                                <option value="eng">English</option>
+                                <option value="ita">Italiano</option>
+                                <option value="fra">Français</option>
+                                <option value="deu">Deutsch</option>
+                                <option value="spa">Español</option>
+                                <option value="por">Português</option>
+                                <option value="nld">Nederlands</option>
+                                <option value="swe">Svenska</option>
+                                <option value="dan">Dansk</option>
+                                <option value="nor">Norsk</option>
+                                <option value="fin">Suomi</option>
+                                <option value="ell">Ελληνικά</option>
+                                <option value="ces">Čeština</option>
+                                <option value="slv">Slovenščina</option>
+                            </select>
+                        </div>
                     </div>
 
                     <!-- Default: no extra options -->

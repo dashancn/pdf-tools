@@ -232,6 +232,30 @@ export async function canvasToBlob(
 }
 
 /**
+ * Convert a pdfjs image object (with .data or .bitmap) to a PNG Blob.
+ */
+export async function imageDataToBlob(img: any): Promise<Blob> {
+    const canvas = createCanvas(img.width, img.height);
+    const ctx = canvas.getContext('2d');
+    if (!ctx) throw new Error('Failed to get canvas 2d context');
+
+    if (img.bitmap) {
+        (ctx as any).drawImage(img.bitmap, 0, 0);
+    } else if (img.data) {
+        const imageData = new ImageData(
+            new Uint8ClampedArray(img.data),
+            img.width,
+            img.height
+        );
+        (ctx as any).putImageData(imageData, 0, 0);
+    } else {
+        throw new Error('Image object has neither data nor bitmap');
+    }
+
+    return canvasToBlob(canvas, 'image/png');
+}
+
+/**
  * Render a single page of a PDF as an image Blob using pdf.js.
  */
 export async function renderPageAsImage(
