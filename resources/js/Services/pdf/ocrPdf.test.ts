@@ -12,9 +12,8 @@ vi.mock('@/Services/pdfUtils', async (importOriginal) => {
     };
 });
 
-// Mock tesseract.js — avoid downloading real language models
-vi.mock('tesseract.js', () => ({
-    createWorker: async () => ({
+const { createWorker } = vi.hoisted(() => ({
+    createWorker: vi.fn(async () => ({
         recognize: async () => ({
             data: {
                 text: 'Mock OCR text',
@@ -31,8 +30,11 @@ vi.mock('tesseract.js', () => ({
             },
         }),
         terminate: async () => {},
-    }),
+    })),
 }));
+
+// Mock tesseract.js — avoid downloading real language models
+vi.mock('tesseract.js', () => ({ createWorker }));
 
 import { ocrPdf } from '@/Services/pdf/ocrPdf';
 
@@ -42,6 +44,14 @@ describe('ocrPdf', () => {
         const result = await ocrPdf(file);
         const doc = await expectValidPdf(result, 2);
         expectDefaultMetadata(doc, 'ocr pdf');
+        expect(createWorker).toHaveBeenCalledWith(
+            'chi_sim+eng',
+            undefined,
+            expect.objectContaining({
+                workerPath: expect.stringContaining('cdn.jsdelivr.net'),
+                langPath: expect.stringContaining('tessdata.projectnaptha.com'),
+            }),
+        );
     });
 
     it('handles single page', async () => {

@@ -1,5 +1,6 @@
 import * as pdfjsLib from 'pdfjs-dist';
 import { MAX_PDF_PAGES, getPdfjsDocument, createCanvas, canvasToBlob, imageDataToBlob } from '../pdfUtils';
+import { tesseractWorkerOptions } from '../tesseractConfig';
 
 export interface TextExtractionOptions {
     extractImages?: boolean;
@@ -39,7 +40,7 @@ export async function pdfToText(
     let ocrWorker: any = null;
     if (useOcr) {
         const { createWorker } = await import('tesseract.js');
-        ocrWorker = await createWorker(ocrLang);
+        ocrWorker = await createWorker(ocrLang, undefined, tesseractWorkerOptions());
     }
 
     const pages: string[] = [];

@@ -68,7 +68,14 @@ describe('pdfToText', () => {
         const result = await pdfToText(file, { ocr: true, ocrLanguage: 'chi_sim' });
         const text = await (result as Blob).text();
 
-        expect(createWorker).toHaveBeenCalledWith('chi_sim');
+        expect(createWorker).toHaveBeenCalledWith(
+            'chi_sim',
+            undefined,
+            expect.objectContaining({
+                workerPath: expect.stringContaining('cdn.jsdelivr.net'),
+                langPath: expect.stringContaining('tessdata.projectnaptha.com'),
+            }),
+        );
         expect(recognize).toHaveBeenCalledOnce();
         expect(text).toContain('中文 OCR 结果');
         expect(text).not.toContain('Broken encoded text layer');
