@@ -12,4 +12,7 @@
   Cache-Control: public, max-age=3600
 
 /sw.js
-  Cache-Control: no-cache
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/registerSW.js
+  Cache-Control: no-store, no-cache, must-revalidate

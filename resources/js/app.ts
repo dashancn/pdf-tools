@@ -17,7 +17,9 @@ import router from './router';
 import { i18nPlugin, currentLocale } from './i18n';
 import { initDarkMode } from './Composables/useDarkMode';
 import { useWebVitals } from './Composables/useWebVitals';
+import { registerServiceWorker } from './registerServiceWorker';
 
+registerServiceWorker();
 initDarkMode();
 
 const app = createApp(App);
