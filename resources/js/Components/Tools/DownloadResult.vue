@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
 import { trans } from '@/i18n';
 
 interface Props {
@@ -15,26 +14,6 @@ const emit = defineEmits<{
     reset: [];
 }>();
 
-const adContainer = ref<HTMLElement | null>(null);
-const showAd = ref(false);
-const adsenseEnabled = import.meta.env.VITE_ADSENSE === 'true';
-
-onMounted(() => {
-    if (!adsenseEnabled) return;
-    if (localStorage.getItem('cookie_consent') !== 'accepted') return;
-    if (!adContainer.value) return;
-    showAd.value = true;
-    if (!(window as any).adsbygoogle) {
-        const script = document.createElement('script');
-        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5726322074030092';
-        script.async = true;
-        script.crossOrigin = 'anonymous';
-        document.head.appendChild(script);
-    }
-    try {
-        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
-    } catch {}
-});
 
 function formatFileSize(bytes: number): string {
     if (bytes === 0) return '0 B';
@@ -118,15 +97,5 @@ function formatFileSize(bytes: number): string {
             </button>
         </div>
 
-        <!-- Google AdSense banner (only if cookies accepted) -->
-        <div v-if="showAd" ref="adContainer" class="border-t border-green-200 px-6 py-4">
-            <ins
-                class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-5726322074030092"
-                data-ad-format="auto"
-                data-full-width-responsive="true"
-            ></ins>
-        </div>
     </div>
 </template>

@@ -15,11 +15,11 @@ onMounted(() => {
             '@type': 'CollectionPage',
             name: 'PDF Worker Blog',
             description: trans('blog.meta_description'),
-            url: 'https://www.pdfworker.eu/#/blog',
+            url: 'https://pdf.i41.cn/#/blog',
             publisher: {
                 '@type': 'Organization',
-                name: 'PDF Worker',
-                url: 'https://www.pdfworker.eu',
+                name: 'PDF 工具箱',
+                url: 'https://pdf.i41.cn',
             },
         },
     );

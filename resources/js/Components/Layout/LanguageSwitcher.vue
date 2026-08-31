@@ -15,6 +15,7 @@ onMounted(() => document.addEventListener('click', onClickOutside));
 onBeforeUnmount(() => document.removeEventListener('click', onClickOutside));
 
 const flags: Record<string, string> = {
+    'zh-CN': '\u{1F1E8}\u{1F1F3}',
     it: '\u{1F1EE}\u{1F1F9}',
     en: '\u{1F1EC}\u{1F1E7}',
     es: '\u{1F1EA}\u{1F1F8}',

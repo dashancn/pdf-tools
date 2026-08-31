@@ -387,7 +387,6 @@
     "toast.invalid_file": "Nepodporovaný formát souboru",
     "home.search_placeholder": "Hledat nástroje...",
     "home.no_results": "Žádné nástroje nebyly nalezeny. Zkuste jiné vyhledávání.",
-
     "home.section.organize": "Organizovat a Upravit",
     "home.section.convert": "Převést",
     "home.section.annotate": "Anotovat a Vylepšit",
@@ -449,7 +448,6 @@
     "tools.edit-metadata.faq_2_a": "Ano. Jednoduše vymažte všechna pole a uložte. Metadata budou nastavena na prázdné hodnoty.",
     "tools.edit-metadata.faq_3_q": "Nahrávají se moje soubory na server?",
     "tools.edit-metadata.faq_3_a": "Ne. Veškeré zpracování probíhá lokálně ve vašem prohlížeči. Vaše soubory nikdy neopustí vaše zařízení.",
-
     "tools.pdf-to-webp.name": "PDF do WebP",
     "tools.pdf-to-webp.description": "Převeďte stránky PDF na moderní obrázky WebP.",
     "tool.pdftowebp.action": "Převést na WebP",
@@ -461,7 +459,6 @@
     "tools.pdf-to-webp.step_3": "Klikněte na Převést na WebP a stáhněte obrázky.",
     "tools.pdf-to-webp.faq_1_q": "Proč použít WebP místo JPG?",
     "tools.pdf-to-webp.faq_1_a": "Obrázky WebP jsou obvykle o 25–34 % menší než JPG při stejné kvalitě, což je ideální pro webové použití.",
-
     "tools.nup-pdf.name": "N-Up PDF",
     "tools.nup-pdf.description": "Zkombinujte více stránek na jeden list (2, 4 nebo 9 na stránku).",
     "tool.nup.action": "Použít N-Up rozložení",
@@ -473,7 +470,6 @@
     "tools.nup-pdf.step_3": "Klikněte na Použít N-Up rozložení a stáhněte.",
     "tools.nup-pdf.faq_1_q": "Co je N-Up tisk?",
     "tools.nup-pdf.faq_1_a": "N-Up znamená umístění více stránek na jeden list. Například 4-up vytiskne čtyři stránky na jeden list.",
-
     "tools.add-blank-page.name": "Přidat prázdnou stránku",
     "tools.add-blank-page.description": "Vložte prázdnou stránku na začátek nebo konec vašeho PDF.",
     "tool.blankpage.action": "Přidat prázdnou stránku",
@@ -484,7 +480,6 @@
     "tools.add-blank-page.step_1": "Nahrajte soubor PDF.",
     "tools.add-blank-page.step_2": "Zvolte, kam chcete vložit prázdnou stránku.",
     "tools.add-blank-page.step_3": "Klikněte na Přidat prázdnou stránku a stáhněte.",
-
     "tools.remove-blank-pages.name": "Odstranit prázdné stránky",
     "tools.remove-blank-pages.description": "Automaticky detekujte a odstraňte prázdné stránky z vašeho PDF.",
     "tool.removeblank.action": "Odstranit prázdné stránky",
@@ -495,7 +490,6 @@
     "tools.remove-blank-pages.step_3": "Stáhněte vyčištěný PDF.",
     "tools.remove-blank-pages.faq_1_q": "Jak se detekují prázdné stránky?",
     "tools.remove-blank-pages.faq_1_a": "Každá stránka se vykreslí a analyzuje. Pokud je 99,5 % nebo více pixelů bílých, stránka se považuje za prázdnou.",
-
     "tools.ocr-pdf.name": "OCR PDF",
     "tools.ocr-pdf.description": "Udělejte skenované PDF prohledávatelné pomocí optického rozpoznávání znaků.",
     "tool.ocr.action": "Spustit OCR",
@@ -511,7 +505,6 @@
     "tools.ocr-pdf.step_3": "Klikněte na Spustit OCR a stáhněte prohledávatelný PDF.",
     "tools.ocr-pdf.faq_1_q": "Funguje OCR na ručně psaném textu?",
     "tools.ocr-pdf.faq_1_a": "OCR funguje nejlépe na tištěném textu. Ručně psaný text nemusí být přesně rozpoznán.",
-
     "tools.compare-pdf.name": "Porovnat PDF",
     "tools.compare-pdf.description": "Porovnejte dva PDF vedle sebe a zvýrazněte rozdíly.",
     "tool.compare.action": "Porovnat PDF",
@@ -522,7 +515,6 @@
     "tools.compare-pdf.step_3": "Stáhněte srovnávací dokument.",
     "tools.compare-pdf.faq_1_q": "Jak se zobrazují rozdíly?",
     "tools.compare-pdf.faq_1_a": "Stránky se zobrazí vedle sebe. Pixely, které se mezi dokumenty liší, jsou na pravé straně zvýrazněny červeně.",
-
     "tools.text-to-pdf.name": "Text do PDF",
     "tools.text-to-pdf.description": "Převeďte prostý text na formátovaný dokument PDF.",
     "tool.texttopdf.action": "Vytvořit PDF",
@@ -533,7 +525,6 @@
     "tools.text-to-pdf.step_1": "Napište nebo vložte text do textového pole.",
     "tools.text-to-pdf.step_2": "Klikněte na Vytvořit PDF.",
     "tools.text-to-pdf.step_3": "Stáhněte dokument PDF.",
-
     "tools.reverse-pages.name": "Obrátit stránky",
     "tools.reverse-pages.description": "Obraťte pořadí všech stránek ve vašem PDF.",
     "tool.reverse.action": "Obrátit stránky",
@@ -542,7 +533,6 @@
     "tools.reverse-pages.step_1": "Nahrajte soubor PDF.",
     "tools.reverse-pages.step_2": "Klikněte na Obrátit stránky.",
     "tools.reverse-pages.step_3": "Stáhněte obrácený PDF.",
-
     "tools.invert-colors.name": "Invertovat barvy",
     "tools.invert-colors.description": "Invertujte všechny barvy ve vašem PDF pro negativní efekt.",
     "tool.invert.action": "Invertovat barvy",
@@ -551,7 +541,6 @@
     "tools.invert-colors.step_1": "Nahrajte soubor PDF.",
     "tools.invert-colors.step_2": "Klikněte na Invertovat barvy.",
     "tools.invert-colors.step_3": "Stáhněte invertovaný PDF.",
-
     "tools.repair-pdf.name": "Opravit PDF",
     "tools.repair-pdf.description": "Pokuste se opravit poškozený soubor PDF.",
     "tool.repair.action": "Opravit PDF",
@@ -562,7 +551,6 @@
     "tools.repair-pdf.step_3": "Stáhněte opravený soubor.",
     "tools.repair-pdf.faq_1_q": "Lze opravit všechny PDF?",
     "tools.repair-pdf.faq_1_a": "Ne vždy. Nástroj dokáže opravit mnoho běžných problémů, ale vážně poškozené soubory nemusí být obnovitelné.",
-
     "tools.pdf-to-epub.name": "PDF do EPUB",
     "tools.pdf-to-epub.description": "Převeďte dokument PDF na elektronickou knihu EPUB.",
     "tool.pdftoepub.action": "Převést na EPUB",
@@ -573,7 +561,6 @@
     "tools.pdf-to-epub.step_3": "Stáhněte soubor EPUB.",
     "tools.pdf-to-epub.faq_1_q": "Funguje to se skenovanými PDF?",
     "tools.pdf-to-epub.faq_1_a": "Ne. Tento nástroj extrahuje vložený text. Skenované PDF nejprve potřebují OCR, aby byl text dostupný.",
-
     "tools.booklet-pdf.name": "PDF brožura",
     "tools.booklet-pdf.description": "Přeuspořádejte stránky pro oboustranný tisk brožury. Přeložte a sešijte do brožury.",
     "tool.booklet.action": "Vytvořit brožuru",
@@ -610,7 +597,6 @@
     "tool.qrcode.preview_label": "Náhled QR code",
     "tool.qrcode.no_text": "Zadejte text pro vygenerování QR code",
     "tool.qrcode.all_pages": "Přidat QR kód na všechny stránky",
-
     "tools.check-accessibility.name": "Kontrola přístupnosti",
     "tools.check-accessibility.description": "Analyzujte svůj PDF na problémy s přístupností: značky, alt text, jazyk, písma a další.",
     "tools.check-accessibility.how_title": "Jak zkontrolovat přístupnost PDF",
@@ -638,5 +624,25 @@
     "tools.pdf-to-markdown.faq_2_a": "Převodník analyzuje velikosti písma a tučný styl. Text, který je tučný a kratší než 80 znaků, je považován za nadpis.",
     "tools.pdf-to-markdown.faq_3_q": "Nahraje převod můj soubor?",
     "tools.pdf-to-markdown.faq_3_a": "Ne. Veškerý převod probíhá zcela ve vašem prohlížeči. Váš soubor nikdy neopustí vaše zařízení.",
-    "tool.pdftomarkdown.action": "Převést do Markdown"
+    "tool.pdftomarkdown.action": "Převést do Markdown",
+    "tools.invoice-nup.name": "A4 Invoice Layout",
+    "tools.invoice-nup.description": "Arrange invoice PDF pages on portrait A4 sheets in 2-up or 4-up layouts.",
+    "tool.invoice_nup.action": "Create A4 Invoice Layout",
+    "tool.invoice_nup.layout": "Pages per A4 sheet",
+    "tool.invoice_nup.layout_2": "2-up (top and bottom)",
+    "tool.invoice_nup.layout_4": "4-up (2 × 2)",
+    "tool.invoice_nup.margin": "Page margin (pt)",
+    "tool.invoice_nup.gap": "Gap between invoices (pt)",
+    "tool.invoice_nup.auto_rotate": "Auto-rotate individual pages when it improves the fit",
+    "tools.invoice-nup.how_title": "How to Arrange Invoices on A4",
+    "tools.invoice-nup.how_text": "Place pages from one or more PDFs onto portrait A4 sheets while preserving their proportions and order.",
+    "tools.invoice-nup.step_1": "Upload one or more invoice PDF files in the required order.",
+    "tools.invoice-nup.step_2": "Choose 2-up or 4-up and adjust the margin and gap if needed.",
+    "tools.invoice-nup.step_3": "Create and download the print-ready A4 PDF.",
+    "tools.invoice-nup.faq_1_q": "Will invoice pages be stretched?",
+    "tools.invoice-nup.faq_1_a": "No. Every source page keeps its original aspect ratio and is centered in its cell.",
+    "tools.invoice-nup.faq_2_q": "Can I combine several PDF files?",
+    "tools.invoice-nup.faq_2_a": "Yes. All pages are arranged in file order and then page order.",
+    "tools.invoice-nup.faq_3_q": "Are my invoices uploaded?",
+    "tools.invoice-nup.faq_3_a": "No. Processing runs locally in your browser and your files never leave your device."
 }

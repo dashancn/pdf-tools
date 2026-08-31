@@ -1,103 +1,98 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import { trans } from '@/i18n';
 import LanguageSwitcher from './LanguageSwitcher.vue';
 import { isDark, toggleDarkMode } from '@/Composables/useDarkMode';
 
 const mobileMenuOpen = ref(false);
 
-function toggleMobileMenu() {
-    mobileMenuOpen.value = !mobileMenuOpen.value;
+const companyTools = [
+    {
+        name: 'i方案',
+        href: 'https://www.i41.cn',
+        featured: true,
+        tooltip: 'i方案是一套面向本地实体商家、内容运营人员和营销服务团队的智能内容工作平台。平台围绕行业、平台、品类、风格和使用场景，提供文案生成、文案诊断、客户跟单话术、文生图、视频包制作和精品模板等能力，帮助用户从内容构思、表单草稿、生成优化到后续复用形成完整工作链路。',
+    },
+    {
+        name: '开发者工具',
+        href: 'https://tools.i41.cn',
+        tooltip: '开发者工具箱汇集编码转换、格式化、加密、网络、文本和图片等常用在线工具，强调快速、易用和浏览器端处理。',
+    },
+    {
+        name: '图片压缩',
+        href: 'https://imgzip.i41.cn',
+        tooltip: '图片修改压缩是一款浏览器端在线图片处理工具，支持压缩、调整尺寸和格式转换，适合日常上传、分享和网页优化。',
+    },
+    {
+        name: '证件照',
+        href: 'https://idphoto.i41.cn',
+        tooltip: '证件照工作室支持本地智能抠图、背景换色、常用证件尺寸和 300DPI 多图拼版，照片无需上传到业务服务器。',
+    },
+    {
+        name: 'PDF 工具',
+        href: '/',
+        tooltip: 'PDF 工具箱提供 PDF 合并、拆分、压缩、转换、编辑和发票拼版等浏览器端工具，文件无需上传。',
+    },
+];
+
+function closeMobileMenu() {
+    mobileMenuOpen.value = false;
 }
 </script>
 
 <template>
-    <nav class="sticky top-0 z-50 w-full bg-white shadow-sm dark:bg-gray-800 dark:shadow-gray-900/30">
+    <nav class="sticky top-0 z-50 w-full bg-white shadow-sm dark:bg-gray-800 dark:shadow-gray-900/30" aria-label="i41 工具导航">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex h-16 items-center justify-between">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <RouterLink to="/" class="flex items-center gap-2 text-xl font-bold text-gray-900 hover:opacity-80 transition-opacity dark:text-white">
-                        <span class="text-2xl">🔧</span>
-                        <span>PDF Worker</span>
-                    </RouterLink>
-                </div>
+            <div class="flex min-h-16 items-center justify-between gap-4">
+                <RouterLink to="/" class="flex shrink-0 items-center gap-2 text-xl font-bold text-gray-900 transition-opacity hover:opacity-80 dark:text-white">
+                    <span class="text-2xl" aria-hidden="true">🧰</span>
+                    <span>PDF 工具箱</span>
+                </RouterLink>
 
-                <!-- Desktop right section -->
-                <div class="hidden md:flex items-center gap-2">
-                    <RouterLink to="/blog" class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
-                        {{ trans('nav.blog') }}
-                    </RouterLink>
-                    <button
-                        type="button"
-                        :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-                        class="rounded-md p-2 text-gray-500 hover:bg-gray-100 transition-colors dark:text-gray-400 dark:hover:bg-gray-700"
-                        @click="toggleDarkMode"
-                    >
-                        <svg v-if="isDark" aria-hidden="true" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-                        </svg>
-                        <svg v-else aria-hidden="true" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-                        </svg>
+                <div class="hidden items-center gap-1 lg:flex">
+                    <template v-for="item in companyTools" :key="item.name">
+                        <RouterLink
+                            v-if="item.href === '/'"
+                            to="/"
+                            class="group relative rounded-md px-3 py-2 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-blue-300 dark:hover:bg-gray-700"
+                        >
+                            {{ item.name }}
+                            <span role="tooltip" class="invisible absolute left-1/2 top-full z-50 mt-2 w-72 -translate-x-1/2 rounded-lg bg-gray-900 px-3 py-2 text-left text-xs font-normal leading-5 text-white opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100 group-focus-visible:visible group-focus-visible:opacity-100">{{ item.tooltip }}</span>
+                        </RouterLink>
+                        <a
+                            v-else
+                            :href="item.href"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            :class="['group relative rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500', item.featured ? 'bg-blue-600 text-white hover:bg-blue-700' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white']"
+                        >
+                            {{ item.name }}
+                            <span role="tooltip" class="invisible absolute left-1/2 top-full z-50 mt-2 w-72 -translate-x-1/2 rounded-lg bg-gray-900 px-3 py-2 text-left text-xs font-normal leading-5 text-white opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100 group-focus-visible:visible group-focus-visible:opacity-100">{{ item.tooltip }}</span>
+                        </a>
+                    </template>
+                    <button type="button" :aria-label="isDark ? '切换浅色模式' : '切换深色模式'" class="rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700" @click="toggleDarkMode">
+                        <span aria-hidden="true">{{ isDark ? '☀️' : '🌙' }}</span>
                     </button>
                     <LanguageSwitcher />
                 </div>
 
-                <!-- Mobile hamburger -->
-                <div class="flex md:hidden">
-                    <button
-                        type="button"
-                        class="inline-flex items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200"
-                        aria-controls="mobile-menu"
-                        :aria-expanded="mobileMenuOpen"
-                        @click="toggleMobileMenu"
-                    >
-                        <span class="sr-only">{{ trans('Open menu') }}</span>
-                        <svg v-if="!mobileMenuOpen" aria-hidden="true" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg v-else aria-hidden="true" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
+                <button type="button" class="rounded-md p-2 text-gray-500 hover:bg-gray-100 lg:hidden dark:hover:bg-gray-700" aria-controls="mobile-menu" :aria-expanded="mobileMenuOpen" aria-label="打开工具导航" @click="mobileMenuOpen = !mobileMenuOpen">
+                    <span aria-hidden="true">{{ mobileMenuOpen ? '✕' : '☰' }}</span>
+                </button>
             </div>
         </div>
 
-        <!-- Mobile menu -->
-        <Transition
-            enter-active-class="transition ease-out duration-200"
-            enter-from-class="opacity-0 -translate-y-1"
-            enter-to-class="opacity-100 translate-y-0"
-            leave-active-class="transition ease-in duration-150"
-            leave-from-class="opacity-100 translate-y-0"
-            leave-to-class="opacity-0 -translate-y-1"
-        >
-            <div v-if="mobileMenuOpen" id="mobile-menu" class="border-t border-gray-200 bg-white md:hidden dark:border-gray-700 dark:bg-gray-800" @keydown.escape="mobileMenuOpen = false">
-                <div class="px-4 pt-3 pb-1">
-                    <RouterLink to="/blog" class="block rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white" @click="mobileMenuOpen = false">
-                        {{ trans('nav.blog') }}
-                    </RouterLink>
-                </div>
-                <div class="flex items-center justify-between px-4 py-3">
-                    <LanguageSwitcher />
-                    <button
-                        type="button"
-                        :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-                        class="rounded-md p-2 text-gray-500 hover:bg-gray-100 transition-colors dark:text-gray-400 dark:hover:bg-gray-700"
-                        @click="toggleDarkMode"
-                    >
-                        <svg v-if="isDark" aria-hidden="true" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-                        </svg>
-                        <svg v-else aria-hidden="true" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-                        </svg>
-                    </button>
-                </div>
+        <div v-if="mobileMenuOpen" id="mobile-menu" class="border-t border-gray-200 bg-white px-4 py-3 lg:hidden dark:border-gray-700 dark:bg-gray-800">
+            <div class="grid gap-2 sm:grid-cols-2">
+                <template v-for="item in companyTools" :key="item.name">
+                    <RouterLink v-if="item.href === '/'" to="/" :title="item.tooltip" class="rounded-md bg-blue-50 px-3 py-2 text-sm font-semibold text-blue-700 dark:bg-gray-700 dark:text-blue-300" @click="closeMobileMenu">{{ item.name }}<span class="block text-xs font-normal opacity-75">{{ item.tooltip }}</span></RouterLink>
+                    <a v-else :href="item.href" target="_blank" rel="noopener noreferrer" :title="item.tooltip" :class="['rounded-md px-3 py-2 text-sm font-semibold', item.featured ? 'bg-blue-600 text-white' : 'bg-gray-50 text-gray-700 dark:bg-gray-700 dark:text-gray-200']" @click="closeMobileMenu">{{ item.name }}<span class="block text-xs font-normal opacity-75">{{ item.tooltip }}</span></a>
+                </template>
             </div>
-        </Transition>
+            <div class="mt-3 flex items-center justify-between border-t border-gray-200 pt-3 dark:border-gray-700">
+                <LanguageSwitcher />
+                <button type="button" :aria-label="isDark ? '切换浅色模式' : '切换深色模式'" class="rounded-md p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700" @click="toggleDarkMode">{{ isDark ? '☀️' : '🌙' }}</button>
+            </div>
+        </div>
     </nav>
 </template>

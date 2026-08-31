@@ -387,7 +387,6 @@
     "toast.invalid_file": "Filformatet stöds inte",
     "home.search_placeholder": "Sök verktyg...",
     "home.no_results": "Inga verktyg hittades. Prova en annan sökning.",
-
     "home.section.organize": "Organisera och Redigera",
     "home.section.convert": "Konvertera",
     "home.section.annotate": "Kommentera och Förbättra",
@@ -449,7 +448,6 @@
     "tools.edit-metadata.faq_2_a": "Ja. Rensa helt enkelt alla fält och spara. Metadata kommer att sättas till tomma värden.",
     "tools.edit-metadata.faq_3_q": "Laddas mina filer upp till en server?",
     "tools.edit-metadata.faq_3_a": "Nej. All bearbetning sker lokalt i din webbläsare. Dina filer lämnar aldrig din enhet.",
-
     "tools.pdf-to-webp.name": "PDF till WebP",
     "tools.pdf-to-webp.description": "Konvertera PDF-sidor till moderna WebP-bilder.",
     "tool.pdftowebp.action": "Konvertera till WebP",
@@ -461,7 +459,6 @@
     "tools.pdf-to-webp.step_3": "Klicka på Konvertera till WebP och ladda ner bilderna.",
     "tools.pdf-to-webp.faq_1_q": "Varför använda WebP istället för JPG?",
     "tools.pdf-to-webp.faq_1_a": "WebP-bilder är vanligtvis 25-34% mindre än JPG vid samma kvalitet, vilket gör dem idealiska för webbanvändning.",
-
     "tools.nup-pdf.name": "N-Up PDF",
     "tools.nup-pdf.description": "Kombinera flera sidor på ett enda ark (2, 4 eller 9 per sida).",
     "tool.nup.action": "Tillämpa N-Up-layout",
@@ -473,7 +470,6 @@
     "tools.nup-pdf.step_3": "Klicka på Tillämpa N-Up-layout och ladda ner.",
     "tools.nup-pdf.faq_1_q": "Vad är N-Up-utskrift?",
     "tools.nup-pdf.faq_1_a": "N-Up innebär att flera sidor placeras på ett enda ark. Till exempel skriver 4-up ut fyra sidor på ett ark.",
-
     "tools.add-blank-page.name": "Lägg till tom sida",
     "tools.add-blank-page.description": "Infoga en tom sida i början eller slutet av din PDF.",
     "tool.blankpage.action": "Lägg till tom sida",
@@ -484,7 +480,6 @@
     "tools.add-blank-page.step_1": "Ladda upp en PDF-fil.",
     "tools.add-blank-page.step_2": "Välj var den tomma sidan ska infogas.",
     "tools.add-blank-page.step_3": "Klicka på Lägg till tom sida och ladda ner.",
-
     "tools.remove-blank-pages.name": "Ta bort tomma sidor",
     "tools.remove-blank-pages.description": "Identifiera och ta bort tomma sidor från din PDF automatiskt.",
     "tool.removeblank.action": "Ta bort tomma sidor",
@@ -495,7 +490,6 @@
     "tools.remove-blank-pages.step_3": "Ladda ner den rensade PDF-filen.",
     "tools.remove-blank-pages.faq_1_q": "Hur identifieras tomma sidor?",
     "tools.remove-blank-pages.faq_1_a": "Varje sida renderas och analyseras. Om 99,5% eller mer av pixlarna är vita betraktas sidan som tom.",
-
     "tools.ocr-pdf.name": "OCR PDF",
     "tools.ocr-pdf.description": "Gör skannade PDF-filer sökbara med optisk teckenigenkänning.",
     "tool.ocr.action": "Kör OCR",
@@ -511,7 +505,6 @@
     "tools.ocr-pdf.step_3": "Klicka på Kör OCR och ladda ner den sökbara PDF-filen.",
     "tools.ocr-pdf.faq_1_q": "Fungerar OCR på handskriven text?",
     "tools.ocr-pdf.faq_1_a": "OCR fungerar bäst på tryckt text. Handskriven text kanske inte känns igen korrekt.",
-
     "tools.compare-pdf.name": "Jämför PDF",
     "tools.compare-pdf.description": "Jämför två PDF-filer sida vid sida och markera skillnaderna.",
     "tool.compare.action": "Jämför PDF-filer",
@@ -522,7 +515,6 @@
     "tools.compare-pdf.step_3": "Ladda ner jämförelsedokumentet.",
     "tools.compare-pdf.faq_1_q": "Hur visas skillnaderna?",
     "tools.compare-pdf.faq_1_a": "Sidorna renderas sida vid sida. Pixlar som skiljer sig mellan de två dokumenten markeras i rött på höger sida.",
-
     "tools.text-to-pdf.name": "Text till PDF",
     "tools.text-to-pdf.description": "Konvertera ren text till ett formaterat PDF-dokument.",
     "tool.texttopdf.action": "Generera PDF",
@@ -533,7 +525,6 @@
     "tools.text-to-pdf.step_1": "Skriv eller klistra in din text i textfältet.",
     "tools.text-to-pdf.step_2": "Klicka på Generera PDF.",
     "tools.text-to-pdf.step_3": "Ladda ner PDF-dokumentet.",
-
     "tools.reverse-pages.name": "Vänd sidordning",
     "tools.reverse-pages.description": "Vänd ordningen på alla sidor i din PDF.",
     "tool.reverse.action": "Vänd sidordning",
@@ -542,7 +533,6 @@
     "tools.reverse-pages.step_1": "Ladda upp en PDF-fil.",
     "tools.reverse-pages.step_2": "Klicka på Vänd sidordning.",
     "tools.reverse-pages.step_3": "Ladda ner den omvända PDF-filen.",
-
     "tools.invert-colors.name": "Invertera färger",
     "tools.invert-colors.description": "Invertera alla färger i din PDF för en negativ effekt.",
     "tool.invert.action": "Invertera färger",
@@ -551,7 +541,6 @@
     "tools.invert-colors.step_1": "Ladda upp en PDF-fil.",
     "tools.invert-colors.step_2": "Klicka på Invertera färger.",
     "tools.invert-colors.step_3": "Ladda ner den inverterade PDF-filen.",
-
     "tools.repair-pdf.name": "Reparera PDF",
     "tools.repair-pdf.description": "Försök att reparera en skadad PDF-fil.",
     "tool.repair.action": "Reparera PDF",
@@ -562,7 +551,6 @@
     "tools.repair-pdf.step_3": "Ladda ner den reparerade filen.",
     "tools.repair-pdf.faq_1_q": "Kan alla PDF-filer repareras?",
     "tools.repair-pdf.faq_1_a": "Inte alltid. Verktyget kan åtgärda många vanliga problem, men allvarligt skadade filer kanske inte kan återställas.",
-
     "tools.pdf-to-epub.name": "PDF till EPUB",
     "tools.pdf-to-epub.description": "Konvertera ett PDF-dokument till en EPUB-ebok.",
     "tool.pdftoepub.action": "Konvertera till EPUB",
@@ -609,7 +597,6 @@
     "tool.qrcode.preview_label": "Förhandsvisning av QR code",
     "tool.qrcode.no_text": "Ange en text för att generera en QR code",
     "tool.qrcode.all_pages": "Lägg till QR-kod på alla sidor",
-
     "tools.check-accessibility.name": "Tillgänglighetskontroll",
     "tools.check-accessibility.description": "Analysera din PDF för tillgänglighetsproblem: taggar, alt text, språk, teckensnitt och mer.",
     "tools.check-accessibility.how_title": "Hur man kontrollerar PDF-tillgänglighet",
@@ -637,5 +624,25 @@
     "tools.pdf-to-markdown.faq_2_a": "Konverteraren analyserar teckenstorlekar och fetstil. Text som är fet och kortare än 80 tecken behandlas som rubrik.",
     "tools.pdf-to-markdown.faq_3_q": "Laddas min fil upp vid konvertering?",
     "tools.pdf-to-markdown.faq_3_a": "Nej. All konvertering sker helt i din webbläsare. Din fil lämnar aldrig din enhet.",
-    "tool.pdftomarkdown.action": "Konvertera till Markdown"
+    "tool.pdftomarkdown.action": "Konvertera till Markdown",
+    "tools.invoice-nup.name": "A4 Invoice Layout",
+    "tools.invoice-nup.description": "Arrange invoice PDF pages on portrait A4 sheets in 2-up or 4-up layouts.",
+    "tool.invoice_nup.action": "Create A4 Invoice Layout",
+    "tool.invoice_nup.layout": "Pages per A4 sheet",
+    "tool.invoice_nup.layout_2": "2-up (top and bottom)",
+    "tool.invoice_nup.layout_4": "4-up (2 × 2)",
+    "tool.invoice_nup.margin": "Page margin (pt)",
+    "tool.invoice_nup.gap": "Gap between invoices (pt)",
+    "tool.invoice_nup.auto_rotate": "Auto-rotate individual pages when it improves the fit",
+    "tools.invoice-nup.how_title": "How to Arrange Invoices on A4",
+    "tools.invoice-nup.how_text": "Place pages from one or more PDFs onto portrait A4 sheets while preserving their proportions and order.",
+    "tools.invoice-nup.step_1": "Upload one or more invoice PDF files in the required order.",
+    "tools.invoice-nup.step_2": "Choose 2-up or 4-up and adjust the margin and gap if needed.",
+    "tools.invoice-nup.step_3": "Create and download the print-ready A4 PDF.",
+    "tools.invoice-nup.faq_1_q": "Will invoice pages be stretched?",
+    "tools.invoice-nup.faq_1_a": "No. Every source page keeps its original aspect ratio and is centered in its cell.",
+    "tools.invoice-nup.faq_2_q": "Can I combine several PDF files?",
+    "tools.invoice-nup.faq_2_a": "Yes. All pages are arranged in file order and then page order.",
+    "tools.invoice-nup.faq_3_q": "Are my invoices uploaded?",
+    "tools.invoice-nup.faq_3_a": "No. Processing runs locally in your browser and your files never leave your device."
 }

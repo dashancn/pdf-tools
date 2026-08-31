@@ -1,51 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PDF Worker - Free Online PDF Tools</title>
-    <meta name="description" content="Free online PDF tools that run entirely in your browser. Merge, split, compress, rotate, watermark, convert, sign, edit and protect PDFs. No upload, no registration.">
-    <meta name="keywords" content="PDF tools, merge PDF, split PDF, compress PDF, rotate PDF, PDF to JPG, JPG to PDF, watermark PDF, sign PDF, edit PDF, free, online, browser, no upload">
-    <link rel="canonical" href="https://www.pdfworker.eu/">
+    <title>PDF 工具箱 - 免费、隐私优先的在线 PDF 工具</title>
+    <meta name="description" content="免费、隐私优先的在线 PDF 工具箱，支持合并、拆分、压缩、转换、编辑和发票拼版。所有处理在浏览器本地完成，文件无需上传。">
+    <meta name="keywords" content="PDF 工具, 合并 PDF, 拆分 PDF, 压缩 PDF, PDF 转图片, 发票拼版, 在线, 免费, 浏览器本地处理">
+    <link rel="canonical" href="https://pdf.i41.cn/">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="PDF Worker - Free Online PDF Tools">
-    <meta property="og:description" content="Free online PDF toolkit. Merge, split, compress, convert and edit PDFs directly in your browser. Your files never leave your device.">
-    <meta property="og:url" content="https://www.pdfworker.eu/">
-    <meta property="og:image" content="https://www.pdfworker.eu/og-image.svg">
+    <meta property="og:title" content="PDF 工具箱 - 免费、隐私优先的在线 PDF 工具">
+    <meta property="og:description" content="免费在线 PDF 工具箱，在浏览器本地合并、拆分、压缩、转换和编辑 PDF，文件不会离开设备。">
+    <meta property="og:url" content="https://pdf.i41.cn/">
+    <meta property="og:image" content="https://pdf.i41.cn/og-image.svg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="PDF Worker">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="PDF 工具箱">
+    <meta property="og:locale" content="zh_CN">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="PDF Worker - Free Online PDF Tools">
-    <meta name="twitter:description" content="Free online PDF toolkit. Merge, split, compress, convert and edit PDFs directly in your browser. No upload required.">
-    <meta name="twitter:image" content="https://www.pdfworker.eu/og-image.svg">
+    <meta name="twitter:title" content="PDF 工具箱 - 免费、隐私优先的在线 PDF 工具">
+    <meta name="twitter:description" content="免费在线 PDF 工具箱，在浏览器本地处理 PDF，无需上传。">
+    <meta name="twitter:image" content="https://pdf.i41.cn/og-image.svg">
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "PDF Worker",
-        "url": "https://www.pdfworker.eu/",
-        "description": "Free online PDF tools that run entirely in your browser. Merge, split, compress, rotate, watermark, convert, sign, edit and protect PDFs.",
+        "name": "PDF 工具箱",
+        "url": "https://pdf.i41.cn/",
+        "description": "免费、隐私优先的浏览器端 PDF 工具箱，支持合并、拆分、压缩、转换、编辑和发票拼版。",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Any",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "browserRequirements": "Requires JavaScript",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+        "browserRequirements": "需要启用 JavaScript",
         "featureList": ["Merge PDF", "Split PDF", "Compress PDF", "Rotate PDF", "Watermark PDF", "PDF to JPG", "JPG to PDF", "Sign PDF", "Edit PDF", "Protect PDF", "Crop PDF", "Redact PDF", "Grayscale PDF", "Resize PDF", "Extract Images", "Page Numbers", "Header Footer", "Flatten PDF", "PDF to Text", "Edit PDF Metadata", "PDF to WebP", "N-Up PDF", "Add Blank Page", "Remove Blank Pages", "OCR PDF", "Compare PDF", "Text to PDF", "Reverse Pages", "Invert Colors", "Repair PDF", "PDF to EPUB", "PDF Booklet"]
     }
     </script>
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#1e3a5f">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.bunny.net; font-src https://fonts.bunny.net; img-src 'self' data: blob: https:; connect-src 'self'; worker-src 'self' blob:; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; object-src 'none'; base-uri 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
     <link rel="icon" href="./icons/icon-192.png" type="image/png">
     <link rel="apple-touch-icon" href="./icons/icon-192.png">
-    <link rel="dns-prefetch" href="https://fonts.bunny.net">
-    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
-    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" crossorigin media="print" onload="this.media='all'" />
-    <noscript><link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" /></noscript>
 </head>
 <body class="font-sans antialiased bg-gray-50 dark:bg-gray-900">
     <script>

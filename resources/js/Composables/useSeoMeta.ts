@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.pdfworker.eu';
+const BASE_URL = 'https://pdf.i41.cn';
 
 export function useSeoMeta(
     title: string,

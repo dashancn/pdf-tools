@@ -67,7 +67,7 @@ watchEffect(() => {
                 name: s.name,
                 text: s.name,
             })),
-            tool: { '@type': 'HowToTool', name: 'PDF Worker' },
+            tool: { '@type': 'HowToTool', name: 'PDF 工具箱' },
             totalTime: 'PT1M',
         });
     }
@@ -87,7 +87,7 @@ watchEffect(() => {
         ? { '@context': 'https://schema.org', '@graph': graph }
         : null;
 
-    useSeoMeta(`${toolName} - PDF Worker`, toolDesc, `/#/${props.tool}`, jsonLd);
+    useSeoMeta(`${toolName} - PDF 工具箱`, toolDesc, `/#/${props.tool}`, jsonLd);
 });
 
 const multiResultUrls = ref<string[]>([]);
@@ -128,6 +128,7 @@ const toolConfig = computed(() => {
         'edit-metadata': { accept: '.pdf', multiple: true, color: 'bg-cyan-500', bgColor: 'bg-cyan-50' },
         'pdf-to-webp': { accept: '.pdf', multiple: true, color: 'bg-emerald-500', bgColor: 'bg-emerald-50' },
         'nup-pdf': { accept: '.pdf', multiple: true, color: 'bg-indigo-500', bgColor: 'bg-indigo-50' },
+        'invoice-nup': { accept: '.pdf', multiple: true, color: 'bg-emerald-600', bgColor: 'bg-emerald-50' },
         'add-blank-page': { accept: '.pdf', multiple: true, color: 'bg-sky-500', bgColor: 'bg-sky-50' },
         'remove-blank-pages': { accept: '.pdf', multiple: true, color: 'bg-rose-500', bgColor: 'bg-rose-50' },
         'ocr-pdf': { accept: '.pdf', multiple: true, color: 'bg-purple-500', bgColor: 'bg-purple-50' },
@@ -210,6 +211,11 @@ const textContent = ref('');
 const webpQuality = ref(0.8);
 // N-Up
 const nupLayout = ref<2 | 4 | 9>(4);
+// A4 Invoice N-Up
+const invoiceLayout = ref<2 | 4>(2);
+const invoiceMargin = ref(18);
+const invoiceGap = ref(12);
+const invoiceAutoRotate = ref(true);
 // Add Blank Page
 const blankPagePosition = ref<'start' | 'end'>('end');
 // OCR
@@ -256,6 +262,7 @@ const actionLabel = computed(() => {
         'edit-metadata': 'tool.metadata.action',
         'pdf-to-webp': 'tool.pdftowebp.action',
         'nup-pdf': 'tool.nup.action',
+        'invoice-nup': 'tool.invoice_nup.action',
         'add-blank-page': 'tool.blankpage.action',
         'remove-blank-pages': 'tool.removeblank.action',
         'ocr-pdf': 'tool.ocr.action',
@@ -621,6 +628,16 @@ async function process() {
                     setResult(blob, `nup_${rawFiles[0].name}`);
                     break;
                 }
+                case 'invoice-nup': {
+                    const blob = await runInWorker('invoice-nup', rawFiles, {
+                        layout: invoiceLayout.value,
+                        margin: invoiceMargin.value,
+                        gap: invoiceGap.value,
+                        autoRotate: invoiceAutoRotate.value,
+                    }, updateProgress) as Blob;
+                    setResult(blob, 'invoice_nup_a4.pdf');
+                    break;
+                }
                 case 'add-blank-page': {
                     const blob = await runInWorker('add-blank-page', rawFiles, { position: blankPagePosition.value }, updateProgress) as Blob;
                     setResult(blob, `blank_${rawFiles[0].name}`);
@@ -849,7 +866,7 @@ const hasTextContent = computed(() => {
                     v-if="tool !== 'watermark-pdf'"
                     :files="files"
                     :show-add-more="toolConfig.multiple"
-                    :reorderable="tool === 'merge-pdf' || tool === 'jpg-to-pdf'"
+                    :reorderable="tool === 'merge-pdf' || tool === 'jpg-to-pdf' || tool === 'invoice-nup'"
                     @remove="removeFile"
                     @remove-all="removeAll"
                     @add-more="triggerAddMore"
@@ -1075,6 +1092,33 @@ const hasTextContent = computed(() => {
                                 {{ n }} {{ trans('tool.nup.pages_per_sheet') }}
                             </button>
                         </div>
+                    </div>
+
+                    <!-- A4 INVOICE N-UP -->
+                    <div v-if="tool === 'invoice-nup'" class="space-y-4">
+                        <h3 class="font-semibold text-gray-900 dark:text-white">{{ trans('tool.invoice_nup.action') }}</h3>
+                        <div>
+                            <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">{{ trans('tool.invoice_nup.layout') }}</label>
+                            <div class="flex flex-wrap gap-3">
+                                <button v-for="n in ([2, 4] as const)" :key="n" type="button" class="rounded-lg border-2 px-4 py-3 text-sm font-medium transition-colors" :class="invoiceLayout === n ? 'border-emerald-600 bg-emerald-50 text-emerald-700' : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200'" @click="invoiceLayout = n">
+                                    {{ trans(`tool.invoice_nup.layout_${n}`) }}
+                                </button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                                {{ trans('tool.invoice_nup.margin') }}
+                                <input v-model.number="invoiceMargin" type="number" min="0" max="140" step="1" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200" />
+                            </label>
+                            <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                                {{ trans('tool.invoice_nup.gap') }}
+                                <input v-model.number="invoiceGap" type="number" min="0" max="140" step="1" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200" />
+                            </label>
+                        </div>
+                        <label class="flex cursor-pointer items-center gap-3">
+                            <input v-model="invoiceAutoRotate" type="checkbox" class="h-4 w-4 rounded text-emerald-600" />
+                            <span>{{ trans('tool.invoice_nup.auto_rotate') }}</span>
+                        </label>
                     </div>
 
                     <!-- ADD BLANK PAGE -->

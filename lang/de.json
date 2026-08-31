@@ -95,7 +95,6 @@
     "tool.download_ready": "Ihre Datei ist bereit!",
     "tool.download_button": "Herunterladen",
     "tool.process_another": "Eine weitere Datei verarbeiten",
-
     "tools.protect-pdf.name": "PDF schützen",
     "tools.protect-pdf.description": "Schützen Sie Ihre PDFs mit einem Passwort.",
     "tools.unlock-pdf.name": "PDF entsperren",
@@ -120,7 +119,6 @@
     "tools.resize-pdf.description": "Seitengröße des PDFs ändern (A4, Letter usw.).",
     "tools.header-footer.name": "Kopf- und Fußzeile",
     "tools.header-footer.description": "Benutzerdefinierten Kopf- und Fußzeilentext hinzufügen.",
-
     "tool.protect.action": "PDF schützen",
     "tool.protect.user_password": "Benutzerpasswort",
     "tool.protect.owner_password": "Eigentümerpasswort",
@@ -128,16 +126,13 @@
     "tool.protect.allow_printing": "Drucken erlauben",
     "tool.protect.allow_copying": "Kopieren erlauben",
     "tool.protect.allow_modifying": "Bearbeiten erlauben",
-
     "tool.unlock.action": "PDF entsperren",
     "tool.unlock.password": "PDF-Passwort eingeben",
-
     "tool.organize.action": "Änderungen anwenden",
     "tool.organize.drag_hint": "Ziehen zum Neuanordnen. X klicken zum Löschen.",
     "tool.organize.duplicate": "Duplizieren",
     "tool.organize.delete": "Löschen",
     "tool.organize.error": "PDF-Seiten konnten nicht geladen werden. Bitte versuchen Sie eine andere Datei.",
-
     "tool.crop.action": "PDF zuschneiden",
     "tool.crop.top": "Oben",
     "tool.crop.bottom": "Unten",
@@ -146,17 +141,14 @@
     "tool.crop.unit": "Punkte",
     "tool.crop.hint": "Ziehen Sie die Ränder, um den Zuschneidebereich anzupassen.",
     "tool.crop.reset": "Zurücksetzen",
-
     "tool.pdftopng.action": "In PNG umwandeln",
     "tool.pdftopng.transparent": "Transparenter Hintergrund",
-
     "tool.redact.action": "Schwärzung anwenden",
     "tool.redact.hint": "Klicken und ziehen Sie auf der Vorschau, um Bereiche zum Schwärzen zu markieren.",
     "tool.redact.areas_count": "Schwärzungsbereiche",
     "tool.redact.clear_all": "Alle löschen",
     "tool.redact.area": "Bereich",
     "tool.redact.no_areas": "Zeichnen Sie mindestens einen Bereich zum Schwärzen in der Vorschau",
-
     "tool.edit.action": "Bearbeitungen anwenden",
     "tool.edit.add_text": "Text hinzufügen",
     "tool.edit.add_rectangle": "Rechteck hinzufügen",
@@ -172,7 +164,6 @@
     "tool.edit.font_size": "Größe",
     "tool.edit.default_text": "Text",
     "tool.edit.preview_label": "PDF-Vorschau",
-
     "tool.sign.action": "Unterschrift anwenden",
     "tool.sign.draw": "Unterschrift zeichnen",
     "tool.sign.image": "Bild hochladen",
@@ -184,15 +175,11 @@
     "tool.sign.preview_label": "PDF-Vorschau",
     "tool.sign.position_label": "Positionieren Sie Ihre Unterschrift auf der Seite",
     "tool.sign.drag_hint": "Ziehen Sie, um Ihre Unterschrift zu positionieren",
-
     "tool.extract.action": "Bilder extrahieren",
     "tool.extract.no_images": "Keine Bilder in diesem PDF gefunden.",
-
     "tool.grayscale.action": "In Graustufen umwandeln",
-
     "tool.resize.action": "Seiten skalieren",
     "tool.resize.target_size": "Zielseitengröße",
-
     "tool.headerfooter.action": "Kopf- und Fußzeile anwenden",
     "tool.headerfooter.header_text": "Kopfzeilentext",
     "tool.headerfooter.footer_text": "Fußzeilentext",
@@ -201,7 +188,6 @@
     "tool.headerfooter.align_center": "Mitte",
     "tool.headerfooter.align_right": "Rechts",
     "tool.headerfooter.placeholder_hint": "Verwenden Sie {page} für die Seitennummer, {total} für die Gesamtseitenanzahl",
-
     "tool.watermark.type_text": "Text",
     "tool.watermark.type_image": "Bild",
     "tool.watermark.choose_image": "Bild auswählen",
@@ -217,7 +203,6 @@
     "tool.watermark.placeholder": "Wasserzeichentext eingeben...",
     "tool.watermark.image_label": "Wasserzeichenbild",
     "tool.watermark.no_image": "Kein Bild ausgewahlt",
-
     "privacy.title": "Datenschutzerklärung",
     "privacy.last_updated": "Zuletzt aktualisiert",
     "privacy.intro": "PDF Worker ist eine clientseitige Webanwendung. Die gesamte PDF-Verarbeitung erfolgt vollständig in Ihrem Browser — Ihre Dateien werden niemals auf einen Server hochgeladen.",
@@ -241,19 +226,15 @@
     "privacy.changes_text": "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Änderungen werden auf dieser Seite mit einem aktualisierten Datum veröffentlicht.",
     "privacy.contact_title": "Kontakt",
     "privacy.contact_text": "Bei Fragen zu dieser Datenschutzerklärung können Sie uns über das GitHub-Repository des Projekts erreichen.",
-
     "cookie.message": "Diese Website verwendet Cookies für Werbung über Google AdSense. Ihre PDF-Dateien werden niemals hochgeladen oder weitergegeben. Siehe unsere ",
     "cookie.accept": "Akzeptieren",
     "cookie.decline": "Ablehnen",
-
     "tools.flatten-pdf.name": "PDF glätten",
     "tools.flatten-pdf.description": "Formularfelder und Anmerkungen in statischen Inhalt umwandeln.",
     "tool.flatten.action": "PDF glätten",
-
     "tools.pdf-to-text.name": "PDF zu Text",
     "tools.pdf-to-text.description": "Gesamten Text aus einem PDF-Dokument extrahieren.",
     "tool.pdftotext.action": "Text extrahieren",
-
     "tools.merge-pdf.how_title": "Wie man PDF-Dateien online zusammenfügt",
     "tools.merge-pdf.how_text": "Mehrere PDF-Dokumente zu einer einzigen Datei zusammenzufügen geht schnell und einfach. Laden Sie Ihre Dateien hoch, ordnen Sie sie nach Wunsch an und laden Sie das kombinierte PDF herunter. Die gesamte Verarbeitung erfolgt direkt in Ihrem Browser.",
     "tools.merge-pdf.step_1": "Wählen Sie mehrere PDF-Dateien aus oder ziehen Sie sie per Drag & Drop",
@@ -263,7 +244,6 @@
     "tools.merge-pdf.faq_1_a": "Nein. Sie können so viele Dateien zusammenfügen, wie Sie möchten. Da die Verarbeitung in Ihrem Browser stattfindet, hängt die Leistung von Ihrem Gerät ab.",
     "tools.merge-pdf.faq_2_q": "Bleibt die Reihenfolge der Seiten erhalten?",
     "tools.merge-pdf.faq_2_a": "Ja. Die Seiten werden genau in der Reihenfolge zusammengefügt, in der Sie die Dateien angeordnet haben. Sie können die Reihenfolge vor dem Zusammenfügen per Drag & Drop ändern.",
-
     "tools.split-pdf.how_title": "Wie man PDF-Dateien online teilt",
     "tools.split-pdf.how_text": "Teilen Sie ein PDF in mehrere Dokumente auf oder extrahieren Sie bestimmte Seiten. Wählen Sie zwischen dem Aufteilen aller Seiten oder der Angabe eines benutzerdefinierten Seitenbereichs.",
     "tools.split-pdf.step_1": "Laden Sie die PDF-Datei hoch, die Sie teilen möchten",
@@ -271,7 +251,6 @@
     "tools.split-pdf.step_3": "Klicken Sie auf Teilen und laden Sie die Ergebnisdateien herunter",
     "tools.split-pdf.faq_1_q": "Kann ich bestimmte Seiten aus einem PDF extrahieren?",
     "tools.split-pdf.faq_1_a": "Ja. Verwenden Sie den Bereichsmodus und geben Sie die gewünschten Seiten an, z. B. 1-3, 5, 7-9. Sie erhalten dann nur die ausgewählten Seiten.",
-
     "tools.compress-pdf.how_title": "Wie man PDF-Dateien online komprimiert",
     "tools.compress-pdf.how_text": "Reduzieren Sie die Dateigröße Ihrer PDFs, ohne dabei die Qualität merklich einzubüßen. Wählen Sie zwischen niedriger, mittlerer und hoher Komprimierung, je nach Ihren Anforderungen.",
     "tools.compress-pdf.step_1": "Laden Sie die PDF-Datei hoch, die Sie komprimieren möchten",
@@ -279,13 +258,11 @@
     "tools.compress-pdf.step_3": "Klicken Sie auf Komprimieren und laden Sie die verkleinerte Datei herunter",
     "tools.compress-pdf.faq_1_q": "Verliere ich Qualität bei der Komprimierung?",
     "tools.compress-pdf.faq_1_a": "Bei niedriger und mittlerer Komprimierung bleibt die Qualität weitgehend erhalten. Hohe Komprimierung reduziert die Dateigröße stärker, kann aber bei Bildern einen sichtbaren Qualitätsverlust verursachen.",
-
     "tools.rotate-pdf.how_title": "Wie man PDF-Seiten online dreht",
     "tools.rotate-pdf.how_text": "Drehen Sie einzelne oder alle Seiten eines PDFs um 90° oder 180°. Ideal, wenn gescannte Dokumente falsch ausgerichtet sind.",
     "tools.rotate-pdf.step_1": "Laden Sie die PDF-Datei hoch",
     "tools.rotate-pdf.step_2": "Wählen Sie die Drehrichtung: rechts, links oder 180°",
     "tools.rotate-pdf.step_3": "Klicken Sie auf Drehen und laden Sie das korrigierte PDF herunter",
-
     "tools.watermark-pdf.how_title": "Wie man Wasserzeichen zu PDFs online hinzufügt",
     "tools.watermark-pdf.how_text": "Schützen Sie Ihre Dokumente mit einem Text- oder Bild-Wasserzeichen. Passen Sie Position, Deckkraft und Größe individuell an, um Ihr PDF professionell zu kennzeichnen.",
     "tools.watermark-pdf.step_1": "Laden Sie die PDF-Datei hoch",
@@ -293,7 +270,6 @@
     "tools.watermark-pdf.step_3": "Klicken Sie auf Wasserzeichen hinzufügen und laden Sie die Datei herunter",
     "tools.watermark-pdf.faq_1_q": "Kann ich ein Bild als Wasserzeichen verwenden?",
     "tools.watermark-pdf.faq_1_a": "Ja. Sie können sowohl Text als auch ein eigenes Bild als Wasserzeichen verwenden. Beim Bild-Wasserzeichen können Sie die Größe und Deckkraft anpassen.",
-
     "tools.pdf-to-jpg.how_title": "Wie man PDF-Dateien online in JPG umwandelt",
     "tools.pdf-to-jpg.how_text": "Konvertieren Sie jede Seite Ihres PDFs in ein hochwertiges JPG-Bild. Ideal, um PDF-Inhalte als Bilder zu teilen oder in Präsentationen zu verwenden.",
     "tools.pdf-to-jpg.step_1": "Laden Sie die PDF-Datei hoch",
@@ -301,7 +277,6 @@
     "tools.pdf-to-jpg.step_3": "Klicken Sie auf Umwandeln und laden Sie die JPG-Bilder herunter",
     "tools.pdf-to-jpg.faq_1_q": "In welcher Auflösung werden die Bilder erstellt?",
     "tools.pdf-to-jpg.faq_1_a": "Die Auflösung hängt von der gewählten Qualitätsstufe ab. Höhere Qualität erzeugt schärfere Bilder, aber auch größere Dateien.",
-
     "tools.jpg-to-pdf.how_title": "Wie man JPG-Bilder online in PDF umwandelt",
     "tools.jpg-to-pdf.how_text": "Wandeln Sie Ihre Bilder schnell in ein PDF-Dokument um. Wählen Sie Ausrichtung und Rand, um ein professionelles Ergebnis zu erzielen.",
     "tools.jpg-to-pdf.step_1": "Wählen Sie ein oder mehrere Bilder aus",
@@ -309,7 +284,6 @@
     "tools.jpg-to-pdf.step_3": "Klicken Sie auf Umwandeln und laden Sie das PDF herunter",
     "tools.jpg-to-pdf.faq_1_q": "Welche Bildformate werden unterstützt?",
     "tools.jpg-to-pdf.faq_1_a": "Sie können JPG-, JPEG- und PNG-Dateien in PDF umwandeln. Mehrere Bilder werden in ein einziges PDF-Dokument zusammengefasst.",
-
     "tools.protect-pdf.how_title": "Wie man PDF-Dateien online mit einem Passwort schützt",
     "tools.protect-pdf.how_text": "Sichern Sie Ihre vertraulichen Dokumente mit einem Passwort. Sie können ein Benutzerpasswort zum Öffnen und ein Eigentümerpasswort für die Berechtigungen festlegen.",
     "tools.protect-pdf.step_1": "Laden Sie die PDF-Datei hoch",
@@ -317,7 +291,6 @@
     "tools.protect-pdf.step_3": "Klicken Sie auf Schützen und laden Sie das gesicherte PDF herunter",
     "tools.protect-pdf.faq_1_q": "Was ist der Unterschied zwischen Benutzer- und Eigentümerpasswort?",
     "tools.protect-pdf.faq_1_a": "Das Benutzerpasswort wird zum Öffnen des PDFs benötigt. Das Eigentümerpasswort steuert die Berechtigungen wie Drucken, Kopieren und Bearbeiten.",
-
     "tools.unlock-pdf.how_title": "Wie man den PDF-Passwortschutz online entfernt",
     "tools.unlock-pdf.how_text": "Entfernen Sie den Passwortschutz von einem PDF-Dokument, wenn Sie das Passwort kennen. Das entsperrte PDF kann danach ohne Einschränkungen verwendet werden.",
     "tools.unlock-pdf.step_1": "Laden Sie die passwortgeschützte PDF-Datei hoch",
@@ -325,7 +298,6 @@
     "tools.unlock-pdf.step_3": "Klicken Sie auf Entsperren und laden Sie das ungeschützte PDF herunter",
     "tools.unlock-pdf.faq_1_q": "Kann ich ein PDF ohne Passwort entsperren?",
     "tools.unlock-pdf.faq_1_a": "Nein. Sie müssen das korrekte Passwort kennen, um den Schutz zu entfernen. Dieses Tool kann keinen Passwortschutz umgehen.",
-
     "tools.organize-pdf.how_title": "Wie man PDF-Seiten online organisiert",
     "tools.organize-pdf.how_text": "Ordnen Sie PDF-Seiten per Drag & Drop neu an, löschen Sie unerwünschte Seiten oder duplizieren Sie einzelne Seiten. Ein visueller Editor macht die Organisation einfach und übersichtlich.",
     "tools.organize-pdf.step_1": "Laden Sie die PDF-Datei hoch",
@@ -333,19 +305,16 @@
     "tools.organize-pdf.step_3": "Klicken Sie auf Änderungen anwenden und laden Sie das PDF herunter",
     "tools.organize-pdf.faq_1_q": "Kann ich Seiten aus verschiedenen PDFs zusammenstellen?",
     "tools.organize-pdf.faq_1_a": "Dieses Tool arbeitet mit einer einzelnen PDF-Datei. Um Seiten aus verschiedenen PDFs zu kombinieren, verwenden Sie zuerst das Zusammenfügen-Tool und organisieren Sie dann die Seiten.",
-
     "tools.crop-pdf.how_title": "Wie man PDF-Seiten online zuschneidet",
     "tools.crop-pdf.how_text": "Schneiden Sie Ränder ab oder passen Sie den sichtbaren Bereich Ihrer PDF-Seiten an. Geben Sie die Zuschneidewerte in Punkten für jede Seite an.",
     "tools.crop-pdf.step_1": "Laden Sie die PDF-Datei hoch",
     "tools.crop-pdf.step_2": "Ziehen Sie die Ränder oder geben Sie die Zuschneidewerte ein",
     "tools.crop-pdf.step_3": "Klicken Sie auf Zuschneiden und laden Sie das zugeschnittene PDF herunter",
-
     "tools.pdf-to-png.how_title": "Wie man PDF-Dateien online in PNG umwandelt",
     "tools.pdf-to-png.how_text": "Konvertieren Sie Ihre PDF-Seiten in hochwertige PNG-Bilder. PNG unterstützt transparente Hintergründe und ist ideal für Grafiken und Präsentationen.",
     "tools.pdf-to-png.step_1": "Laden Sie die PDF-Datei hoch",
     "tools.pdf-to-png.step_2": "Wählen Sie, ob ein transparenter Hintergrund gewünscht ist",
     "tools.pdf-to-png.step_3": "Klicken Sie auf Umwandeln und laden Sie die PNG-Bilder herunter",
-
     "tools.redact-pdf.how_title": "Wie man vertrauliche Inhalte in PDFs online schwärzt",
     "tools.redact-pdf.how_text": "Schwärzen Sie sensible Informationen in Ihren PDF-Dokumenten dauerhaft. Markieren Sie Bereiche auf der Vorschau, die verborgen werden sollen. Die Schwärzung ist nicht rückgängig zu machen.",
     "tools.redact-pdf.step_1": "Laden Sie die PDF-Datei hoch",
@@ -353,13 +322,11 @@
     "tools.redact-pdf.step_3": "Klicken Sie auf Schwärzung anwenden und laden Sie das Ergebnis herunter",
     "tools.redact-pdf.faq_1_q": "Ist die Schwärzung dauerhaft?",
     "tools.redact-pdf.faq_1_a": "Ja. Geschwärzte Inhalte werden unwiderruflich entfernt. Der ursprüngliche Text oder die Bilder unter den geschwärzten Bereichen können nicht wiederhergestellt werden.",
-
     "tools.edit-pdf.how_title": "Wie man PDF-Dateien online bearbeitet",
     "tools.edit-pdf.how_text": "Fügen Sie Text, Rechtecke und Freihandzeichnungen zu Ihren PDF-Dokumenten hinzu. Positionieren Sie die Elemente per Drag & Drop genau dort, wo Sie sie benötigen.",
     "tools.edit-pdf.step_1": "Laden Sie die PDF-Datei hoch",
     "tools.edit-pdf.step_2": "Fügen Sie Text, Formen oder Zeichnungen hinzu und positionieren Sie diese",
     "tools.edit-pdf.step_3": "Klicken Sie auf Bearbeitungen anwenden und laden Sie das bearbeitete PDF herunter",
-
     "tools.sign-pdf.how_title": "Wie man PDF-Dokumente online unterschreibt",
     "tools.sign-pdf.how_text": "Unterschreiben Sie Ihre PDF-Dokumente mit einer gezeichneten oder hochgeladenen Unterschrift. Positionieren Sie die Unterschrift auf der gewünschten Seite per Drag & Drop.",
     "tools.sign-pdf.step_1": "Laden Sie die PDF-Datei hoch",
@@ -367,37 +334,31 @@
     "tools.sign-pdf.step_3": "Positionieren Sie die Unterschrift und klicken Sie auf Anwenden",
     "tools.sign-pdf.faq_1_q": "Ist die Unterschrift rechtsgültig?",
     "tools.sign-pdf.faq_1_a": "Dieses Tool fügt eine visuelle Unterschrift hinzu. Es handelt sich nicht um eine qualifizierte elektronische Signatur im rechtlichen Sinne. Für rechtsverbindliche Signaturen wenden Sie sich bitte an einen entsprechenden Dienst.",
-
     "tools.extract-images.how_title": "Wie man Bilder aus PDFs online extrahiert",
     "tools.extract-images.how_text": "Extrahieren Sie alle eingebetteten Bilder aus einem PDF-Dokument. Die Bilder werden in ihrem Originalformat gespeichert und können einzeln heruntergeladen werden.",
     "tools.extract-images.step_1": "Laden Sie die PDF-Datei hoch",
     "tools.extract-images.step_2": "Das Tool erkennt und extrahiert automatisch alle Bilder",
     "tools.extract-images.step_3": "Laden Sie die extrahierten Bilder einzeln oder alle auf einmal herunter",
-
     "tools.grayscale-pdf.how_title": "Wie man PDFs online in Graustufen umwandelt",
     "tools.grayscale-pdf.how_text": "Konvertieren Sie Ihre farbigen PDFs in Graustufen. Ideal zum Sparen von Druckertinte oder wenn ein Schwarzweiß-Dokument benötigt wird.",
     "tools.grayscale-pdf.step_1": "Laden Sie die PDF-Datei hoch",
     "tools.grayscale-pdf.step_2": "Die Konvertierung erfolgt automatisch",
     "tools.grayscale-pdf.step_3": "Laden Sie das Graustufen-PDF herunter",
-
     "tools.resize-pdf.how_title": "Wie man die PDF-Seitengröße online ändert",
     "tools.resize-pdf.how_text": "Ändern Sie die Seitengröße Ihrer PDF-Dokumente. Wählen Sie aus Standardformaten wie A4, Letter, A3 und weiteren, um Ihr PDF an das gewünschte Format anzupassen.",
     "tools.resize-pdf.step_1": "Laden Sie die PDF-Datei hoch",
     "tools.resize-pdf.step_2": "Wählen Sie das gewünschte Zielformat",
     "tools.resize-pdf.step_3": "Klicken Sie auf Skalieren und laden Sie das angepasste PDF herunter",
-
     "tools.page-numbers.how_title": "Wie man Seitenzahlen zu PDFs online hinzufügt",
     "tools.page-numbers.how_text": "Fügen Sie automatische Seitennummerierung zu Ihrem PDF hinzu. Wählen Sie Position und Format der Seitenzahlen nach Ihren Wünschen.",
     "tools.page-numbers.step_1": "Laden Sie die PDF-Datei hoch",
     "tools.page-numbers.step_2": "Wählen Sie Position und Zahlenformat",
     "tools.page-numbers.step_3": "Klicken Sie auf Seitenzahlen hinzufügen und laden Sie das PDF herunter",
-
     "tools.header-footer.how_title": "Wie man Kopf- und Fußzeilen zu PDFs online hinzufügt",
     "tools.header-footer.how_text": "Fügen Sie benutzerdefinierte Kopf- und Fußzeilen zu Ihrem PDF hinzu. Verwenden Sie Platzhalter für Seitenzahlen und Gesamtseitenzahl, um professionelle Dokumente zu erstellen.",
     "tools.header-footer.step_1": "Laden Sie die PDF-Datei hoch",
     "tools.header-footer.step_2": "Geben Sie den gewünschten Kopf- und Fußzeilentext ein",
     "tools.header-footer.step_3": "Klicken Sie auf Anwenden und laden Sie das PDF herunter",
-
     "tools.flatten-pdf.how_title": "Wie man PDF-Dateien online glättet",
     "tools.flatten-pdf.how_text": "Wandeln Sie interaktive Formularfelder und Anmerkungen in statischen Inhalt um. Geglättete PDFs sehen überall gleich aus und lassen sich nicht mehr versehentlich bearbeiten.",
     "tools.flatten-pdf.step_1": "Laden Sie die PDF-Datei hoch",
@@ -405,7 +366,6 @@
     "tools.flatten-pdf.step_3": "Laden Sie das geglättete PDF herunter",
     "tools.flatten-pdf.faq_1_q": "Was bedeutet PDF glätten?",
     "tools.flatten-pdf.faq_1_a": "Beim Glätten werden alle interaktiven Elemente wie Formularfelder, Anmerkungen und Kommentare in den statischen Seiteninhalt eingebettet. Das Ergebnis ist ein PDF, das nicht mehr bearbeitet werden kann und überall identisch dargestellt wird.",
-
     "tools.pdf-to-text.how_title": "Wie man Text aus PDFs online extrahiert",
     "tools.pdf-to-text.how_text": "Extrahieren Sie den gesamten Text aus einem PDF-Dokument als reinen Text. Ideal zum Kopieren von Inhalten oder zur Weiterverarbeitung in anderen Programmen.",
     "tools.pdf-to-text.step_1": "Laden Sie die PDF-Datei hoch",
@@ -415,13 +375,10 @@
     "tools.pdf-to-text.faq_1_a": "Dieses Tool extrahiert eingebetteten Text aus dem PDF. Bei gescannten Dokumenten, die nur als Bild vorliegen, kann kein Text erkannt werden, da keine OCR-Funktion enthalten ist.",
     "error.title": "Etwas ist schiefgelaufen",
     "error.retry": "Seite neu laden",
-
     "toast.processing_complete": "Verarbeitung abgeschlossen!",
     "toast.invalid_file": "Nicht unterstütztes Dateiformat",
-
     "home.search_placeholder": "Werkzeuge suchen...",
     "home.no_results": "Keine Werkzeuge gefunden. Versuchen Sie eine andere Suche.",
-
     "home.section.organize": "Organisieren und Bearbeiten",
     "home.section.convert": "Konvertieren",
     "home.section.annotate": "Annotieren und Verbessern",
@@ -440,14 +397,12 @@
     "blog.back_to_blog": "Zurück zum Blog",
     "blog.try_tool": "Bereit es auszuprobieren?",
     "blog.related_articles": "Verwandte Artikel",
-
     "tools.markdown-to-pdf.name": "Markdown zu PDF",
     "tools.markdown-to-pdf.description": "Konvertieren Sie Markdown-Text in ein formatiertes PDF-Dokument.",
     "tool.markdown.action": "PDF generieren",
     "tool.markdown.title": "Markdown eingeben",
     "tool.markdown.placeholder": "# Mein Dokument\n\nSchreiben Sie Ihren **Markdown**-Inhalt hier...\n\n- Aufzählungslisten\n- *Kursiver Text*\n- `Code-Snippets`\n\n1. Nummerierte Listen\n2. Zweiter Punkt\n\n---\n\n### Unterüberschrift\n\nAbsätze mit **fetter** und *kursiver* Formatierung.",
     "tool.markdown.hint": "Unterstützt Überschriften (#), Fett (**), Kursiv (*), Aufzählungslisten (-), nummerierte Listen (1.), Codeblöcke (```), und horizontale Linien (---).",
-
     "tools.markdown-to-pdf.how_title": "Wie man Markdown in PDF konvertiert",
     "tools.markdown-to-pdf.how_text": "Schreiben oder fügen Sie Ihren Markdown-Text ein und konvertieren Sie ihn in ein formatiertes PDF-Dokument, direkt in Ihrem Browser.",
     "tools.markdown-to-pdf.step_1": "Schreiben oder fügen Sie Ihren Markdown-Inhalt in das Textfeld ein.",
@@ -485,7 +440,6 @@
     "tools.edit-metadata.faq_2_a": "Ja. Löschen Sie einfach alle Felder und speichern Sie. Die Metadaten werden auf leere Werte gesetzt.",
     "tools.edit-metadata.faq_3_q": "Werden meine Dateien auf einen Server hochgeladen?",
     "tools.edit-metadata.faq_3_a": "Nein. Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser. Ihre Dateien verlassen niemals Ihr Gerät.",
-
     "tools.pdf-to-webp.name": "PDF zu WebP",
     "tools.pdf-to-webp.description": "Konvertieren Sie PDF-Seiten in moderne WebP-Bilder.",
     "tool.pdftowebp.action": "In WebP umwandeln",
@@ -497,7 +451,6 @@
     "tools.pdf-to-webp.step_3": "Klicken Sie auf In WebP umwandeln und laden Sie die Bilder herunter.",
     "tools.pdf-to-webp.faq_1_q": "Warum WebP statt JPG verwenden?",
     "tools.pdf-to-webp.faq_1_a": "WebP-Bilder sind bei gleicher Qualität typischerweise 25-34 % kleiner als JPG und damit ideal für die Verwendung im Web.",
-
     "tools.nup-pdf.name": "N-Up PDF",
     "tools.nup-pdf.description": "Mehrere Seiten auf einem Blatt zusammenfassen (2, 4 oder 9 pro Seite).",
     "tool.nup.action": "N-Up-Layout anwenden",
@@ -509,7 +462,6 @@
     "tools.nup-pdf.step_3": "Klicken Sie auf N-Up-Layout anwenden und laden Sie herunter.",
     "tools.nup-pdf.faq_1_q": "Was ist N-Up-Druck?",
     "tools.nup-pdf.faq_1_a": "N-Up bedeutet, mehrere Seiten auf einem einzelnen Blatt zu platzieren. Zum Beispiel druckt 4-up vier Seiten auf ein Blatt.",
-
     "tools.add-blank-page.name": "Leere Seite hinzufügen",
     "tools.add-blank-page.description": "Fügen Sie eine leere Seite am Anfang oder Ende Ihres PDFs ein.",
     "tool.blankpage.action": "Leere Seite hinzufügen",
@@ -520,7 +472,6 @@
     "tools.add-blank-page.step_1": "Laden Sie eine PDF-Datei hoch.",
     "tools.add-blank-page.step_2": "Wählen Sie, wo die leere Seite eingefügt werden soll.",
     "tools.add-blank-page.step_3": "Klicken Sie auf Leere Seite hinzufügen und laden Sie herunter.",
-
     "tools.remove-blank-pages.name": "Leere Seiten entfernen",
     "tools.remove-blank-pages.description": "Erkennt und entfernt automatisch leere Seiten aus Ihrem PDF.",
     "tool.removeblank.action": "Leere Seiten entfernen",
@@ -531,7 +482,6 @@
     "tools.remove-blank-pages.step_3": "Laden Sie das bereinigte PDF herunter.",
     "tools.remove-blank-pages.faq_1_q": "Wie werden leere Seiten erkannt?",
     "tools.remove-blank-pages.faq_1_a": "Jede Seite wird gerendert und analysiert. Wenn 99,5 % oder mehr der Pixel weiß sind, gilt die Seite als leer.",
-
     "tools.ocr-pdf.name": "OCR PDF",
     "tools.ocr-pdf.description": "Machen Sie gescannte PDFs mit optischer Zeichenerkennung durchsuchbar.",
     "tool.ocr.action": "OCR starten",
@@ -547,7 +497,6 @@
     "tools.ocr-pdf.step_3": "Klicken Sie auf OCR starten und laden Sie das durchsuchbare PDF herunter.",
     "tools.ocr-pdf.faq_1_q": "Funktioniert OCR mit handschriftlichem Text?",
     "tools.ocr-pdf.faq_1_a": "OCR funktioniert am besten mit gedrucktem Text. Handschriftlicher Text wird möglicherweise nicht korrekt erkannt.",
-
     "tools.compare-pdf.name": "PDF vergleichen",
     "tools.compare-pdf.description": "Vergleichen Sie zwei PDFs nebeneinander und heben Sie Unterschiede hervor.",
     "tool.compare.action": "PDFs vergleichen",
@@ -558,7 +507,6 @@
     "tools.compare-pdf.step_3": "Laden Sie das Vergleichsdokument herunter.",
     "tools.compare-pdf.faq_1_q": "Wie werden die Unterschiede angezeigt?",
     "tools.compare-pdf.faq_1_a": "Die Seiten werden nebeneinander angezeigt. Pixel, die sich zwischen den beiden Dokumenten unterscheiden, werden auf der rechten Seite rot hervorgehoben.",
-
     "tools.text-to-pdf.name": "Text zu PDF",
     "tools.text-to-pdf.description": "Konvertieren Sie einfachen Text in ein formatiertes PDF-Dokument.",
     "tool.texttopdf.action": "PDF generieren",
@@ -569,7 +517,6 @@
     "tools.text-to-pdf.step_1": "Geben Sie Ihren Text im Textfeld ein oder fügen Sie ihn ein.",
     "tools.text-to-pdf.step_2": "Klicken Sie auf PDF generieren.",
     "tools.text-to-pdf.step_3": "Laden Sie das PDF-Dokument herunter.",
-
     "tools.reverse-pages.name": "Seiten umkehren",
     "tools.reverse-pages.description": "Kehren Sie die Reihenfolge aller Seiten in Ihrem PDF um.",
     "tool.reverse.action": "Seiten umkehren",
@@ -578,7 +525,6 @@
     "tools.reverse-pages.step_1": "Laden Sie eine PDF-Datei hoch.",
     "tools.reverse-pages.step_2": "Klicken Sie auf Seiten umkehren.",
     "tools.reverse-pages.step_3": "Laden Sie das PDF mit umgekehrter Seitenreihenfolge herunter.",
-
     "tools.invert-colors.name": "Farben invertieren",
     "tools.invert-colors.description": "Invertieren Sie alle Farben in Ihrem PDF für einen Negativ-Effekt.",
     "tool.invert.action": "Farben invertieren",
@@ -587,7 +533,6 @@
     "tools.invert-colors.step_1": "Laden Sie eine PDF-Datei hoch.",
     "tools.invert-colors.step_2": "Klicken Sie auf Farben invertieren.",
     "tools.invert-colors.step_3": "Laden Sie das PDF mit invertierten Farben herunter.",
-
     "tools.repair-pdf.name": "PDF reparieren",
     "tools.repair-pdf.description": "Versuchen Sie, eine beschädigte oder korrupte PDF-Datei zu reparieren.",
     "tool.repair.action": "PDF reparieren",
@@ -598,7 +543,6 @@
     "tools.repair-pdf.step_3": "Laden Sie die reparierte Datei herunter.",
     "tools.repair-pdf.faq_1_q": "Können alle PDFs repariert werden?",
     "tools.repair-pdf.faq_1_a": "Nicht immer. Das Tool kann viele häufige Probleme beheben, aber schwer beschädigte Dateien sind möglicherweise nicht wiederherstellbar.",
-
     "tools.pdf-to-epub.name": "PDF zu EPUB",
     "tools.pdf-to-epub.description": "Konvertieren Sie ein PDF-Dokument in ein EPUB-E-Book.",
     "tool.pdftoepub.action": "In EPUB umwandeln",
@@ -645,7 +589,6 @@
     "tool.qrcode.preview_label": "QR Code-Vorschau",
     "tool.qrcode.no_text": "Bitte geben Sie einen Text ein, um einen QR Code zu erstellen",
     "tool.qrcode.all_pages": "QR-Code auf alle Seiten setzen",
-
     "tools.check-accessibility.name": "Barrierefreiheitsprüfung",
     "tools.check-accessibility.description": "Analysieren Sie Ihr PDF auf Barrierefreiheitsprobleme: Tags, alt text, Sprache, Schriften und mehr.",
     "tools.check-accessibility.how_title": "So prüfen Sie die Barrierefreiheit eines PDF",
@@ -673,5 +616,25 @@
     "tools.pdf-to-markdown.faq_2_a": "Der Konverter analysiert Schriftgrößen und Fettschrift. Text, der fett und kürzer als 80 Zeichen ist, wird als Überschrift behandelt.",
     "tools.pdf-to-markdown.faq_3_q": "Lädt die Konvertierung meine Datei hoch?",
     "tools.pdf-to-markdown.faq_3_a": "Nein. Die gesamte Konvertierung läuft vollständig in Ihrem Browser. Ihre Datei verlässt niemals Ihr Gerät.",
-    "tool.pdftomarkdown.action": "In Markdown konvertieren"
+    "tool.pdftomarkdown.action": "In Markdown konvertieren",
+    "tools.invoice-nup.name": "A4 Invoice Layout",
+    "tools.invoice-nup.description": "Arrange invoice PDF pages on portrait A4 sheets in 2-up or 4-up layouts.",
+    "tool.invoice_nup.action": "Create A4 Invoice Layout",
+    "tool.invoice_nup.layout": "Pages per A4 sheet",
+    "tool.invoice_nup.layout_2": "2-up (top and bottom)",
+    "tool.invoice_nup.layout_4": "4-up (2 × 2)",
+    "tool.invoice_nup.margin": "Page margin (pt)",
+    "tool.invoice_nup.gap": "Gap between invoices (pt)",
+    "tool.invoice_nup.auto_rotate": "Auto-rotate individual pages when it improves the fit",
+    "tools.invoice-nup.how_title": "How to Arrange Invoices on A4",
+    "tools.invoice-nup.how_text": "Place pages from one or more PDFs onto portrait A4 sheets while preserving their proportions and order.",
+    "tools.invoice-nup.step_1": "Upload one or more invoice PDF files in the required order.",
+    "tools.invoice-nup.step_2": "Choose 2-up or 4-up and adjust the margin and gap if needed.",
+    "tools.invoice-nup.step_3": "Create and download the print-ready A4 PDF.",
+    "tools.invoice-nup.faq_1_q": "Will invoice pages be stretched?",
+    "tools.invoice-nup.faq_1_a": "No. Every source page keeps its original aspect ratio and is centered in its cell.",
+    "tools.invoice-nup.faq_2_q": "Can I combine several PDF files?",
+    "tools.invoice-nup.faq_2_a": "Yes. All pages are arranged in file order and then page order.",
+    "tools.invoice-nup.faq_3_q": "Are my invoices uploaded?",
+    "tools.invoice-nup.faq_3_a": "No. Processing runs locally in your browser and your files never leave your device."
 }

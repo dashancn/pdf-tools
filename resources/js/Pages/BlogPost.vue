@@ -36,7 +36,7 @@ watchEffect(() => {
     if (!post.value) return;
     const p = post.value;
     useSeoMeta(
-        `${p.title} | PDF Worker Blog`,
+        `${p.title} | PDF 工具箱博客`,
         p.excerpt,
         `/#/blog/${p.slug}`,
         {
@@ -46,21 +46,21 @@ watchEffect(() => {
             description: p.excerpt,
             datePublished: p.date,
             dateModified: p.date,
-            url: `https://www.pdfworker.eu/#/blog/${p.slug}`,
+            url: `https://pdf.i41.cn/#/blog/${p.slug}`,
             inLanguage: p.lang,
             author: {
                 '@type': 'Organization',
-                name: 'PDF Worker',
-                url: 'https://www.pdfworker.eu',
+                name: 'PDF 工具箱',
+                url: 'https://pdf.i41.cn',
             },
             publisher: {
                 '@type': 'Organization',
-                name: 'PDF Worker',
-                url: 'https://www.pdfworker.eu',
+                name: 'PDF 工具箱',
+                url: 'https://pdf.i41.cn',
             },
             mainEntityOfPage: {
                 '@type': 'WebPage',
-                '@id': `https://www.pdfworker.eu/#/blog/${p.slug}`,
+                '@id': `https://pdf.i41.cn/#/blog/${p.slug}`,
             },
         },
     );

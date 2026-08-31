@@ -21,7 +21,7 @@ interface ToolSection {
 
 onMounted(() => {
     useSeoMeta(
-        'PDF Worker - Free Online PDF Tools',
+        'PDF 工具箱 - 免费、隐私优先的在线 PDF 工具',
         trans('home.description'),
         '/',
         null,
@@ -45,6 +45,7 @@ const sections: ToolSection[] = [
             { slug: 'crop-pdf', icon: '✂️', color: 'text-rose-600', bgColor: 'bg-rose-50' },
             { slug: 'resize-pdf', icon: '📐', color: 'text-pink-600', bgColor: 'bg-pink-50' },
             { slug: 'nup-pdf', icon: '📑', color: 'text-indigo-600', bgColor: 'bg-indigo-50' },
+            { slug: 'invoice-nup', icon: '🧾', color: 'text-emerald-700', bgColor: 'bg-emerald-50' },
             { slug: 'booklet-pdf', icon: '📕', color: 'text-rose-600', bgColor: 'bg-rose-50' },
         ],
     },

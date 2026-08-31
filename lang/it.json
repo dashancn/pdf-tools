@@ -95,7 +95,6 @@
     "tool.download_ready": "Il tuo file è pronto!",
     "tool.download_button": "Scarica",
     "tool.process_another": "Elabora un altro file",
-
     "tools.protect-pdf.name": "Proteggi PDF",
     "tools.protect-pdf.description": "Proteggi i tuoi PDF con una password.",
     "tools.unlock-pdf.name": "Sblocca PDF",
@@ -120,7 +119,6 @@
     "tools.resize-pdf.description": "Cambia le dimensioni della pagina PDF (A4, Letter, ecc.).",
     "tools.header-footer.name": "Intestazione e piè di pagina",
     "tools.header-footer.description": "Aggiungi testo personalizzato in intestazione e piè di pagina.",
-
     "tool.protect.action": "Proteggi PDF",
     "tool.protect.user_password": "Password utente",
     "tool.protect.owner_password": "Password proprietario",
@@ -128,16 +126,13 @@
     "tool.protect.allow_printing": "Consenti stampa",
     "tool.protect.allow_copying": "Consenti copia",
     "tool.protect.allow_modifying": "Consenti modifica",
-
     "tool.unlock.action": "Sblocca PDF",
     "tool.unlock.password": "Inserisci la password del PDF",
-
     "tool.organize.action": "Applica modifiche",
     "tool.organize.drag_hint": "Trascina per riordinare. Clicca X per eliminare.",
     "tool.organize.duplicate": "Duplica",
     "tool.organize.delete": "Elimina",
     "tool.organize.error": "Impossibile caricare le pagine del PDF. Prova con un file diverso.",
-
     "tool.crop.action": "Ritaglia PDF",
     "tool.crop.top": "Alto",
     "tool.crop.bottom": "Basso",
@@ -146,17 +141,14 @@
     "tool.crop.unit": "punti",
     "tool.crop.hint": "Trascina i bordi per regolare l'area di ritaglio.",
     "tool.crop.reset": "Ripristina",
-
     "tool.pdftopng.action": "Converti in PNG",
     "tool.pdftopng.transparent": "Sfondo trasparente",
-
     "tool.redact.action": "Applica oscuramento",
     "tool.redact.hint": "Clicca e trascina sull'anteprima per segnare le aree da oscurare.",
     "tool.redact.areas_count": "Aree di oscuramento",
     "tool.redact.clear_all": "Cancella tutto",
     "tool.redact.area": "Area",
     "tool.redact.no_areas": "Disegna almeno un'area da oscurare sull'anteprima",
-
     "tool.edit.action": "Applica modifiche",
     "tool.edit.add_text": "Aggiungi testo",
     "tool.edit.add_rectangle": "Aggiungi rettangolo",
@@ -172,7 +164,6 @@
     "tool.edit.font_size": "Dimensione",
     "tool.edit.default_text": "Testo",
     "tool.edit.preview_label": "Anteprima PDF",
-
     "tool.sign.action": "Applica firma",
     "tool.sign.draw": "Disegna firma",
     "tool.sign.image": "Carica immagine",
@@ -184,15 +175,11 @@
     "tool.sign.preview_label": "Anteprima PDF",
     "tool.sign.position_label": "Posiziona la firma sulla pagina",
     "tool.sign.drag_hint": "Trascina per posizionare la tua firma",
-
     "tool.extract.action": "Estrai immagini",
     "tool.extract.no_images": "Nessuna immagine trovata in questo PDF.",
-
     "tool.grayscale.action": "Converti in scala di grigi",
-
     "tool.resize.action": "Ridimensiona pagine",
     "tool.resize.target_size": "Dimensione pagina di destinazione",
-
     "tool.headerfooter.action": "Applica intestazione e piè di pagina",
     "tool.headerfooter.header_text": "Testo intestazione",
     "tool.headerfooter.footer_text": "Testo piè di pagina",
@@ -201,7 +188,6 @@
     "tool.headerfooter.align_center": "Centro",
     "tool.headerfooter.align_right": "Destra",
     "tool.headerfooter.placeholder_hint": "Usa {page} per il numero di pagina, {total} per il totale delle pagine",
-
     "tool.watermark.type_text": "Testo",
     "tool.watermark.type_image": "Immagine",
     "tool.watermark.choose_image": "Scegli immagine",
@@ -217,7 +203,6 @@
     "tool.watermark.placeholder": "Inserisci il testo della filigrana...",
     "tool.watermark.image_label": "Immagine filigrana",
     "tool.watermark.no_image": "Nessuna immagine selezionata",
-
     "privacy.title": "Informativa sulla Privacy",
     "privacy.last_updated": "Ultimo aggiornamento",
     "privacy.intro": "PDF Worker è un'applicazione web client-side. Tutta l'elaborazione dei PDF avviene interamente nel tuo browser — i tuoi file non vengono mai caricati su alcun server.",
@@ -241,19 +226,15 @@
     "privacy.changes_text": "Potremmo aggiornare questa Informativa sulla Privacy di tanto in tanto. Le modifiche saranno pubblicate su questa pagina con una data aggiornata.",
     "privacy.contact_title": "Contatti",
     "privacy.contact_text": "Per domande su questa Informativa sulla Privacy, puoi contattarci tramite il repository GitHub del progetto.",
-
     "cookie.message": "Questo sito utilizza cookie per la pubblicità tramite Google AdSense. I tuoi file PDF non vengono mai caricati o condivisi. Consulta la nostra ",
     "cookie.accept": "Accetta",
     "cookie.decline": "Rifiuta",
-
     "tools.flatten-pdf.name": "Appiattisci PDF",
     "tools.flatten-pdf.description": "Appiattisci campi modulo e annotazioni in contenuto statico.",
     "tool.flatten.action": "Appiattisci PDF",
-
     "tools.pdf-to-text.name": "PDF in Testo",
     "tools.pdf-to-text.description": "Estrai tutto il testo da un documento PDF.",
     "tool.pdftotext.action": "Estrai Testo",
-
     "tools.merge-pdf.how_title": "Come unire file PDF",
     "tools.merge-pdf.how_text": "Combina più documenti PDF in un unico file direttamente nel tuo browser. Nessun upload necessario — i tuoi file restano sul tuo dispositivo.",
     "tools.merge-pdf.step_1": "Seleziona o trascina più file PDF.",
@@ -265,7 +246,6 @@
     "tools.merge-pdf.faq_2_a": "No. Tutta l'elaborazione avviene localmente nel tuo browser. I tuoi file non lasciano mai il tuo dispositivo.",
     "tools.merge-pdf.faq_3_q": "Posso cambiare l'ordine delle pagine?",
     "tools.merge-pdf.faq_3_a": "Sì. Puoi riordinare i file prima dell'unione. Per il controllo a livello di pagina, usa lo strumento Organizza PDF.",
-
     "tools.split-pdf.how_title": "Come dividere un PDF",
     "tools.split-pdf.how_text": "Estrai pagine specifiche o dividi un PDF in più documenti. Tutto avviene nel tuo browser.",
     "tools.split-pdf.step_1": "Carica un file PDF.",
@@ -275,7 +255,6 @@
     "tools.split-pdf.faq_1_a": "Sì. Usa la modalità intervallo e inserisci i numeri di pagina come 1-3, 5, 7-9.",
     "tools.split-pdf.faq_2_q": "In che formato sono i file di output?",
     "tools.split-pdf.faq_2_a": "Ogni divisione produce un file PDF standard. Puoi scaricarli singolarmente o come ZIP.",
-
     "tools.compress-pdf.how_title": "Come comprimere un PDF",
     "tools.compress-pdf.how_text": "Riduci le dimensioni del file PDF mantenendo la qualità visiva. Scegli tra tre livelli di compressione.",
     "tools.compress-pdf.step_1": "Carica un file PDF.",
@@ -285,7 +264,6 @@
     "tools.compress-pdf.faq_1_a": "Dipende dal contenuto. I PDF con molte immagini possono essere ridotti del 50-80%. I PDF di solo testo avranno riduzioni minori.",
     "tools.compress-pdf.faq_2_q": "La compressione riduce la qualità?",
     "tools.compress-pdf.faq_2_a": "La compressione bassa mantiene una qualità quasi originale. Quella alta riduce di più la qualità ma ottiene file più piccoli.",
-
     "tools.rotate-pdf.how_title": "Come ruotare le pagine PDF",
     "tools.rotate-pdf.how_text": "Ruota tutte le pagine di un PDF di 90°, 180° o 270°. Perfetto per correggere documenti scansionati.",
     "tools.rotate-pdf.step_1": "Carica un file PDF.",
@@ -293,7 +271,6 @@
     "tools.rotate-pdf.step_3": "Clicca Ruota PDF e scarica.",
     "tools.rotate-pdf.faq_1_q": "Posso ruotare singole pagine?",
     "tools.rotate-pdf.faq_1_a": "Attualmente la rotazione si applica a tutte le pagine. Per il controllo delle singole pagine, usa lo strumento Organizza.",
-
     "tools.watermark-pdf.how_title": "Come aggiungere una filigrana al PDF",
     "tools.watermark-pdf.how_text": "Aggiungi filigrane di testo o immagine ai tuoi documenti PDF. Personalizza posizione, opacità, dimensione e rotazione.",
     "tools.watermark-pdf.step_1": "Carica un file PDF.",
@@ -301,7 +278,6 @@
     "tools.watermark-pdf.step_3": "Posiziona la filigrana sull'anteprima e clicca Aggiungi Filigrana.",
     "tools.watermark-pdf.faq_1_q": "Posso usare un'immagine come filigrana?",
     "tools.watermark-pdf.faq_1_a": "Sì. Puoi caricare un'immagine PNG o JPG e regolarne dimensione, opacità e posizione.",
-
     "tools.pdf-to-jpg.how_title": "Come convertire PDF in JPG",
     "tools.pdf-to-jpg.how_text": "Converti ogni pagina di un PDF in un'immagine JPG di alta qualità.",
     "tools.pdf-to-jpg.step_1": "Carica un file PDF.",
@@ -309,7 +285,6 @@
     "tools.pdf-to-jpg.step_3": "Clicca Converti in JPG e scarica le immagini.",
     "tools.pdf-to-jpg.faq_1_q": "Quale qualità dovrei usare?",
     "tools.pdf-to-jpg.faq_1_a": "80% offre un buon equilibrio. Usa 100% per la massima qualità o valori inferiori per file più piccoli.",
-
     "tools.jpg-to-pdf.how_title": "Come convertire immagini in PDF",
     "tools.jpg-to-pdf.how_text": "Converti immagini JPG, PNG o WebP in un documento PDF. Imposta orientamento e margini.",
     "tools.jpg-to-pdf.step_1": "Carica una o più immagini.",
@@ -317,7 +292,6 @@
     "tools.jpg-to-pdf.step_3": "Clicca Converti in PDF e scarica.",
     "tools.jpg-to-pdf.faq_1_q": "Quali formati di immagine sono supportati?",
     "tools.jpg-to-pdf.faq_1_a": "Sono supportati i formati JPG, JPEG, PNG e WebP.",
-
     "tools.protect-pdf.how_title": "Come proteggere un PDF con password",
     "tools.protect-pdf.how_text": "Aggiungi una protezione con password ai tuoi file PDF. Imposta password utente e proprietario con permessi personalizzati.",
     "tools.protect-pdf.step_1": "Carica un file PDF.",
@@ -325,7 +299,6 @@
     "tools.protect-pdf.step_3": "Clicca Proteggi PDF e scarica il file protetto.",
     "tools.protect-pdf.faq_1_q": "Qual è la differenza tra password utente e proprietario?",
     "tools.protect-pdf.faq_1_a": "La password utente serve per aprire il file. La password proprietario controlla i permessi come stampa e copia.",
-
     "tools.unlock-pdf.how_title": "Come sbloccare un PDF",
     "tools.unlock-pdf.how_text": "Rimuovi la protezione con password da un file PDF. Devi conoscere la password attuale.",
     "tools.unlock-pdf.step_1": "Carica un file PDF protetto.",
@@ -333,7 +306,6 @@
     "tools.unlock-pdf.step_3": "Clicca Sblocca PDF e scarica il file sbloccato.",
     "tools.unlock-pdf.faq_1_q": "Posso sbloccare un PDF senza la password?",
     "tools.unlock-pdf.faq_1_a": "No. Devi fornire la password corretta per rimuovere la protezione.",
-
     "tools.organize-pdf.how_title": "Come organizzare le pagine PDF",
     "tools.organize-pdf.how_text": "Riordina, elimina o duplica le pagine del tuo PDF con un'interfaccia drag-and-drop visuale.",
     "tools.organize-pdf.step_1": "Carica un file PDF.",
@@ -341,19 +313,16 @@
     "tools.organize-pdf.step_3": "Clicca Applica Modifiche e scarica.",
     "tools.organize-pdf.faq_1_q": "Posso duplicare le pagine?",
     "tools.organize-pdf.faq_1_a": "Sì. Clicca il pulsante duplica sulla miniatura di qualsiasi pagina per creare una copia.",
-
     "tools.crop-pdf.how_title": "Come ritagliare un PDF",
     "tools.crop-pdf.how_text": "Taglia i margini o ritaglia le pagine PDF in un'area specifica.",
     "tools.crop-pdf.step_1": "Carica un file PDF.",
     "tools.crop-pdf.step_2": "Regola l'area di ritaglio sull'anteprima.",
     "tools.crop-pdf.step_3": "Clicca Ritaglia PDF e scarica.",
-
     "tools.pdf-to-png.how_title": "Come convertire PDF in PNG",
     "tools.pdf-to-png.how_text": "Converti le pagine PDF in immagini PNG di alta qualità con sfondo trasparente opzionale.",
     "tools.pdf-to-png.step_1": "Carica un file PDF.",
     "tools.pdf-to-png.step_2": "Opzionalmente attiva lo sfondo trasparente.",
     "tools.pdf-to-png.step_3": "Clicca Converti in PNG e scarica.",
-
     "tools.redact-pdf.how_title": "Come oscurare un PDF",
     "tools.redact-pdf.how_text": "Oscura permanentemente contenuti sensibili nel tuo PDF. Le aree oscurate non possono essere recuperate.",
     "tools.redact-pdf.step_1": "Carica un file PDF.",
@@ -361,13 +330,11 @@
     "tools.redact-pdf.step_3": "Clicca Applica Oscuramento e scarica.",
     "tools.redact-pdf.faq_1_q": "L'oscuramento è permanente?",
     "tools.redact-pdf.faq_1_a": "Sì. Il contenuto oscurato viene rimosso permanentemente e non può essere recuperato.",
-
     "tools.edit-pdf.how_title": "Come modificare un PDF",
     "tools.edit-pdf.how_text": "Aggiungi testo, forme e disegni a mano libera ai tuoi documenti PDF.",
     "tools.edit-pdf.step_1": "Carica un file PDF.",
     "tools.edit-pdf.step_2": "Aggiungi blocchi di testo, rettangoli o disegna a mano libera.",
     "tools.edit-pdf.step_3": "Clicca Applica Modifiche e scarica.",
-
     "tools.sign-pdf.how_title": "Come firmare un PDF",
     "tools.sign-pdf.how_text": "Aggiungi la tua firma ai documenti PDF. Disegna una firma o carica un'immagine della firma.",
     "tools.sign-pdf.step_1": "Carica un file PDF.",
@@ -375,37 +342,31 @@
     "tools.sign-pdf.step_3": "Posiziona la firma e clicca Applica Firma.",
     "tools.sign-pdf.faq_1_q": "Questa è una firma digitale legalmente valida?",
     "tools.sign-pdf.faq_1_a": "Questa aggiunge una firma visiva al documento. Per firme digitali legalmente valide (PAdES/P7M), è necessario un certificato qualificato.",
-
     "tools.extract-images.how_title": "Come estrarre immagini da PDF",
     "tools.extract-images.how_text": "Estrai tutte le immagini incorporate in un documento PDF come file PNG individuali.",
     "tools.extract-images.step_1": "Carica un file PDF.",
     "tools.extract-images.step_2": "Clicca Estrai Immagini.",
     "tools.extract-images.step_3": "Scarica le immagini singolarmente o tutte come ZIP.",
-
     "tools.grayscale-pdf.how_title": "Come convertire PDF in bianco e nero",
     "tools.grayscale-pdf.how_text": "Converti un PDF a colori in bianco e nero. Utile per la stampa o per ridurre la complessità visiva.",
     "tools.grayscale-pdf.step_1": "Carica un file PDF.",
     "tools.grayscale-pdf.step_2": "Clicca Converti in Scala di Grigi.",
     "tools.grayscale-pdf.step_3": "Scarica il PDF in scala di grigi.",
-
     "tools.resize-pdf.how_title": "Come ridimensionare le pagine PDF",
     "tools.resize-pdf.how_text": "Cambia le dimensioni delle pagine del tuo PDF in formato A4, A3, Letter o Legal.",
     "tools.resize-pdf.step_1": "Carica un file PDF.",
     "tools.resize-pdf.step_2": "Seleziona la dimensione di pagina desiderata.",
     "tools.resize-pdf.step_3": "Clicca Ridimensiona Pagine e scarica.",
-
     "tools.page-numbers.how_title": "Come aggiungere numeri di pagina al PDF",
     "tools.page-numbers.how_text": "Aggiungi numeri di pagina ai tuoi documenti PDF. Scegli posizione e formato.",
     "tools.page-numbers.step_1": "Carica un file PDF.",
     "tools.page-numbers.step_2": "Scegli posizione e formato di numerazione.",
     "tools.page-numbers.step_3": "Clicca Aggiungi Numeri di Pagina e scarica.",
-
     "tools.header-footer.how_title": "Come aggiungere intestazione e piè di pagina al PDF",
     "tools.header-footer.how_text": "Aggiungi testo personalizzato come intestazione e piè di pagina al tuo PDF.",
     "tools.header-footer.step_1": "Carica un file PDF.",
     "tools.header-footer.step_2": "Inserisci il testo per intestazione e/o piè di pagina.",
     "tools.header-footer.step_3": "Clicca Applica Intestazione e Piè di Pagina e scarica.",
-
     "tools.flatten-pdf.how_title": "Come appiattire un PDF",
     "tools.flatten-pdf.how_text": "Appiattisci campi modulo e annotazioni in contenuto statico. Utile prima di condividere o archiviare.",
     "tools.flatten-pdf.step_1": "Carica un file PDF con campi modulo.",
@@ -413,7 +374,6 @@
     "tools.flatten-pdf.step_3": "Scarica il PDF appiattito.",
     "tools.flatten-pdf.faq_1_q": "Cosa significa appiattire?",
     "tools.flatten-pdf.faq_1_a": "Converte i campi modulo interattivi e le annotazioni in contenuto statico della pagina che non può più essere modificato.",
-
     "tools.pdf-to-text.how_title": "Come estrarre testo da PDF",
     "tools.pdf-to-text.how_text": "Estrai tutto il contenuto testuale da un documento PDF e salvalo come file di testo.",
     "tools.pdf-to-text.step_1": "Carica un file PDF.",
@@ -423,13 +383,10 @@
     "tools.pdf-to-text.faq_1_a": "No. Questo strumento estrae solo il testo incorporato. I documenti scansionati contengono immagini e richiederebbero OCR.",
     "error.title": "Si è verificato un errore",
     "error.retry": "Ricarica pagina",
-
     "toast.processing_complete": "Elaborazione completata!",
     "toast.invalid_file": "Formato file non supportato",
-
     "home.search_placeholder": "Cerca strumenti...",
     "home.no_results": "Nessuno strumento trovato. Prova una ricerca diversa.",
-
     "home.section.organize": "Organizza e Modifica",
     "home.section.convert": "Converti",
     "home.section.annotate": "Annota e Migliora",
@@ -448,14 +405,12 @@
     "blog.back_to_blog": "Torna al Blog",
     "blog.try_tool": "Pronto a provare?",
     "blog.related_articles": "Articoli correlati",
-
     "tools.markdown-to-pdf.name": "Markdown in PDF",
     "tools.markdown-to-pdf.description": "Converti testo Markdown in un documento PDF formattato.",
     "tool.markdown.action": "Genera PDF",
     "tool.markdown.title": "Inserisci Markdown",
     "tool.markdown.placeholder": "# Il mio documento\n\nScrivi il tuo contenuto **Markdown** qui...\n\n- Elenchi puntati\n- *Testo in corsivo*\n- `frammenti di codice`\n\n1. Elenchi numerati\n2. Secondo elemento\n\n---\n\n### Sottotitolo\n\nParagrafi con formattazione **grassetto** e *corsivo*.",
     "tool.markdown.hint": "Supporta intestazioni (#), grassetto (**), corsivo (*), elenchi puntati (-), elenchi numerati (1.), blocchi di codice (```), e linee orizzontali (---).",
-
     "tools.markdown-to-pdf.how_title": "Come convertire Markdown in PDF",
     "tools.markdown-to-pdf.how_text": "Scrivi o incolla il tuo testo Markdown e convertilo in un documento PDF formattato, tutto nel tuo browser.",
     "tools.markdown-to-pdf.step_1": "Scrivi o incolla il contenuto Markdown nell'area di testo.",
@@ -493,7 +448,6 @@
     "tools.edit-metadata.faq_2_a": "Sì. Basta cancellare tutti i campi e salvare. I metadati verranno impostati su valori vuoti.",
     "tools.edit-metadata.faq_3_q": "I miei file vengono caricati su un server?",
     "tools.edit-metadata.faq_3_a": "No. Tutta l'elaborazione avviene localmente nel tuo browser. I tuoi file non lasciano mai il tuo dispositivo.",
-
     "tools.pdf-to-webp.name": "PDF in WebP",
     "tools.pdf-to-webp.description": "Converti le pagine PDF in immagini WebP moderne.",
     "tool.pdftowebp.action": "Converti in WebP",
@@ -505,7 +459,6 @@
     "tools.pdf-to-webp.step_3": "Clicca Converti in WebP e scarica le immagini.",
     "tools.pdf-to-webp.faq_1_q": "Perché usare WebP invece di JPG?",
     "tools.pdf-to-webp.faq_1_a": "Le immagini WebP sono in genere il 25-34% più piccole rispetto al JPG a parità di qualità, ideali per l'uso sul web.",
-
     "tools.nup-pdf.name": "N-Up PDF",
     "tools.nup-pdf.description": "Combina più pagine su un singolo foglio (2, 4 o 9 per pagina).",
     "tool.nup.action": "Applica layout N-Up",
@@ -517,7 +470,6 @@
     "tools.nup-pdf.step_3": "Clicca Applica layout N-Up e scarica.",
     "tools.nup-pdf.faq_1_q": "Cos'è la stampa N-Up?",
     "tools.nup-pdf.faq_1_a": "N-Up significa posizionare più pagine su un singolo foglio. Ad esempio, 4-up stampa quattro pagine su un foglio.",
-
     "tools.add-blank-page.name": "Aggiungi pagina vuota",
     "tools.add-blank-page.description": "Inserisci una pagina vuota all'inizio o alla fine del tuo PDF.",
     "tool.blankpage.action": "Aggiungi pagina vuota",
@@ -528,7 +480,6 @@
     "tools.add-blank-page.step_1": "Carica un file PDF.",
     "tools.add-blank-page.step_2": "Scegli dove inserire la pagina vuota.",
     "tools.add-blank-page.step_3": "Clicca Aggiungi pagina vuota e scarica.",
-
     "tools.remove-blank-pages.name": "Rimuovi pagine vuote",
     "tools.remove-blank-pages.description": "Rileva e rimuovi automaticamente le pagine vuote dal tuo PDF.",
     "tool.removeblank.action": "Rimuovi pagine vuote",
@@ -539,7 +490,6 @@
     "tools.remove-blank-pages.step_3": "Scarica il PDF ripulito.",
     "tools.remove-blank-pages.faq_1_q": "Come vengono rilevate le pagine vuote?",
     "tools.remove-blank-pages.faq_1_a": "Ogni pagina viene renderizzata e analizzata. Se il 99,5% o più dei pixel è bianco, la pagina è considerata vuota.",
-
     "tools.ocr-pdf.name": "OCR PDF",
     "tools.ocr-pdf.description": "Rendi ricercabili i PDF scansionati con il riconoscimento ottico dei caratteri.",
     "tool.ocr.action": "Esegui OCR",
@@ -555,7 +505,6 @@
     "tools.ocr-pdf.step_3": "Clicca Esegui OCR e scarica il PDF ricercabile.",
     "tools.ocr-pdf.faq_1_q": "L'OCR funziona con il testo manoscritto?",
     "tools.ocr-pdf.faq_1_a": "L'OCR funziona meglio con il testo stampato. Il testo manoscritto potrebbe non essere riconosciuto correttamente.",
-
     "tools.compare-pdf.name": "Confronta PDF",
     "tools.compare-pdf.description": "Confronta due PDF affiancati ed evidenzia le differenze.",
     "tool.compare.action": "Confronta PDF",
@@ -566,7 +515,6 @@
     "tools.compare-pdf.step_3": "Scarica il documento di confronto.",
     "tools.compare-pdf.faq_1_q": "Come vengono mostrate le differenze?",
     "tools.compare-pdf.faq_1_a": "Le pagine vengono visualizzate affiancate. I pixel diversi tra i due documenti sono evidenziati in rosso sul lato destro.",
-
     "tools.text-to-pdf.name": "Testo in PDF",
     "tools.text-to-pdf.description": "Converti testo semplice in un documento PDF formattato.",
     "tool.texttopdf.action": "Genera PDF",
@@ -577,7 +525,6 @@
     "tools.text-to-pdf.step_1": "Scrivi o incolla il testo nell'area di testo.",
     "tools.text-to-pdf.step_2": "Clicca Genera PDF.",
     "tools.text-to-pdf.step_3": "Scarica il documento PDF.",
-
     "tools.reverse-pages.name": "Inverti pagine",
     "tools.reverse-pages.description": "Inverti l'ordine di tutte le pagine del tuo PDF.",
     "tool.reverse.action": "Inverti pagine",
@@ -586,7 +533,6 @@
     "tools.reverse-pages.step_1": "Carica un file PDF.",
     "tools.reverse-pages.step_2": "Clicca Inverti pagine.",
     "tools.reverse-pages.step_3": "Scarica il PDF con le pagine invertite.",
-
     "tools.invert-colors.name": "Inverti colori",
     "tools.invert-colors.description": "Inverti tutti i colori del tuo PDF per un effetto negativo.",
     "tool.invert.action": "Inverti colori",
@@ -595,7 +541,6 @@
     "tools.invert-colors.step_1": "Carica un file PDF.",
     "tools.invert-colors.step_2": "Clicca Inverti colori.",
     "tools.invert-colors.step_3": "Scarica il PDF con i colori invertiti.",
-
     "tools.repair-pdf.name": "Ripara PDF",
     "tools.repair-pdf.description": "Tenta di riparare un file PDF corrotto o danneggiato.",
     "tool.repair.action": "Ripara PDF",
@@ -606,7 +551,6 @@
     "tools.repair-pdf.step_3": "Scarica il file riparato.",
     "tools.repair-pdf.faq_1_q": "Tutti i PDF possono essere riparati?",
     "tools.repair-pdf.faq_1_a": "Non sempre. Lo strumento può risolvere molti problemi comuni, ma i file gravemente danneggiati potrebbero non essere recuperabili.",
-
     "tools.pdf-to-epub.name": "PDF in EPUB",
     "tools.pdf-to-epub.description": "Converti un documento PDF in un ebook EPUB.",
     "tool.pdftoepub.action": "Converti in EPUB",
@@ -653,7 +597,6 @@
     "tool.qrcode.preview_label": "Anteprima del QR code",
     "tool.qrcode.no_text": "Inserisci un testo per generare un QR code",
     "tool.qrcode.all_pages": "Aggiungi QR code a tutte le pagine",
-
     "tools.check-accessibility.name": "Controllo Accessibilità",
     "tools.check-accessibility.description": "Analizza il tuo PDF per problemi di accessibilità: tag, alt text, lingua, font e altro.",
     "tools.check-accessibility.how_title": "Come controllare l'accessibilità del PDF",
@@ -681,5 +624,25 @@
     "tools.pdf-to-markdown.faq_2_a": "Il convertitore analizza le dimensioni dei caratteri e lo stile grassetto. Il testo in grassetto e più corto di 80 caratteri viene trattato come titolo.",
     "tools.pdf-to-markdown.faq_3_q": "La conversione carica il mio file?",
     "tools.pdf-to-markdown.faq_3_a": "No. Tutta la conversione avviene interamente nel tuo browser. Il tuo file non lascia mai il tuo dispositivo.",
-    "tool.pdftomarkdown.action": "Converti in Markdown"
+    "tool.pdftomarkdown.action": "Converti in Markdown",
+    "tools.invoice-nup.name": "A4 Invoice Layout",
+    "tools.invoice-nup.description": "Arrange invoice PDF pages on portrait A4 sheets in 2-up or 4-up layouts.",
+    "tool.invoice_nup.action": "Create A4 Invoice Layout",
+    "tool.invoice_nup.layout": "Pages per A4 sheet",
+    "tool.invoice_nup.layout_2": "2-up (top and bottom)",
+    "tool.invoice_nup.layout_4": "4-up (2 × 2)",
+    "tool.invoice_nup.margin": "Page margin (pt)",
+    "tool.invoice_nup.gap": "Gap between invoices (pt)",
+    "tool.invoice_nup.auto_rotate": "Auto-rotate individual pages when it improves the fit",
+    "tools.invoice-nup.how_title": "How to Arrange Invoices on A4",
+    "tools.invoice-nup.how_text": "Place pages from one or more PDFs onto portrait A4 sheets while preserving their proportions and order.",
+    "tools.invoice-nup.step_1": "Upload one or more invoice PDF files in the required order.",
+    "tools.invoice-nup.step_2": "Choose 2-up or 4-up and adjust the margin and gap if needed.",
+    "tools.invoice-nup.step_3": "Create and download the print-ready A4 PDF.",
+    "tools.invoice-nup.faq_1_q": "Will invoice pages be stretched?",
+    "tools.invoice-nup.faq_1_a": "No. Every source page keeps its original aspect ratio and is centered in its cell.",
+    "tools.invoice-nup.faq_2_q": "Can I combine several PDF files?",
+    "tools.invoice-nup.faq_2_a": "Yes. All pages are arranged in file order and then page order.",
+    "tools.invoice-nup.faq_3_q": "Are my invoices uploaded?",
+    "tools.invoice-nup.faq_3_a": "No. Processing runs locally in your browser and your files never leave your device."
 }

@@ -8,11 +8,12 @@ const currentYear = new Date().getFullYear();
     <footer class="bg-gray-900 text-gray-300">
         <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center gap-4 text-center">
-                <!-- Branding -->
+                <!-- Branding: keep the upstream relationship visible. -->
                 <div class="flex items-center gap-2 text-white">
-                    <span class="text-xl">🔧</span>
-                    <span class="text-lg font-bold">PDF Worker</span>
+                    <span class="text-xl">🧰</span>
+                    <span class="text-lg font-bold">PDF 工具箱</span>
                 </div>
+                <p class="text-xs text-gray-500">基于上游开源项目 PDF Worker 二次开发</p>
 
                 <!-- Privacy message -->
                 <p class="flex items-center gap-2 text-sm text-gray-400">

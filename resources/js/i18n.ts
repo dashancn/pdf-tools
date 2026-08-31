@@ -15,23 +15,27 @@ import be from '../../lang/be.json';
 import el from '../../lang/el.json';
 import sl from '../../lang/sl.json';
 import cs from '../../lang/cs.json';
+import zhCN from '../../lang/zh-CN.json';
 
-const messages: Record<string, Record<string, string>> = { en, it, es, fr, de, pt, nl, sv, fi, da, no, be, el, sl, cs };
+const messages: Record<string, Record<string, string>> = { 'zh-CN': zhCN, en, it, es, fr, de, pt, nl, sv, fi, da, no, be, el, sl, cs };
 
-export const availableLocales = ['en', 'it', 'es', 'fr', 'de', 'pt', 'nl', 'sv', 'fi', 'da', 'no', 'be', 'el', 'sl', 'cs'];
+export const availableLocales = ['zh-CN', 'en', 'it', 'es', 'fr', 'de', 'pt', 'nl', 'sv', 'fi', 'da', 'no', 'be', 'el', 'sl', 'cs'];
 
 function detectLocale(): string {
     const langs = navigator.languages ?? [navigator.language];
     for (const lang of langs) {
+        if (lang.toLowerCase().startsWith('zh')) return 'zh-CN';
         const code = lang.split('-')[0].toLowerCase();
         if (availableLocales.includes(code)) return code;
     }
-    return 'en';
+    return 'zh-CN';
 }
 
 export const currentLocale = ref(
     localStorage.getItem('locale') ?? detectLocale(),
 );
+
+document.documentElement.lang = currentLocale.value;
 
 export function trans(key: string): string {
     return messages[currentLocale.value]?.[key] ?? messages['en']?.[key] ?? key;

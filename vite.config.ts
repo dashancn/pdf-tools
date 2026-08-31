@@ -13,21 +13,12 @@ export default defineConfig({
             workbox: {
                 globPatterns: ['**/*.{js,css,html,svg,woff2,mjs}'],
                 maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
-                runtimeCaching: [
-                    {
-                        urlPattern: /^https:\/\/fonts\.bunny\.net\/.*/i,
-                        handler: 'CacheFirst',
-                        options: {
-                            cacheName: 'bunny-fonts',
-                            expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 365 },
-                        },
-                    },
-                ],
+
             },
             manifest: {
-                name: 'PDF Worker - Free Online PDF Tools',
-                short_name: 'PDF Worker',
-                description: 'Free online PDF tools that run entirely in your browser. Your files never leave your device.',
+                name: 'PDF 工具箱 - i41 浏览器端 PDF 工具',
+                short_name: 'PDF 工具箱',
+                description: '免费、隐私优先的浏览器端 PDF 工具箱，文件无需上传。',
                 theme_color: '#1e3a5f',
                 background_color: '#f9fafb',
                 display: 'standalone',
@@ -48,7 +39,7 @@ export default defineConfig({
     },
     base: './',
     build: {
-        outDir: 'docs',
+        outDir: 'dist',
         emptyOutDir: true,
         rollupOptions: {
             output: {

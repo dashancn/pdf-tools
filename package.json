@@ -20,7 +20,7 @@
         "@vitest/coverage-v8": "^4.0.18",
         "sharp": "^0.34.5",
         "tailwindcss": "^4.2.1",
-        "vite": "^7.0.7",
+        "vite": "7.3.6",
         "vite-plugin-pwa": "^1.2.0",
         "vitest": "^4.0.18"
     },
@@ -29,7 +29,7 @@
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^6.0.4",
-        "dompurify": "^3.3.2",
+        "dompurify": "3.4.14",
         "file-saver": "^2.0.5",
         "jszip": "^3.10.1",
         "pdf-lib": "^1.17.1",

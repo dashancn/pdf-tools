@@ -97,8 +97,8 @@ export async function savePdfAsBlob(pdfDoc: PDFDocument): Promise<Blob> {
  * so explicit user values take precedence.
  */
 export function stampDefaultMetadata(pdfDoc: PDFDocument, toolName: string): void {
-    pdfDoc.setCreator('pdfworker.eu');
-    pdfDoc.setKeywords(['pdf worker', 'pdfworker.eu', toolName]);
+    pdfDoc.setCreator('pdf.i41.cn');
+    pdfDoc.setKeywords(['PDF 工具箱', 'pdf.i41.cn', toolName]);
 }
 
 /**

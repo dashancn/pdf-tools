@@ -32,12 +32,12 @@ export async function expectValidPdf(
 }
 
 /**
- * Assert that the default pdfworker.eu metadata was stamped.
+ * Assert that the default i41 PDF toolbox metadata was stamped.
  */
 export function expectDefaultMetadata(doc: PDFDocument, toolName: string): void {
-    expect(doc.getCreator()).toBe('pdfworker.eu');
+    expect(doc.getCreator()).toBe('pdf.i41.cn');
     const keywords = doc.getKeywords();
-    expect(keywords).toContain('pdf worker');
-    expect(keywords).toContain('pdfworker.eu');
+    expect(keywords).toContain('PDF 工具箱');
+    expect(keywords).toContain('pdf.i41.cn');
     expect(keywords).toContain(toolName);
 }

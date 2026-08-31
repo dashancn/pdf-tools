@@ -1,7 +1,7 @@
 /**
  * SCI Profiler — tool registry and window.__sciProfiler API.
  *
- * Maps all 39 PDF tools to their worker name + argument builder.
+ * Maps all 40 PDF tools to their worker name + argument builder.
  * Attaches a global API for running benchmarks from the browser console.
  */
 import { generateBenchmarkPdf } from './benchmarkPdf';
@@ -172,6 +172,10 @@ const TOOL_REGISTRY: ToolEntry[] = [
     {
         name: 'nup-pdf',
         args: (f) => ({ files: [f], options: { layout: 4 } }),
+    },
+    {
+        name: 'invoice-nup',
+        args: (f) => ({ files: [f], options: { layout: 2, margin: 18, gap: 12, autoRotate: true } }),
     },
     {
         name: 'add-blank-page',

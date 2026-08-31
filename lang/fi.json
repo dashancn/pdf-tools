@@ -387,7 +387,6 @@
     "toast.invalid_file": "Tiedostomuotoa ei tueta",
     "home.search_placeholder": "Hae työkaluja...",
     "home.no_results": "Työkaluja ei löytynyt. Kokeile toista hakua.",
-
     "home.section.organize": "Järjestä ja Muokkaa",
     "home.section.convert": "Muunna",
     "home.section.annotate": "Merkitse ja Paranna",
@@ -449,7 +448,6 @@
     "tools.edit-metadata.faq_2_a": "Kyllä. Tyhjennä kaikki kentät ja tallenna. Metatiedot asetetaan tyhjiksi arvoiksi.",
     "tools.edit-metadata.faq_3_q": "Ladataanko tiedostoni palvelimelle?",
     "tools.edit-metadata.faq_3_a": "Ei. Kaikki käsittely tapahtuu paikallisesti selaimessasi. Tiedostosi eivät koskaan poistu laitteeltasi.",
-
     "tools.pdf-to-webp.name": "PDF WebP:ksi",
     "tools.pdf-to-webp.description": "Muunna PDF-sivut moderneiksi WebP-kuviksi.",
     "tool.pdftowebp.action": "Muunna WebP:ksi",
@@ -461,7 +459,6 @@
     "tools.pdf-to-webp.step_3": "Napsauta Muunna WebP:ksi ja lataa kuvat.",
     "tools.pdf-to-webp.faq_1_q": "Miksi käyttää WebP:tä JPG:n sijaan?",
     "tools.pdf-to-webp.faq_1_a": "WebP-kuvat ovat tyypillisesti 25-34% pienempiä kuin JPG samalla laadulla, mikä tekee niistä ihanteellisia verkkokäyttöön.",
-
     "tools.nup-pdf.name": "N-Up PDF",
     "tools.nup-pdf.description": "Yhdistä useita sivuja yhdelle arkille (2, 4 tai 9 sivua per arkki).",
     "tool.nup.action": "Käytä N-Up-asettelua",
@@ -473,7 +470,6 @@
     "tools.nup-pdf.step_3": "Napsauta Käytä N-Up-asettelua ja lataa.",
     "tools.nup-pdf.faq_1_q": "Mikä on N-Up-tulostus?",
     "tools.nup-pdf.faq_1_a": "N-Up tarkoittaa useiden sivujen sijoittamista yhdelle arkille. Esimerkiksi 4-up tulostaa neljä sivua yhdelle arkille.",
-
     "tools.add-blank-page.name": "Lisää tyhjä sivu",
     "tools.add-blank-page.description": "Lisää tyhjä sivu PDF:n alkuun tai loppuun.",
     "tool.blankpage.action": "Lisää tyhjä sivu",
@@ -484,7 +480,6 @@
     "tools.add-blank-page.step_1": "Lataa PDF-tiedosto.",
     "tools.add-blank-page.step_2": "Valitse, mihin tyhjä sivu lisätään.",
     "tools.add-blank-page.step_3": "Napsauta Lisää tyhjä sivu ja lataa.",
-
     "tools.remove-blank-pages.name": "Poista tyhjät sivut",
     "tools.remove-blank-pages.description": "Tunnista ja poista tyhjät sivut PDF-tiedostosta automaattisesti.",
     "tool.removeblank.action": "Poista tyhjät sivut",
@@ -495,7 +490,6 @@
     "tools.remove-blank-pages.step_3": "Lataa siivottu PDF.",
     "tools.remove-blank-pages.faq_1_q": "Miten tyhjät sivut tunnistetaan?",
     "tools.remove-blank-pages.faq_1_a": "Jokainen sivu renderöidään ja analysoidaan. Jos 99,5% tai enemmän pikseleistä on valkoisia, sivu katsotaan tyhjäksi.",
-
     "tools.ocr-pdf.name": "OCR PDF",
     "tools.ocr-pdf.description": "Tee skannatuista PDF-tiedostoista haettavia optisella tekstintunnistuksella.",
     "tool.ocr.action": "Suorita OCR",
@@ -511,7 +505,6 @@
     "tools.ocr-pdf.step_3": "Napsauta Suorita OCR ja lataa haettava PDF.",
     "tools.ocr-pdf.faq_1_q": "Toimiiko OCR käsinkirjoitetun tekstin kanssa?",
     "tools.ocr-pdf.faq_1_a": "OCR toimii parhaiten painetun tekstin kanssa. Käsinkirjoitettua tekstiä ei välttämättä tunnisteta tarkasti.",
-
     "tools.compare-pdf.name": "Vertaa PDF",
     "tools.compare-pdf.description": "Vertaa kahta PDF-tiedostoa vierekkäin ja korosta erot.",
     "tool.compare.action": "Vertaa PDF-tiedostoja",
@@ -522,7 +515,6 @@
     "tools.compare-pdf.step_3": "Lataa vertailudokumentti.",
     "tools.compare-pdf.faq_1_q": "Miten erot näytetään?",
     "tools.compare-pdf.faq_1_a": "Sivut renderöidään vierekkäin. Pikselit, jotka eroavat kahden dokumentin välillä, korostetaan punaisella oikealla puolella.",
-
     "tools.text-to-pdf.name": "Teksti PDF:ksi",
     "tools.text-to-pdf.description": "Muunna pelkkä teksti muotoilluksi PDF-dokumentiksi.",
     "tool.texttopdf.action": "Luo PDF",
@@ -533,7 +525,6 @@
     "tools.text-to-pdf.step_1": "Kirjoita tai liitä tekstisi tekstialueelle.",
     "tools.text-to-pdf.step_2": "Napsauta Luo PDF.",
     "tools.text-to-pdf.step_3": "Lataa PDF-dokumentti.",
-
     "tools.reverse-pages.name": "Käännä sivujärjestys",
     "tools.reverse-pages.description": "Käännä kaikkien PDF:n sivujen järjestys.",
     "tool.reverse.action": "Käännä sivujärjestys",
@@ -542,7 +533,6 @@
     "tools.reverse-pages.step_1": "Lataa PDF-tiedosto.",
     "tools.reverse-pages.step_2": "Napsauta Käännä sivujärjestys.",
     "tools.reverse-pages.step_3": "Lataa käännetty PDF.",
-
     "tools.invert-colors.name": "Käännä värit",
     "tools.invert-colors.description": "Käännä kaikki PDF:n värit negatiivi-efektiksi.",
     "tool.invert.action": "Käännä värit",
@@ -551,7 +541,6 @@
     "tools.invert-colors.step_1": "Lataa PDF-tiedosto.",
     "tools.invert-colors.step_2": "Napsauta Käännä värit.",
     "tools.invert-colors.step_3": "Lataa käännetty PDF.",
-
     "tools.repair-pdf.name": "Korjaa PDF",
     "tools.repair-pdf.description": "Yritä korjata vioittunut tai vahingoittunut PDF-tiedosto.",
     "tool.repair.action": "Korjaa PDF",
@@ -562,7 +551,6 @@
     "tools.repair-pdf.step_3": "Lataa korjattu tiedosto.",
     "tools.repair-pdf.faq_1_q": "Voidaanko kaikki PDF-tiedostot korjata?",
     "tools.repair-pdf.faq_1_a": "Ei aina. Työkalu voi korjata monia yleisiä ongelmia, mutta vakavasti vahingoittuneita tiedostoja ei ehkä voida palauttaa.",
-
     "tools.pdf-to-epub.name": "PDF EPUB:ksi",
     "tools.pdf-to-epub.description": "Muunna PDF-dokumentti EPUB-e-kirjaksi.",
     "tool.pdftoepub.action": "Muunna EPUB:ksi",
@@ -573,7 +561,6 @@
     "tools.pdf-to-epub.step_3": "Lataa EPUB-tiedosto.",
     "tools.pdf-to-epub.faq_1_q": "Toimiiko tämä skannattujen PDF-tiedostojen kanssa?",
     "tools.pdf-to-epub.faq_1_a": "Ei. Tämä työkalu poimii upotettua tekstiä. Skannatut PDF-tiedostot vaativat ensin OCR-käsittelyn tekstin saamiseksi saataville.",
-
     "tools.booklet-pdf.name": "PDF-vihko",
     "tools.booklet-pdf.description": "Järjestä sivut uudelleen kaksipuolista vihkotulostusta varten. Taita ja nido vihkoksi.",
     "tool.booklet.action": "Luo vihko",
@@ -610,7 +597,6 @@
     "tool.qrcode.preview_label": "QR code esikatselu",
     "tool.qrcode.no_text": "Syötä teksti luodaksesi QR code",
     "tool.qrcode.all_pages": "Lisää QR-koodi kaikille sivuille",
-
     "tools.check-accessibility.name": "Saavutettavuustarkistus",
     "tools.check-accessibility.description": "Analysoi PDF-tiedostosi saavutettavuusongelmien varalta: tunnisteet, alt text, kieli, fontit ja muuta.",
     "tools.check-accessibility.how_title": "Kuinka tarkistaa PDF:n saavutettavuus",
@@ -638,5 +624,25 @@
     "tools.pdf-to-markdown.faq_2_a": "Muunnin analysoi kirjasinkoot ja lihavoinnin. Teksti, joka on lihavoitu ja alle 80 merkkiä pitkä, käsitellään otsikkona.",
     "tools.pdf-to-markdown.faq_3_q": "Lähettääkö muunnos tiedostoni?",
     "tools.pdf-to-markdown.faq_3_a": "Ei. Kaikki muunnos tapahtuu kokonaan selaimessasi. Tiedostosi ei koskaan poistu laitteeltasi.",
-    "tool.pdftomarkdown.action": "Muunna Markdowniksi"
+    "tool.pdftomarkdown.action": "Muunna Markdowniksi",
+    "tools.invoice-nup.name": "A4 Invoice Layout",
+    "tools.invoice-nup.description": "Arrange invoice PDF pages on portrait A4 sheets in 2-up or 4-up layouts.",
+    "tool.invoice_nup.action": "Create A4 Invoice Layout",
+    "tool.invoice_nup.layout": "Pages per A4 sheet",
+    "tool.invoice_nup.layout_2": "2-up (top and bottom)",
+    "tool.invoice_nup.layout_4": "4-up (2 × 2)",
+    "tool.invoice_nup.margin": "Page margin (pt)",
+    "tool.invoice_nup.gap": "Gap between invoices (pt)",
+    "tool.invoice_nup.auto_rotate": "Auto-rotate individual pages when it improves the fit",
+    "tools.invoice-nup.how_title": "How to Arrange Invoices on A4",
+    "tools.invoice-nup.how_text": "Place pages from one or more PDFs onto portrait A4 sheets while preserving their proportions and order.",
+    "tools.invoice-nup.step_1": "Upload one or more invoice PDF files in the required order.",
+    "tools.invoice-nup.step_2": "Choose 2-up or 4-up and adjust the margin and gap if needed.",
+    "tools.invoice-nup.step_3": "Create and download the print-ready A4 PDF.",
+    "tools.invoice-nup.faq_1_q": "Will invoice pages be stretched?",
+    "tools.invoice-nup.faq_1_a": "No. Every source page keeps its original aspect ratio and is centered in its cell.",
+    "tools.invoice-nup.faq_2_q": "Can I combine several PDF files?",
+    "tools.invoice-nup.faq_2_a": "Yes. All pages are arranged in file order and then page order.",
+    "tools.invoice-nup.faq_3_q": "Are my invoices uploaded?",
+    "tools.invoice-nup.faq_3_a": "No. Processing runs locally in your browser and your files never leave your device."
 }

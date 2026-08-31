@@ -12,4 +12,4 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 2
 
-Sitemap: https://www.pdfworker.eu/sitemap.xml
+Sitemap: https://pdf.i41.cn/sitemap.xml

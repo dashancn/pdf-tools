@@ -5,7 +5,7 @@ import { useSeoMeta } from '@/Composables/useSeoMeta';
 
 onMounted(() => {
     useSeoMeta(
-        `${trans('privacy.title')} - PDF Worker`,
+        `${trans('privacy.title')} - PDF 工具箱`,
         trans('privacy.intro'),
         '/#/privacy',
         null,
@@ -45,15 +45,7 @@ onMounted(() => {
                 <p class="mb-2">{{ trans('privacy.cookies_text') }}</p>
                 <ul class="ml-6 list-disc space-y-1">
                     <li><strong>localStorage</strong> — {{ trans('privacy.cookies_locale') }}</li>
-                    <li><strong>Google AdSense</strong> — {{ trans('privacy.cookies_adsense') }}</li>
                 </ul>
-            </section>
-
-            <!-- Google AdSense -->
-            <section>
-                <h2 class="mb-3 text-xl font-semibold text-gray-900 dark:text-white">{{ trans('privacy.adsense_title') }}</h2>
-                <p class="mb-2">{{ trans('privacy.adsense_text') }}</p>
-                <p>{{ trans('privacy.adsense_optout') }}</p>
             </section>
 
             <!-- Third party links -->

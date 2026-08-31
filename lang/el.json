@@ -387,7 +387,6 @@
     "toast.invalid_file": "Μη υποστηριζόμενη μορφή αρχείου",
     "home.search_placeholder": "Αναζήτηση εργαλείων...",
     "home.no_results": "Δεν βρέθηκαν εργαλεία. Δοκιμάστε διαφορετική αναζήτηση.",
-
     "home.section.organize": "Οργάνωση και Επεξεργασία",
     "home.section.convert": "Μετατροπή",
     "home.section.annotate": "Σχολιασμός και Βελτίωση",
@@ -449,7 +448,6 @@
     "tools.edit-metadata.faq_2_a": "Ναι. Απλά διαγράψτε όλα τα πεδία και αποθηκεύστε. Τα μεταδεδομένα θα οριστούν σε κενές τιμές.",
     "tools.edit-metadata.faq_3_q": "Ανεβαίνουν τα αρχεία μου σε κάποιον διακομιστή;",
     "tools.edit-metadata.faq_3_a": "Όχι. Όλη η επεξεργασία γίνεται τοπικά στο πρόγραμμα περιήγησής σας. Τα αρχεία σας δεν φεύγουν ποτέ από τη συσκευή σας.",
-
     "tools.pdf-to-webp.name": "PDF σε WebP",
     "tools.pdf-to-webp.description": "Μετατρέψτε σελίδες PDF σε σύγχρονες εικόνες WebP.",
     "tool.pdftowebp.action": "Μετατροπή σε WebP",
@@ -461,7 +459,6 @@
     "tools.pdf-to-webp.step_3": "Κάντε κλικ στο Μετατροπή σε WebP και κατεβάστε τις εικόνες.",
     "tools.pdf-to-webp.faq_1_q": "Γιατί να χρησιμοποιήσω WebP αντί για JPG;",
     "tools.pdf-to-webp.faq_1_a": "Οι εικόνες WebP είναι συνήθως 25-34% μικρότερες από τις JPG στην ίδια ποιότητα, ιδανικές για χρήση στο διαδίκτυο.",
-
     "tools.nup-pdf.name": "N-Up PDF",
     "tools.nup-pdf.description": "Συνδυάστε πολλές σελίδες σε ένα φύλλο (2, 4 ή 9 ανά σελίδα).",
     "tool.nup.action": "Εφαρμογή διάταξης N-Up",
@@ -473,7 +470,6 @@
     "tools.nup-pdf.step_3": "Κάντε κλικ στο Εφαρμογή διάταξης N-Up και κατεβάστε.",
     "tools.nup-pdf.faq_1_q": "Τι είναι η εκτύπωση N-Up;",
     "tools.nup-pdf.faq_1_a": "N-Up σημαίνει τοποθέτηση πολλών σελίδων σε ένα φύλλο. Για παράδειγμα, 4-up εκτυπώνει τέσσερις σελίδες σε ένα φύλλο.",
-
     "tools.add-blank-page.name": "Προσθήκη κενής σελίδας",
     "tools.add-blank-page.description": "Εισάγετε μια κενή σελίδα στην αρχή ή στο τέλος του PDF σας.",
     "tool.blankpage.action": "Προσθήκη κενής σελίδας",
@@ -484,7 +480,6 @@
     "tools.add-blank-page.step_1": "Μεταφορτώστε ένα αρχείο PDF.",
     "tools.add-blank-page.step_2": "Επιλέξτε πού θα εισαχθεί η κενή σελίδα.",
     "tools.add-blank-page.step_3": "Κάντε κλικ στο Προσθήκη κενής σελίδας και κατεβάστε.",
-
     "tools.remove-blank-pages.name": "Αφαίρεση κενών σελίδων",
     "tools.remove-blank-pages.description": "Αυτόματη ανίχνευση και αφαίρεση κενών σελίδων από το PDF σας.",
     "tool.removeblank.action": "Αφαίρεση κενών σελίδων",
@@ -495,7 +490,6 @@
     "tools.remove-blank-pages.step_3": "Κατεβάστε το καθαρισμένο PDF.",
     "tools.remove-blank-pages.faq_1_q": "Πώς ανιχνεύονται οι κενές σελίδες;",
     "tools.remove-blank-pages.faq_1_a": "Κάθε σελίδα αποδίδεται και αναλύεται. Αν το 99,5% ή περισσότερο των pixel είναι λευκό, η σελίδα θεωρείται κενή.",
-
     "tools.ocr-pdf.name": "OCR PDF",
     "tools.ocr-pdf.description": "Κάντε σαρωμένα PDF αναζητήσιμα με οπτική αναγνώριση χαρακτήρων.",
     "tool.ocr.action": "Εκτέλεση OCR",
@@ -511,7 +505,6 @@
     "tools.ocr-pdf.step_3": "Κάντε κλικ στο Εκτέλεση OCR και κατεβάστε το αναζητήσιμο PDF.",
     "tools.ocr-pdf.faq_1_q": "Λειτουργεί το OCR σε χειρόγραφο κείμενο;",
     "tools.ocr-pdf.faq_1_a": "Το OCR λειτουργεί καλύτερα σε τυπωμένο κείμενο. Το χειρόγραφο κείμενο ενδέχεται να μην αναγνωριστεί με ακρίβεια.",
-
     "tools.compare-pdf.name": "Σύγκριση PDF",
     "tools.compare-pdf.description": "Συγκρίνετε δύο PDF δίπλα-δίπλα και επισημάνετε τις διαφορές.",
     "tool.compare.action": "Σύγκριση PDF",
@@ -522,7 +515,6 @@
     "tools.compare-pdf.step_3": "Κατεβάστε το έγγραφο σύγκρισης.",
     "tools.compare-pdf.faq_1_q": "Πώς εμφανίζονται οι διαφορές;",
     "tools.compare-pdf.faq_1_a": "Οι σελίδες αποδίδονται δίπλα-δίπλα. Τα pixel που διαφέρουν μεταξύ των δύο εγγράφων επισημαίνονται με κόκκινο στη δεξιά πλευρά.",
-
     "tools.text-to-pdf.name": "Κείμενο σε PDF",
     "tools.text-to-pdf.description": "Μετατρέψτε απλό κείμενο σε μορφοποιημένο έγγραφο PDF.",
     "tool.texttopdf.action": "Δημιουργία PDF",
@@ -533,7 +525,6 @@
     "tools.text-to-pdf.step_1": "Πληκτρολογήστε ή επικολλήστε το κείμενό σας στο πεδίο κειμένου.",
     "tools.text-to-pdf.step_2": "Κάντε κλικ στο Δημιουργία PDF.",
     "tools.text-to-pdf.step_3": "Κατεβάστε το έγγραφο PDF.",
-
     "tools.reverse-pages.name": "Αντιστροφή σελίδων",
     "tools.reverse-pages.description": "Αντιστρέψτε τη σειρά όλων των σελίδων στο PDF σας.",
     "tool.reverse.action": "Αντιστροφή σελίδων",
@@ -542,7 +533,6 @@
     "tools.reverse-pages.step_1": "Μεταφορτώστε ένα αρχείο PDF.",
     "tools.reverse-pages.step_2": "Κάντε κλικ στο Αντιστροφή σελίδων.",
     "tools.reverse-pages.step_3": "Κατεβάστε το αντεστραμμένο PDF.",
-
     "tools.invert-colors.name": "Αντιστροφή χρωμάτων",
     "tools.invert-colors.description": "Αντιστρέψτε όλα τα χρώματα στο PDF σας για εφέ αρνητικού.",
     "tool.invert.action": "Αντιστροφή χρωμάτων",
@@ -551,7 +541,6 @@
     "tools.invert-colors.step_1": "Μεταφορτώστε ένα αρχείο PDF.",
     "tools.invert-colors.step_2": "Κάντε κλικ στο Αντιστροφή χρωμάτων.",
     "tools.invert-colors.step_3": "Κατεβάστε το ανεστραμμένο PDF.",
-
     "tools.repair-pdf.name": "Επιδιόρθωση PDF",
     "tools.repair-pdf.description": "Προσπαθήστε να επιδιορθώσετε ένα κατεστραμμένο αρχείο PDF.",
     "tool.repair.action": "Επιδιόρθωση PDF",
@@ -562,7 +551,6 @@
     "tools.repair-pdf.step_3": "Κατεβάστε το επιδιορθωμένο αρχείο.",
     "tools.repair-pdf.faq_1_q": "Μπορούν να επιδιορθωθούν όλα τα PDF;",
     "tools.repair-pdf.faq_1_a": "Όχι πάντα. Το εργαλείο μπορεί να διορθώσει πολλά κοινά προβλήματα, αλλά σοβαρά κατεστραμμένα αρχεία ενδέχεται να μην ανακτηθούν.",
-
     "tools.pdf-to-epub.name": "PDF σε EPUB",
     "tools.pdf-to-epub.description": "Μετατρέψτε ένα έγγραφο PDF σε ηλεκτρονικό βιβλίο EPUB.",
     "tool.pdftoepub.action": "Μετατροπή σε EPUB",
@@ -573,7 +561,6 @@
     "tools.pdf-to-epub.step_3": "Κατεβάστε το αρχείο EPUB.",
     "tools.pdf-to-epub.faq_1_q": "Λειτουργεί με σαρωμένα PDF;",
     "tools.pdf-to-epub.faq_1_a": "Όχι. Αυτό το εργαλείο εξάγει ενσωματωμένο κείμενο. Τα σαρωμένα PDF χρειάζονται πρώτα OCR για να γίνει το κείμενο διαθέσιμο.",
-
     "tools.booklet-pdf.name": "Φυλλάδιο PDF",
     "tools.booklet-pdf.description": "Αναδιάταξη σελίδων για εκτύπωση φυλλαδίου διπλής όψης. Διπλώστε και συρράψτε για φυλλάδιο.",
     "tool.booklet.action": "Δημιουργία φυλλαδίου",
@@ -610,7 +597,6 @@
     "tool.qrcode.preview_label": "Προεπισκόπηση QR code",
     "tool.qrcode.no_text": "Εισαγάγετε κείμενο για να δημιουργήσετε ένα QR code",
     "tool.qrcode.all_pages": "Προσθήκη QR code σε όλες τις σελίδες",
-
     "tools.check-accessibility.name": "Έλεγχος Προσβασιμότητας",
     "tools.check-accessibility.description": "Αναλύστε το PDF σας για ζητήματα προσβασιμότητας: ετικέτες, alt text, γλώσσα, γραμματοσειρές και άλλα.",
     "tools.check-accessibility.how_title": "Πώς να ελέγξετε την προσβασιμότητα ενός PDF",
@@ -638,5 +624,25 @@
     "tools.pdf-to-markdown.faq_2_a": "Ο μετατροπέας αναλύει τα μεγέθη γραμματοσειράς και την έντονη γραφή. Κείμενο που είναι έντονο και μικρότερο από 80 χαρακτήρες αντιμετωπίζεται ως επικεφαλίδα.",
     "tools.pdf-to-markdown.faq_3_q": "Η μετατροπή ανεβάζει το αρχείο μου;",
     "tools.pdf-to-markdown.faq_3_a": "Όχι. Όλη η μετατροπή εκτελείται εξ ολοκλήρου στον περιηγητή σας. Το αρχείο σας δεν φεύγει ποτέ από τη συσκευή σας.",
-    "tool.pdftomarkdown.action": "Μετατροπή σε Markdown"
+    "tool.pdftomarkdown.action": "Μετατροπή σε Markdown",
+    "tools.invoice-nup.name": "A4 Invoice Layout",
+    "tools.invoice-nup.description": "Arrange invoice PDF pages on portrait A4 sheets in 2-up or 4-up layouts.",
+    "tool.invoice_nup.action": "Create A4 Invoice Layout",
+    "tool.invoice_nup.layout": "Pages per A4 sheet",
+    "tool.invoice_nup.layout_2": "2-up (top and bottom)",
+    "tool.invoice_nup.layout_4": "4-up (2 × 2)",
+    "tool.invoice_nup.margin": "Page margin (pt)",
+    "tool.invoice_nup.gap": "Gap between invoices (pt)",
+    "tool.invoice_nup.auto_rotate": "Auto-rotate individual pages when it improves the fit",
+    "tools.invoice-nup.how_title": "How to Arrange Invoices on A4",
+    "tools.invoice-nup.how_text": "Place pages from one or more PDFs onto portrait A4 sheets while preserving their proportions and order.",
+    "tools.invoice-nup.step_1": "Upload one or more invoice PDF files in the required order.",
+    "tools.invoice-nup.step_2": "Choose 2-up or 4-up and adjust the margin and gap if needed.",
+    "tools.invoice-nup.step_3": "Create and download the print-ready A4 PDF.",
+    "tools.invoice-nup.faq_1_q": "Will invoice pages be stretched?",
+    "tools.invoice-nup.faq_1_a": "No. Every source page keeps its original aspect ratio and is centered in its cell.",
+    "tools.invoice-nup.faq_2_q": "Can I combine several PDF files?",
+    "tools.invoice-nup.faq_2_a": "Yes. All pages are arranged in file order and then page order.",
+    "tools.invoice-nup.faq_3_q": "Are my invoices uploaded?",
+    "tools.invoice-nup.faq_3_a": "No. Processing runs locally in your browser and your files never leave your device."
 }

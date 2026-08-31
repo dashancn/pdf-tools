@@ -1,17 +1,17 @@
-# PDF Worker
+# PDF 工具箱（基于 PDF Worker）
 
 Privacy-first, client-side PDF toolkit with 39 tools. All processing runs in the browser via Web Workers — no files leave the user's device.
 
-- **Domain**: www.pdfworker.eu / fullo.github.io/pdf-worker
+- **Domain**: pdf.i41.cn / fullo.github.io/pdf-worker
 - **Stack**: Vue 3 + TypeScript + Vite + Tailwind CSS
-- **Hosting**: GitHub Pages (static CDN, no server)
+- **Hosting**: Cloudflare Pages (static CDN, no server)
 
 ## Build
 
 ```bash
 npm install
 npm run dev          # dev server on :5173
-npm run build        # production build → docs/
+npm run build        # production build → dist/
 npm run audit:a11y   # Lighthouse accessibility + performance + best-practices audit
 npm run test         # run all tests once
 npm run test:watch   # watch mode (re-runs on file changes)
@@ -49,7 +49,7 @@ Each tool follows a strict pattern across 4 files + translations:
 4. **Add tool config** — `resources/js/Pages/Tool.vue`
    - Add entry to `toolConfig`: `{ accept, multiple, color, bgColor }`
 
-5. **Add translations** — `lang/en.json` (then all other 14 languages)
+5. **Add translations** — `lang/en.json` (then all other languages)
    - Keys: `tools.{slug}.name`, `.description`, `.how_title`, `.how_text`, `.step_1`–`.step_3`, `.faq_1_q`–`.faq_3_a`
 
 6. **Update sustainability data** — if the tool affects WSG compliance, update `wsg-report/wsg-compliance.json`
@@ -61,7 +61,7 @@ Each tool follows a strict pattern across 4 files + translations:
 
 ## Translations (i18n)
 
-- **Files**: `lang/{locale}.json` — 15 locales (en, it, es, fr, de, pt, nl, sv, fi, da, no, be, el, sl, cs)
+- **Files**: `lang/{locale}.json` — 16 locales (zh-CN, en, it, es, fr, de, pt, nl, sv, fi, da, no, be, el, sl, cs)
 - **API**: `trans('key')` in scripts, `{{ trans('key') }}` or `$t('key')` in templates
 - **Fallback**: missing key → English → raw key string
 - **Exception**: SCI Report and WSG Report pages are English-only (no `trans()` calls)
@@ -214,7 +214,7 @@ Special cases:
 
 - **Chunk warning**: Vite warns on chunks > 500 KB (3 chunks exceed: pdfjs, pdf-lib, index)
 - **System fonts**: zero web font downloads
-- **Tree-shaking**: profiler code absent from production (verify: `grep -r "profileTool" docs/assets/`)
+- **Tree-shaking**: profiler code absent from production (verify: `search production dist/assets for "profileTool"`)
 - **Lazy loading**: all routes except Home are dynamically imported
 
 ## Commit conventions

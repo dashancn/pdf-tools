@@ -93,11 +93,11 @@ describe('savePdfAsBlob', () => {
 });
 
 describe('stampDefaultMetadata', () => {
-    it('stamps creator as pdfworker.eu', async () => {
+    it('stamps creator as the i41 PDF toolbox domain', async () => {
         const doc = await PDFDocument.create();
         doc.addPage();
         stampDefaultMetadata(doc, 'test tool');
-        expect(doc.getCreator()).toBe('pdfworker.eu');
+        expect(doc.getCreator()).toBe('pdf.i41.cn');
     });
 
     it('stamps keywords with tool name', async () => {
@@ -105,8 +105,8 @@ describe('stampDefaultMetadata', () => {
         doc.addPage();
         stampDefaultMetadata(doc, 'merge pdf');
         const keywords = doc.getKeywords();
-        expect(keywords).toContain('pdf worker');
-        expect(keywords).toContain('pdfworker.eu');
+        expect(keywords).toContain('PDF 工具箱');
+        expect(keywords).toContain('pdf.i41.cn');
         expect(keywords).toContain('merge pdf');
     });
 });

@@ -54,6 +54,7 @@ import { addQrCode, type QrCodeOptions } from '@/Services/pdf/addQrCode';
 import { pdfToMarkdown } from '@/Services/pdf/pdfToMarkdown';
 import { checkAccessibility } from '@/Services/pdf/accessibilityChecker';
 import type { AccessibilityReport } from '@/Services/pdf/accessibilityChecker';
+import { invoiceNupPdf, type InvoiceNupOptions } from '@/Services/pdf/invoiceNup';
 
 self.onmessage = async (e: MessageEvent) => {
     const { id, tool, files, options } = e.data;
@@ -168,6 +169,10 @@ self.onmessage = async (e: MessageEvent) => {
 
             case 'nup-pdf':
                 result = await nupPdf(files[0], options.layout as NupLayout, onProgress);
+                break;
+
+            case 'invoice-nup':
+                result = await invoiceNupPdf(files, options as InvoiceNupOptions, onProgress);
                 break;
 
             case 'add-blank-page':

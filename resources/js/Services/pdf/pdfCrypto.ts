@@ -391,8 +391,8 @@ export function buildEncryptedPdf(
 
     // ---- Info dictionary ----
     offsets[infoObjNum] = pos;
-    const creator = encString(infoObjNum, 'pdfworker.eu');
-    const keywords = encString(infoObjNum, 'pdf worker, pdfworker.eu, protect pdf');
+    const creator = encString(infoObjNum, 'PDF 工具箱 (based on PDF Worker)');
+    const keywords = encString(infoObjNum, 'pdf 工具箱, pdf worker, protect pdf');
     writeStr(
         `${infoObjNum} 0 obj\n` +
         `<< /Creator ${creator} /Producer ${creator} /Keywords ${keywords} >>\n` +

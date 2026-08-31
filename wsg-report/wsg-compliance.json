@@ -17,7 +17,7 @@
       "guidelines": [
         { "id": "2.2", "title": "Understand user requirements or constraints, resolving barriers to access", "status": "full", "detail": "All tools work with standard PDF files in any modern browser. No account, plugin, or installation required." },
         { "id": "2.4", "title": "Minimize non-essential content, interactivity, or journeys", "status": "full", "detail": "Each tool is a single-purpose page: drop a file, get a result. No onboarding wizards, pop-ups, or multi-step funnels." },
-        { "id": "2.5", "title": "Ensure that navigation and wayfinding are well-structured", "status": "full", "detail": "Flat navigation: home page lists all 39 tools. Each tool has a descriptive name, icon, and direct URL." },
+        { "id": "2.5", "title": "Ensure that navigation and wayfinding are well-structured", "status": "full", "detail": "Flat navigation: home page lists all 40 tools. Each tool has a descriptive name, icon, and direct URL." },
         { "id": "2.6", "title": "Design to assist and not to distract", "status": "full", "detail": "No autoplaying media, no animations beyond minimal transitions, no infinite scroll." },
         { "id": "2.7", "title": "Avoid being manipulative or deceptive", "status": "full", "detail": "No dark patterns, no fake urgency, no forced sign-ups. Tool results are delivered immediately without gates." },
         { "id": "2.9", "title": "Use a design system for interface consistency", "status": "full", "detail": "Tailwind CSS utility classes with a shared component library ensure visual consistency across all tools." },
@@ -29,7 +29,7 @@
         { "id": "2.15", "title": "Provide accessible, usable, minimal web forms", "status": "full", "detail": "Tool interfaces use minimal form elements: a file input and optional settings. No mandatory fields beyond the file itself." },
         { "id": "2.16", "title": "Avoid unwanted notifications", "status": "full", "detail": "Zero push notifications. No email collection. No permission requests for notifications or location." },
         { "id": "2.17", "title": "Reduce the impact of downloadable and physical documents", "status": "full", "detail": "Tools like compress-pdf, grayscale-pdf, and remove-blank-pages directly reduce document size and print impact." },
-        { "id": "2.19", "title": "Audit and test for bugs or issues requiring resolution", "status": "full", "detail": "SCI profiler runs automated benchmarks across all 39 tools. Vitest suite with 236 tests covering all PDF services. Build pipeline includes type checking and linting." },
+        { "id": "2.19", "title": "Audit and test for bugs or issues requiring resolution", "status": "full", "detail": "SCI profiler runs automated benchmarks across all 40 tools. Vitest suite covers all PDF services. Build pipeline includes type checking and linting." },
         { "id": "2.21", "title": "Regularly test and maintain compatibility", "status": "full", "detail": "Tested on Chrome, Firefox, Safari. Uses standard Web APIs and progressive enhancement." }
       ]
     },
@@ -44,7 +44,7 @@
         { "id": "3.3", "title": "Modularize bandwidth-heavy components", "status": "full", "detail": "Each tool is a lazy-loaded Web Worker. Only the selected tool's code is loaded on demand." },
         { "id": "3.4", "title": "Remove unnecessary code", "status": "full", "detail": "Vite tree-shaking + code splitting. Dead code elimination verified by grepping production bundles." },
         { "id": "3.5", "title": "Avoid redundancy and duplication in code", "status": "full", "detail": "Shared utilities (runInWorker, file helpers) are centralized. Tool implementations follow a uniform pattern." },
-        { "id": "3.6", "title": "Give third parties the same priority as first parties during assessment", "status": "partial", "detail": "Google AdSense is the only third-party script. It is loaded asynchronously and does not block rendering." },
+        { "id": "3.6", "title": "Give third parties the same priority as first parties during assessment", "status": "partial", "detail": "No advertising or analytics scripts are loaded; production network access is limited to first-party static assets." },
         { "id": "3.7", "title": "Ensure code follows good semantic practices", "status": "full", "detail": "Semantic HTML5 elements (main, nav, section, article). ARIA attributes where needed." },
         { "id": "3.8", "title": "Defer the loading of non-critical resources", "status": "full", "detail": "Route-based code splitting with dynamic imports. Tool workers load only when the user selects a tool." },
         { "id": "3.9", "title": "Provide information to help understand the usefulness of a page", "status": "full", "detail": "SEO meta tags on every page. Structured descriptions for each tool. Open Graph metadata for sharing." },
