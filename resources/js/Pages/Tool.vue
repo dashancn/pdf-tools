@@ -219,11 +219,11 @@ const invoiceAutoRotate = ref(true);
 // Add Blank Page
 const blankPagePosition = ref<'start' | 'end'>('end');
 // OCR
-const ocrLanguage = ref('eng');
+const ocrLanguage = ref('chi_sim+eng');
 // Text extraction options (pdf-to-text, pdf-to-markdown)
 const textExtractImages = ref(false);
 const textOcr = ref(false);
-const textOcrLanguage = ref('eng');
+const textOcrLanguage = ref('chi_sim+eng');
 
 // Multi-file results
 const multiResults = ref<{ name: string; blob: Blob }[]>([]);
@@ -1137,6 +1137,10 @@ const hasTextContent = computed(() => {
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.ocr.language') }}</label>
                             <select v-model="ocrLanguage" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-purple-500 focus:ring-purple-500">
+                                <option value="chi_sim+eng">简体中文 + English</option>
+                                <option value="chi_sim">简体中文</option>
+                                <option value="chi_tra+eng">繁體中文 + English</option>
+                                <option value="chi_tra">繁體中文</option>
                                 <option value="eng">English</option>
                                 <option value="ita">Italiano</option>
                                 <option value="fra">Français</option>
@@ -1170,6 +1174,10 @@ const hasTextContent = computed(() => {
                         <div v-if="textOcr">
                             <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.ocr.language') }}</label>
                             <select v-model="textOcrLanguage" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-purple-500 focus:ring-purple-500">
+                                <option value="chi_sim+eng">简体中文 + English</option>
+                                <option value="chi_sim">简体中文</option>
+                                <option value="chi_tra+eng">繁體中文 + English</option>
+                                <option value="chi_tra">繁體中文</option>
                                 <option value="eng">English</option>
                                 <option value="ita">Italiano</option>
                                 <option value="fra">Français</option>

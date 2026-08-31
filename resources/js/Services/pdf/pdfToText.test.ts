@@ -1,10 +1,31 @@
-import { describe, it, expect } from 'vitest';
-import { createSimplePdf, createTextPdf } from '@/__tests__/helpers/fixtures';
+import { beforeEach, describe, it, expect, vi } from 'vitest';
+import { createTextPdf } from '@/__tests__/helpers/fixtures';
 
-// pdfToText uses only pdfjs-dist text extraction — no canvas needed.
+const recognize = vi.fn(async () => ({ data: { text: '中文 OCR 结果' } }));
+const terminate = vi.fn(async () => {});
+const createWorker = vi.fn(async () => ({ recognize, terminate }));
+
+vi.mock('@/Services/pdfUtils', async (importOriginal) => {
+    const actual = await importOriginal<typeof import('@/Services/pdfUtils')>();
+    const { MockCanvas, mockCanvasToBlob } = await import('@/__tests__/helpers/canvasMock');
+    return {
+        ...actual,
+        createCanvas: (w: number, h: number) => new MockCanvas(w, h),
+        canvasToBlob: mockCanvasToBlob,
+    };
+});
+
+vi.mock('tesseract.js', () => ({ createWorker }));
+
 import { pdfToText } from '@/Services/pdf/pdfToText';
 
 describe('pdfToText', () => {
+    beforeEach(() => {
+        recognize.mockClear();
+        terminate.mockClear();
+        createWorker.mockClear();
+    });
+
     it('produces a text blob', async () => {
         const file = await createTextPdf(2, ['Hello world', 'Second page']);
         const result = await pdfToText(file);
@@ -40,5 +61,16 @@ describe('pdfToText', () => {
         const file = await createTextPdf(1, ['Simple test']);
         const result = await pdfToText(file);
         expect(result).toBeInstanceOf(Blob);
+    });
+
+    it('uses OCR output whenever OCR is enabled, even if a text layer exists', async () => {
+        const file = await createTextPdf(1, ['Broken encoded text layer']);
+        const result = await pdfToText(file, { ocr: true, ocrLanguage: 'chi_sim' });
+        const text = await (result as Blob).text();
+
+        expect(createWorker).toHaveBeenCalledWith('chi_sim');
+        expect(recognize).toHaveBeenCalledOnce();
+        expect(text).toContain('中文 OCR 结果');
+        expect(text).not.toContain('Broken encoded text layer');
     });
 });

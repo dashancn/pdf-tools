@@ -8,7 +8,7 @@ import { createCanvas, canvasToBlob, savePdfAsBlob, stampDefaultMetadata, MAX_PD
  */
 export async function ocrPdf(
     file: File,
-    language: string = 'eng',
+    language: string = 'chi_sim+eng',
     onProgress?: (progress: number) => void
 ): Promise<Blob> {
     const arrayBuffer = await file.arrayBuffer();

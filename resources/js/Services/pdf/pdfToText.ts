@@ -33,7 +33,7 @@ export async function pdfToText(
 
     const useOcr = options?.ocr ?? false;
     const useImages = options?.extractImages ?? false;
-    const ocrLang = options?.ocrLanguage ?? 'eng';
+    const ocrLang = options?.ocrLanguage ?? 'chi_sim+eng';
 
     // Lazy-init Tesseract worker if OCR is needed
     let ocrWorker: any = null;
@@ -69,8 +69,11 @@ export async function pdfToText(
                 lastY = y;
             }
 
-            // OCR fallback: if page has minimal text and OCR is enabled
-            if (useOcr && ocrWorker && pageText.replace(/\s/g, '').length < 10) {
+            // When OCR is explicitly enabled, recognize every page instead of
+            // trusting an existing text layer. Some Chinese invoices contain a
+            // broken/custom-encoded text layer that extracts as mojibake even
+            // though the rendered page is visually correct.
+            if (useOcr && ocrWorker) {
                 const viewport = page.getViewport({ scale: 2.0 });
                 const canvas = createCanvas(viewport.width, viewport.height);
                 const ctx = canvas.getContext('2d');
