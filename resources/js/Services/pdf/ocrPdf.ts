@@ -13,6 +13,9 @@ export async function ocrPdf(
     onProgress?: (progress: number) => void
 ): Promise<Blob> {
     const arrayBuffer = await file.arrayBuffer();
+    // PDF.js may transfer/detach the data buffer when initializing its worker,
+    // so preserve a separate copy for pdf-lib before handing data to PDF.js.
+    const sourceBytes = new Uint8Array(arrayBuffer).slice();
     const renderDoc = await getPdfjsDocument({ data: new Uint8Array(arrayBuffer) });
     const pageCount = renderDoc.numPages;
     if (pageCount > MAX_PDF_PAGES) {
@@ -21,7 +24,10 @@ export async function ocrPdf(
 
     const worker = await createWorker(language, undefined, tesseractWorkerOptions());
 
-    const newPdf = await PDFDocument.create();
+    // Keep the original PDF page content as the visible layer. Replacing it with
+    // a pdf.js screenshot can permanently bake renderer-specific font failures
+    // into the output (notably OFD-converted Chinese tax PDFs).
+    const newPdf = await PDFDocument.load(sourceBytes, { ignoreEncryption: true });
     const SCALE = 2.0;
 
     for (let i = 1; i <= pageCount; i++) {
@@ -44,13 +50,8 @@ export async function ocrPdf(
         // Run OCR
         const { data } = await worker.recognize(imgBlob);
 
-        // Embed rendered page image
-        const imgBytes = new Uint8Array(await imgBlob.arrayBuffer());
-        const pdfImage = await newPdf.embedPng(imgBytes);
-
         const origVp = page.getViewport({ scale: 1.0 });
-        const pdfPage = newPdf.addPage([origVp.width, origVp.height]);
-        pdfPage.drawImage(pdfImage, { x: 0, y: 0, width: origVp.width, height: origVp.height });
+        const pdfPage = newPdf.getPage(i - 1);
 
         // Add invisible text layer for searchability
         if (data.words && data.words.length > 0) {

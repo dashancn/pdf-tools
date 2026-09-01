@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
+import { PDFDocument, PDFName, StandardFonts } from 'pdf-lib';
 import { createSimplePdf } from '@/__tests__/helpers/fixtures';
 import { expectValidPdf, expectDefaultMetadata } from '@/__tests__/helpers/assertions';
 
@@ -18,14 +19,8 @@ const { createWorker } = vi.hoisted(() => ({
             data: {
                 text: 'Mock OCR text',
                 words: [
-                    {
-                        text: 'Mock',
-                        bbox: { x0: 10, y0: 10, x1: 60, y1: 30 },
-                    },
-                    {
-                        text: 'OCR',
-                        bbox: { x0: 70, y0: 10, x1: 110, y1: 30 },
-                    },
+                    { text: 'Mock', bbox: { x0: 10, y0: 10, x1: 60, y1: 30 } },
+                    { text: 'OCR', bbox: { x0: 70, y0: 10, x1: 110, y1: 30 } },
                 ],
             },
         }),
@@ -33,7 +28,6 @@ const { createWorker } = vi.hoisted(() => ({
     })),
 }));
 
-// Mock tesseract.js — avoid downloading real language models
 vi.mock('tesseract.js', () => ({ createWorker }));
 
 import { ocrPdf } from '@/Services/pdf/ocrPdf';
@@ -53,6 +47,23 @@ describe('ocrPdf', () => {
                 langPath: expect.stringMatching(/^https?:\/\/[^/]+\/ocr\/lang$/),
             }),
         );
+    });
+
+    it('preserves original vector page content instead of replacing it with the OCR render', async () => {
+        const source = await PDFDocument.create();
+        const font = await source.embedFont(StandardFonts.Helvetica);
+        source.addPage([300, 200]).drawText('ORIGINAL-VECTOR-MARKER', { x: 20, y: 100, font, size: 16 });
+        const bytes = await source.save();
+        const file = new File([bytes as BlobPart], 'vector.pdf', { type: 'application/pdf' });
+
+        const result = await ocrPdf(file, 'eng');
+        const output = await PDFDocument.load(await result.arrayBuffer());
+        const page = output.getPage(0);
+        const contents = page.node.lookup(PDFName.of('Contents')) as unknown as { size: () => number };
+
+        // The original page stream remains, with additional streams appended
+        // for the invisible OCR layer. Raster replacement only has OCR streams.
+        expect(contents.size()).toBeGreaterThan(3);
     });
 
     it('handles single page', async () => {
