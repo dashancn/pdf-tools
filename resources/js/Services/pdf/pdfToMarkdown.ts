@@ -1,5 +1,6 @@
 import * as pdfjsLib from 'pdfjs-dist';
 import { MAX_PDF_PAGES, getPdfjsDocument, createCanvas, canvasToBlob, imageDataToBlob } from '../pdfUtils';
+import { tesseractWorkerOptions } from '../tesseractConfig';
 import type { TextExtractionOptions } from './pdfToText';
 
 interface TextBlock {
@@ -38,13 +39,13 @@ export async function pdfToMarkdown(
 
     const useOcr = options?.ocr ?? false;
     const useImages = options?.extractImages ?? false;
-    const ocrLang = options?.ocrLanguage ?? 'eng';
+    const ocrLang = options?.ocrLanguage ?? 'chi_sim+eng';
 
     // Lazy-init Tesseract worker if OCR is needed
     let ocrWorker: any = null;
     if (useOcr) {
         const { createWorker } = await import('tesseract.js');
-        ocrWorker = await createWorker(ocrLang);
+        ocrWorker = await createWorker(ocrLang, undefined, tesseractWorkerOptions());
     }
 
     const pagesData: TextBlock[][] = [];

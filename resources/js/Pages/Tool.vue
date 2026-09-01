@@ -14,6 +14,7 @@ import { runInWorker } from '@/Services/runInWorker';
 import { getOcrModelCacheStatus, type OcrModelCacheStatus } from '@/Services/ocrModelCache';
 import { OCR_LANGUAGE_OPTIONS } from '@/Services/ocrLanguages';
 import { probeOcrAssets } from '@/Services/ocrAssetProbe';
+import { ocrLanguageForTool, toolNeedsOcrModels } from '@/Services/toolResourceStatus';
 import type { WatermarkOptions } from '@/Services/pdf/watermark';
 import type { PaperSize } from '@/Services/pdf/resizePage';
 import type { CompressionLevel } from '@/Services/pdf/compress';
@@ -240,10 +241,11 @@ const textExtractImages = ref(false);
 const textOcr = ref(false);
 const textOcrLanguage = ref('chi_sim+eng');
 
+const needsOcrModels = computed(() => toolNeedsOcrModels(props.tool, textOcr.value));
+
 watchEffect(() => {
-    const language = props.tool === 'ocr-pdf' ? ocrLanguage.value : textOcrLanguage.value;
-    if (props.tool === 'ocr-pdf' || ((props.tool === 'pdf-to-text' || props.tool === 'pdf-to-markdown') && textOcr.value)) {
-        void refreshOcrModelStatus(language);
+    if (needsOcrModels.value) {
+        void refreshOcrModelStatus(ocrLanguageForTool(props.tool, ocrLanguage.value, textOcrLanguage.value));
     }
 });
 
@@ -453,10 +455,8 @@ async function process() {
 
     try {
         const rawFiles = files.value.map((f) => f.file);
-        const usesOcr = props.tool === 'ocr-pdf'
-            || ((props.tool === 'pdf-to-text' || props.tool === 'pdf-to-markdown') && textOcr.value);
-        if (usesOcr) {
-            const language = props.tool === 'ocr-pdf' ? ocrLanguage.value : textOcrLanguage.value;
+        if (needsOcrModels.value) {
+            const language = ocrLanguageForTool(props.tool, ocrLanguage.value, textOcrLanguage.value);
             const probe = await probeOcrAssets(language);
             if (!probe.ok) {
                 throw new Error(trans('tool.ocr.assets_unavailable'));

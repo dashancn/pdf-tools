@@ -52,15 +52,40 @@ class NoopFilterFactory {
  * embedded fonts; no-op fallbacks keep unsupported browsers from crashing.
  */
 class WorkerFontLoader {
+    private readonly nativeFontFaces = new Set<FontFace>();
+
     addNativeFontFace(nativeFontFace: FontFace) {
+        this.nativeFontFaces.add(nativeFontFace);
         (globalThis as any).fonts?.add(nativeFontFace);
     }
     removeNativeFontFace(nativeFontFace: FontFace) {
+        this.nativeFontFaces.delete(nativeFontFace);
         (globalThis as any).fonts?.delete(nativeFontFace);
     }
     insertRule() {}
+    async loadSystemFont({ systemFontInfo: info, disableFontFace }: any) {
+        if (disableFontFace || !info?.loadedName || !info?.src) return;
+        const nativeFontFace = new FontFace(info.loadedName, info.src, info.style);
+        this.addNativeFontFace(nativeFontFace);
+        await nativeFontFace.load();
+    }
+    async bind(font: any) {
+        if (font.attached || font.missingFile) return;
+        font.attached = true;
+        if (font.systemFontInfo) {
+            await this.loadSystemFont({ systemFontInfo: font.systemFontInfo, disableFontFace: font.disableFontFace });
+            return;
+        }
+        const nativeFontFace = font.createNativeFontFace?.();
+        if (!nativeFontFace) return;
+        this.addNativeFontFace(nativeFontFace);
+        await nativeFontFace.loaded;
+    }
     clear() {
-        (globalThis as any).fonts?.clear();
+        for (const font of this.nativeFontFaces) {
+            (globalThis as any).fonts?.delete(font);
+        }
+        this.nativeFontFaces.clear();
     }
 }
 
