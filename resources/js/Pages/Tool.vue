@@ -11,6 +11,7 @@ import { usePdfTool } from '@/Composables/usePdfTool';
 import { useToast } from '@/Composables/useToast';
 
 import { runInWorker } from '@/Services/runInWorker';
+import { getOcrModelCacheStatus, type OcrModelCacheStatus } from '@/Services/ocrModelCache';
 import type { WatermarkOptions } from '@/Services/pdf/watermark';
 import type { PaperSize } from '@/Services/pdf/resizePage';
 import type { CompressionLevel } from '@/Services/pdf/compress';
@@ -220,10 +221,29 @@ const invoiceAutoRotate = ref(true);
 const blankPagePosition = ref<'start' | 'end'>('end');
 // OCR
 const ocrLanguage = ref('chi_sim+eng');
+const ocrModelStatus = ref<OcrModelCacheStatus>('unknown');
+const ocrModelDownloadMb = ref(0);
+let ocrCacheCheckVersion = 0;
+
+async function refreshOcrModelStatus(language: string): Promise<void> {
+    const version = ++ocrCacheCheckVersion;
+    const result = await getOcrModelCacheStatus(language);
+    if (version !== ocrCacheCheckVersion) return;
+    ocrModelStatus.value = result.status;
+    ocrModelDownloadMb.value = result.estimatedDownloadMb;
+}
+
 // Text extraction options (pdf-to-text, pdf-to-markdown)
 const textExtractImages = ref(false);
 const textOcr = ref(false);
 const textOcrLanguage = ref('chi_sim+eng');
+
+watchEffect(() => {
+    const language = props.tool === 'ocr-pdf' ? ocrLanguage.value : textOcrLanguage.value;
+    if (props.tool === 'ocr-pdf' || ((props.tool === 'pdf-to-text' || props.tool === 'pdf-to-markdown') && textOcr.value)) {
+        void refreshOcrModelStatus(language);
+    }
+});
 
 // Multi-file results
 const multiResults = ref<{ name: string; blob: Blob }[]>([]);
@@ -1157,6 +1177,18 @@ const hasTextContent = computed(() => {
                                 <option value="slv">Slovenščina</option>
                             </select>
                         </div>
+                        <div
+                            class="rounded-lg border px-4 py-3 text-sm"
+                            :class="ocrModelStatus === 'cached'
+                                ? 'border-green-200 bg-green-50 text-green-800 dark:border-green-800 dark:bg-green-900/20 dark:text-green-200'
+                                : 'border-amber-200 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-200'"
+                        >
+                            <p v-if="ocrModelStatus === 'cached'">{{ trans('tool.ocr.model_cached') }}</p>
+                            <p v-else>
+                                {{ trans('tool.ocr.model_download')
+                                    .replace('{size}', ocrModelDownloadMb.toFixed(1)) }}
+                            </p>
+                        </div>
                         <p class="text-xs text-gray-400">{{ trans('tool.ocr.hint') }}</p>
                     </div>
 
@@ -1193,6 +1225,18 @@ const hasTextContent = computed(() => {
                                 <option value="ces">Čeština</option>
                                 <option value="slv">Slovenščina</option>
                             </select>
+                            <div
+                                class="mt-3 rounded-lg border px-4 py-3 text-sm"
+                                :class="ocrModelStatus === 'cached'
+                                    ? 'border-green-200 bg-green-50 text-green-800 dark:border-green-800 dark:bg-green-900/20 dark:text-green-200'
+                                    : 'border-amber-200 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-200'"
+                            >
+                                <p v-if="ocrModelStatus === 'cached'">{{ trans('tool.ocr.model_cached') }}</p>
+                                <p v-else>
+                                    {{ trans('tool.ocr.model_download')
+                                        .replace('{size}', ocrModelDownloadMb.toFixed(1)) }}
+                                </p>
+                            </div>
                         </div>
                     </div>
 

@@ -509,6 +509,8 @@
     "tool.ocr.action": "运行 OCR",
     "tool.ocr.language": "文档语言",
     "tool.ocr.hint": "OCR 最适合文字清晰的扫描文档，处理可能需要几分钟。",
+    "tool.ocr.model_cached": "OCR 模型已缓存，可立即开始识别。",
+    "tool.ocr.model_download": "首次使用需要加载约 {size} MB 的 OCR 模型。下载和初始化时间取决于网络速度，请保持页面打开；加载完成后会自动缓存，后续使用无需重复下载。",
     "tool.text.options_title": "提取选项",
     "tool.text.extract_images": "提取嵌入图像（下载为 ZIP）",
     "tool.text.ocr_enable": "对扫描页面执行 OCR",
