@@ -1,13 +1,15 @@
 import { readFileSync } from 'node:fs';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { tesseractWorkerOptions } from '@/Services/tesseractConfig';
 
 describe('Tesseract browser configuration', () => {
-    it('uses only same-origin OCR assets', () => {
+    it('uses absolute same-origin OCR asset URLs inside nested workers', () => {
+        vi.stubGlobal('location', { origin: 'https://pdf.i41.cn' });
         const options = tesseractWorkerOptions();
-        expect(options.workerPath).toBe('/ocr/worker.min.js');
-        expect(options.corePath).toBe('/ocr/core');
-        expect(options.langPath).toBe('/ocr/lang');
+        expect(options.workerPath).toBe('https://pdf.i41.cn/ocr/worker.min.js');
+        expect(options.corePath).toBe('https://pdf.i41.cn/ocr/core');
+        expect(options.langPath).toBe('https://pdf.i41.cn/ocr/lang');
+        vi.unstubAllGlobals();
     });
 
     it('caches self-hosted OCR assets as immutable files', () => {

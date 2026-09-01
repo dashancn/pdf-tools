@@ -48,9 +48,9 @@ describe('ocrPdf', () => {
             'chi_sim+eng',
             undefined,
             expect.objectContaining({
-                workerPath: '/ocr/worker.min.js',
-                corePath: '/ocr/core',
-                langPath: '/ocr/lang',
+                workerPath: expect.stringMatching(/^https?:\/\/[^/]+\/ocr\/worker\.min\.js$/),
+                corePath: expect.stringMatching(/^https?:\/\/[^/]+\/ocr\/core$/),
+                langPath: expect.stringMatching(/^https?:\/\/[^/]+\/ocr\/lang$/),
             }),
         );
     });
