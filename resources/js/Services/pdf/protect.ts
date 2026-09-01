@@ -12,6 +12,47 @@ const RENDER_SCALE = 2.0;
 /** JPEG quality for embedded page images. */
 const JPEG_QUALITY = 0.92;
 
+type CanvasLike = HTMLCanvasElement | OffscreenCanvas;
+
+/**
+ * Render to PDF.js's working canvas, then copy the completed pixels to a fresh
+ * snapshot canvas. This avoids OffscreenCanvas state/transforms leaking into
+ * convertToBlob() for PDFs with complex clipping and transformation matrices.
+ */
+export async function renderPageForProtection(
+    page: any,
+    canvasFactory: (width: number, height: number) => CanvasLike = createCanvas,
+): Promise<{ canvas: CanvasLike; widthPt: number; heightPt: number; widthPx: number; heightPx: number }> {
+    const origViewport = page.getViewport({ scale: 1.0 });
+    const renderViewport = page.getViewport({ scale: RENDER_SCALE });
+    const widthPx = Math.round(renderViewport.width);
+    const heightPx = Math.round(renderViewport.height);
+
+    const renderCanvas = canvasFactory(widthPx, heightPx);
+    const renderContext = renderCanvas.getContext('2d');
+    if (!renderContext) throw new Error('Failed to get canvas context');
+    await page.render({
+        canvas: renderCanvas as any,
+        canvasContext: renderContext as any,
+        viewport: renderViewport,
+    }).promise;
+
+    const snapshot = canvasFactory(widthPx, heightPx);
+    const snapshotContext = snapshot.getContext('2d');
+    if (!snapshotContext) throw new Error('Failed to get snapshot canvas context');
+    (snapshotContext as any).fillStyle = '#ffffff';
+    (snapshotContext as any).fillRect(0, 0, widthPx, heightPx);
+    (snapshotContext as any).drawImage(renderCanvas as any, 0, 0);
+
+    return {
+        canvas: snapshot,
+        widthPt: origViewport.width,
+        heightPt: origViewport.height,
+        widthPx,
+        heightPx,
+    };
+}
+
 /**
  * Add password protection to a PDF.
  *
@@ -46,28 +87,16 @@ export async function protectPdf(
 
     for (let i = 1; i <= pageCount; i++) {
         const page = await pdfDoc.getPage(i);
-        const origViewport = page.getViewport({ scale: 1.0 });
-        const renderViewport = page.getViewport({ scale: RENDER_SCALE });
-
-        const canvas = createCanvas(renderViewport.width, renderViewport.height);
-        const ctx = canvas.getContext('2d');
-        if (!ctx) throw new Error('Failed to get canvas context');
-
-        await page.render({
-            canvas: canvas as any,
-            canvasContext: ctx as any,
-            viewport: renderViewport,
-        }).promise;
-
-        const jpegBlob = await canvasToBlob(canvas, 'image/jpeg', JPEG_QUALITY);
+        const rendered = await renderPageForProtection(page);
+        const jpegBlob = await canvasToBlob(rendered.canvas, 'image/jpeg', JPEG_QUALITY);
         const jpegBytes = new Uint8Array(await jpegBlob.arrayBuffer());
 
         pages.push({
             jpegBytes,
-            widthPt: origViewport.width,
-            heightPt: origViewport.height,
-            widthPx: Math.round(renderViewport.width),
-            heightPx: Math.round(renderViewport.height),
+            widthPt: rendered.widthPt,
+            heightPt: rendered.heightPt,
+            widthPx: rendered.widthPx,
+            heightPx: rendered.heightPx,
         });
 
         onProgress?.(10 + Math.round((i / pageCount) * 70));
