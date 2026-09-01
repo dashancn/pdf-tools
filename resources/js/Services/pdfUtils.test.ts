@@ -20,6 +20,7 @@ describe('getPdfjsDocument', () => {
             cMapPacked: true,
             standardFontDataUrl: expect.stringMatching(/^https?:\/\/[^/]+\/pdfjs\/standard_fonts\/$/),
             wasmUrl: expect.stringMatching(/^https?:\/\/[^/]+\/pdfjs\/wasm\/$/),
+            disableFontFace: true,
         }));
     });
 });

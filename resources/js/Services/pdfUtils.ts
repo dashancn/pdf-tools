@@ -63,17 +63,18 @@ class WorkerFontLoader {
         (globalThis as any).fonts?.delete(nativeFontFace);
     }
     insertRule() {}
-    async loadSystemFont({ systemFontInfo: info, disableFontFace }: any) {
-        if (disableFontFace || !info?.loadedName || !info?.src) return;
+    async loadSystemFont(font: any) {
+        const info = font.systemFontInfo;
+        if (font.disableFontFace || !info?.loadedName || !info?.src) return;
         const nativeFontFace = new FontFace(info.loadedName, info.src, info.style);
         this.addNativeFontFace(nativeFontFace);
         await nativeFontFace.load();
     }
     async bind(font: any) {
-        if (font.attached || font.missingFile) return;
+        if (font.attached || (font.missingFile && !font.systemFontInfo)) return;
         font.attached = true;
         if (font.systemFontInfo) {
-            await this.loadSystemFont({ systemFontInfo: font.systemFontInfo, disableFontFace: font.disableFontFace });
+            await this.loadSystemFont(font);
             return;
         }
         const nativeFontFace = font.createNativeFontFace?.();
@@ -112,6 +113,7 @@ export function getPdfjsDocument(
         cMapPacked: true,
         standardFontDataUrl: `${origin}/pdfjs/standard_fonts/`,
         wasmUrl: `${origin}/pdfjs/wasm/`,
+        disableFontFace: true,
         ...options,
     };
     if (isWorker) {
