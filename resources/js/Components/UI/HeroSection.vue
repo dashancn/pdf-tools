@@ -24,8 +24,8 @@ import { trans } from '@/i18n';
                 class="mt-8 inline-flex items-center gap-2 rounded-full bg-yellow-400 px-6 py-2.5 text-sm font-semibold text-gray-900 shadow-lg transition-all duration-200 hover:bg-yellow-300 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 :title="trans('ecosystem.iplan_tip')"
             >
-                <span class="text-lg">i</span>
                 {{ trans('ecosystem.iplan') }}
+                <span class="text-lg" aria-hidden="true">→</span>
             </a>
         </div>
     </section>
