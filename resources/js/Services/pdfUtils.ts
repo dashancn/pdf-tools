@@ -46,19 +46,54 @@ class NoopFilterFactory {
     destroy() {}
 }
 
-const isWorker = typeof document === 'undefined';
+/**
+ * Font loader for worker rendering. FontFace is available in modern workers,
+ * while DOM style injection is not. PDF.js calls these methods when loading
+ * embedded fonts; no-op fallbacks keep unsupported browsers from crashing.
+ */
+class WorkerFontLoader {
+    addNativeFontFace(nativeFontFace: FontFace) {
+        (globalThis as any).fonts?.add(nativeFontFace);
+    }
+    removeNativeFontFace(nativeFontFace: FontFace) {
+        (globalThis as any).fonts?.delete(nativeFontFace);
+    }
+    insertRule() {}
+    clear() {
+        (globalThis as any).fonts?.clear();
+    }
+}
+
+const isWorker = typeof globalThis.document === 'undefined';
+
+function appOrigin(): string {
+    if (typeof globalThis.location !== 'undefined' && globalThis.location.origin) {
+        return globalThis.location.origin;
+    }
+    return 'http://localhost';
+}
 
 /**
- * Load a PDF with pdfjs-dist, automatically using OffscreenCanvas and
- * no-op filters in Web Worker contexts where `document` is unavailable.
+ * Load a PDF with pdfjs-dist, automatically using local CMaps/fonts/WASM and
+ * OffscreenCanvas in Web Worker contexts. Explicit resource URLs are required
+ * because bundled workers cannot infer public asset directories reliably.
  */
 export function getPdfjsDocument(
     options: DocumentInitParameters & { data: Uint8Array }
 ): Promise<PDFDocumentProxy> {
-    const opts: any = { ...options };
+    const origin = appOrigin();
+    const opts: any = {
+        cMapUrl: `${origin}/pdfjs/cmaps/`,
+        cMapPacked: true,
+        standardFontDataUrl: `${origin}/pdfjs/standard_fonts/`,
+        wasmUrl: `${origin}/pdfjs/wasm/`,
+        ...options,
+    };
     if (isWorker) {
         opts.CanvasFactory = OffscreenCanvasFactory;
         opts.FilterFactory = NoopFilterFactory;
+        opts.FontLoader = WorkerFontLoader;
+        opts.useWorkerFetch = false;
     }
     return pdfjsLib.getDocument(opts).promise;
 }
@@ -202,8 +237,8 @@ export function stripDocumentJsActions(pdfDoc: PDFDocument): void {
  * Create a canvas that works in both main thread and web worker contexts.
  */
 export function createCanvas(width: number, height: number): HTMLCanvasElement | OffscreenCanvas {
-    if (typeof document !== 'undefined') {
-        const canvas = document.createElement('canvas');
+    if (typeof globalThis.document !== 'undefined') {
+        const canvas = globalThis.document.createElement('canvas');
         canvas.width = width;
         canvas.height = height;
         return canvas;

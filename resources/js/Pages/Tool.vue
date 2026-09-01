@@ -12,6 +12,8 @@ import { useToast } from '@/Composables/useToast';
 
 import { runInWorker } from '@/Services/runInWorker';
 import { getOcrModelCacheStatus, type OcrModelCacheStatus } from '@/Services/ocrModelCache';
+import { OCR_LANGUAGE_OPTIONS } from '@/Services/ocrLanguages';
+import { probeOcrAssets } from '@/Services/ocrAssetProbe';
 import type { WatermarkOptions } from '@/Services/pdf/watermark';
 import type { PaperSize } from '@/Services/pdf/resizePage';
 import type { CompressionLevel } from '@/Services/pdf/compress';
@@ -451,6 +453,15 @@ async function process() {
 
     try {
         const rawFiles = files.value.map((f) => f.file);
+        const usesOcr = props.tool === 'ocr-pdf'
+            || ((props.tool === 'pdf-to-text' || props.tool === 'pdf-to-markdown') && textOcr.value);
+        if (usesOcr) {
+            const language = props.tool === 'ocr-pdf' ? ocrLanguage.value : textOcrLanguage.value;
+            const probe = await probeOcrAssets(language);
+            if (!probe.ok) {
+                throw new Error(trans('tool.ocr.assets_unavailable'));
+            }
+        }
 
         // Batch mode: process each file independently
         if (isBatchMode.value) {
@@ -1157,24 +1168,7 @@ const hasTextContent = computed(() => {
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.ocr.language') }}</label>
                             <select v-model="ocrLanguage" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-purple-500 focus:ring-purple-500">
-                                <option value="chi_sim+eng">简体中文 + English</option>
-                                <option value="chi_sim">简体中文</option>
-                                <option value="chi_tra+eng">繁體中文 + English</option>
-                                <option value="chi_tra">繁體中文</option>
-                                <option value="eng">English</option>
-                                <option value="ita">Italiano</option>
-                                <option value="fra">Français</option>
-                                <option value="deu">Deutsch</option>
-                                <option value="spa">Español</option>
-                                <option value="por">Português</option>
-                                <option value="nld">Nederlands</option>
-                                <option value="swe">Svenska</option>
-                                <option value="dan">Dansk</option>
-                                <option value="nor">Norsk</option>
-                                <option value="fin">Suomi</option>
-                                <option value="ell">Ελληνικά</option>
-                                <option value="ces">Čeština</option>
-                                <option value="slv">Slovenščina</option>
+                                <option v-for="option in OCR_LANGUAGE_OPTIONS" :key="option.value" :value="option.value">{{ option.label }}</option>
                             </select>
                         </div>
                         <div
@@ -1206,24 +1200,7 @@ const hasTextContent = computed(() => {
                         <div v-if="textOcr">
                             <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">{{ trans('tool.ocr.language') }}</label>
                             <select v-model="textOcrLanguage" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:border-purple-500 focus:ring-purple-500">
-                                <option value="chi_sim+eng">简体中文 + English</option>
-                                <option value="chi_sim">简体中文</option>
-                                <option value="chi_tra+eng">繁體中文 + English</option>
-                                <option value="chi_tra">繁體中文</option>
-                                <option value="eng">English</option>
-                                <option value="ita">Italiano</option>
-                                <option value="fra">Français</option>
-                                <option value="deu">Deutsch</option>
-                                <option value="spa">Español</option>
-                                <option value="por">Português</option>
-                                <option value="nld">Nederlands</option>
-                                <option value="swe">Svenska</option>
-                                <option value="dan">Dansk</option>
-                                <option value="nor">Norsk</option>
-                                <option value="fin">Suomi</option>
-                                <option value="ell">Ελληνικά</option>
-                                <option value="ces">Čeština</option>
-                                <option value="slv">Slovenščina</option>
+                                <option v-for="option in OCR_LANGUAGE_OPTIONS" :key="option.value" :value="option.value">{{ option.label }}</option>
                             </select>
                             <div
                                 class="mt-3 rounded-lg border px-4 py-3 text-sm"
