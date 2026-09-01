@@ -17,16 +17,22 @@ import { trans } from '@/i18n';
                 {{ trans('home.description') }}
             </p>
 
-            <a
-                href="https://www.i41.cn"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-8 inline-flex items-center gap-2 rounded-full bg-yellow-400 px-6 py-2.5 text-sm font-semibold text-gray-900 shadow-lg transition-all duration-200 hover:bg-yellow-300 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                :title="trans('ecosystem.iplan_tip')"
-            >
-                {{ trans('ecosystem.iplan') }}
-                <span class="text-lg" aria-hidden="true">→</span>
-            </a>
+            <aside class="mx-auto mt-8 flex max-w-3xl flex-col items-start justify-between gap-4 rounded-2xl border border-amber-300 bg-amber-50 px-5 py-4 text-left text-gray-900 shadow-lg sm:flex-row sm:items-center">
+                <div>
+                    <strong class="block text-lg font-bold text-amber-950">关注 i方案</strong>
+                    <span class="mt-1 block text-sm text-amber-800">获取内容创作、客户跟单、文生图与视频制作方案</span>
+                </div>
+                <a
+                    href="https://www.i41.cn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex shrink-0 items-center gap-2 rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900"
+                    :title="trans('ecosystem.iplan_tip')"
+                >
+                    访问 i方案
+                    <span class="text-lg" aria-hidden="true">→</span>
+                </a>
+            </aside>
         </div>
     </section>
 </template>
