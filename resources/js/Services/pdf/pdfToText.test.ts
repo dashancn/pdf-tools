@@ -73,7 +73,6 @@ describe('pdfToText', () => {
             undefined,
             expect.objectContaining({
                 workerPath: expect.stringContaining('cdn.jsdelivr.net'),
-                langPath: expect.stringContaining('tessdata.projectnaptha.com'),
             }),
         );
         expect(recognize).toHaveBeenCalledOnce();

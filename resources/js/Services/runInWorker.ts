@@ -73,7 +73,14 @@ function getWorker(): Worker {
  * @param onProgress - Progress callback (0-100)
  * @returns Single Blob for single-result tools, or array of { name, blob } for multi-result tools.
  */
-const WORKER_TIMEOUT_MS = 5 * 60 * 1000; // 5 minutes
+const DEFAULT_WORKER_TIMEOUT_MS = 5 * 60 * 1000;
+const OCR_WORKER_TIMEOUT_MS = 15 * 60 * 1000;
+
+function timeoutForTool(tool: string): number {
+    return tool === 'ocr-pdf' || tool === 'pdf-to-text' || tool === 'pdf-to-markdown'
+        ? OCR_WORKER_TIMEOUT_MS
+        : DEFAULT_WORKER_TIMEOUT_MS;
+}
 
 export function runInWorker(
     tool: string,
@@ -86,10 +93,12 @@ export function runInWorker(
             const w = getWorker();
             const id = ++requestId;
 
+            const timeoutMs = timeoutForTool(tool);
+            const timeoutMinutes = Math.round(timeoutMs / 60_000);
             const timer = setTimeout(() => {
                 pending.delete(id);
-                reject(new Error('Operation timed out after 5 minutes'));
-            }, WORKER_TIMEOUT_MS);
+                reject(new Error(`Operation timed out after ${timeoutMinutes} minutes`));
+            }, timeoutMs);
 
             pending.set(id, {
                 resolve: (value) => { clearTimeout(timer); resolve(value); },
