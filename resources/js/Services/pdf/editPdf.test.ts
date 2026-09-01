@@ -1,4 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { beforeAll, describe, it, expect, vi } from 'vitest';
+import { readFile } from 'node:fs/promises';
+
+beforeAll(async () => {
+    const fontBytes = await readFile('public/fonts/Unifont.ttf');
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(fontBytes)));
+});
 import { editPdf } from '@/Services/pdf/editPdf';
 import { createSimplePdf } from '@/__tests__/helpers/fixtures';
 import { expectValidPdf, expectDefaultMetadata } from '@/__tests__/helpers/assertions';
@@ -11,6 +17,14 @@ describe('editPdf', () => {
         ]);
         const doc = await expectValidPdf(result, 1);
         expectDefaultMetadata(doc, 'edit pdf');
+    });
+
+    it('adds Chinese Unicode text without WinAnsi encoding errors', async () => {
+        const file = await createSimplePdf(1);
+        const result = await editPdf(file, [
+            { type: 'text', pageIndex: 0, x: 100, y: 500, text: '明天' },
+        ]);
+        await expectValidPdf(result, 1);
     });
 
     it('adds a rectangle element', async () => {

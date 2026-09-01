@@ -1,5 +1,12 @@
 import { rgb, StandardFonts, type PDFDocument, type PDFFont } from 'pdf-lib';
+import fontkit from '@pdf-lib/fontkit';
 import { loadPdf, savePdfAsBlob, stampDefaultMetadata } from '../pdfUtils';
+
+const UNICODE_FONT_URL = '/fonts/Unifont.ttf';
+
+function requiresUnicodeFont(text: string): boolean {
+    return [...text].some(char => char.codePointAt(0)! > 0xff);
+}
 
 export type EditElement =
     | {
@@ -76,9 +83,19 @@ export async function editPdf(
 
     const pdfDoc = await loadPdf(file);
     const pages = pdfDoc.getPages();
+    pdfDoc.registerFontkit(fontkit);
 
     // Lazy font cache to avoid re-embedding the same variant
     const fontCache = new Map<StandardFonts, PDFFont>();
+    let unicodeFont: PDFFont | undefined;
+    async function getUnicodeFont(): Promise<PDFFont> {
+        if (!unicodeFont) {
+            const response = await fetch(new URL(UNICODE_FONT_URL, globalThis.location?.origin ?? 'http://localhost'));
+            if (!response.ok) throw new Error(`Unable to load Unicode font (${response.status})`);
+            unicodeFont = await pdfDoc.embedFont(await response.arrayBuffer());
+        }
+        return unicodeFont;
+    }
     async function getFont(variant: StandardFonts): Promise<PDFFont> {
         let font = fontCache.get(variant);
         if (!font) {
@@ -105,7 +122,9 @@ export async function editPdf(
             case 'text': {
                 const fontSize = element.fontSize ?? DEFAULT_FONT_SIZE;
                 const variant = getHelveticaVariant(element.bold, element.italic);
-                const font = await getFont(variant);
+                const font = requiresUnicodeFont(element.text)
+                    ? await getUnicodeFont()
+                    : await getFont(variant);
                 const textWidth = font.widthOfTextAtSize(element.text, fontSize);
                 const textHeight = font.heightAtSize(fontSize);
 
