@@ -12,6 +12,13 @@ describe('Tesseract browser configuration', () => {
         vi.unstubAllGlobals();
     });
 
+    it('allows WebAssembly compilation required by Tesseract Core', () => {
+        const headers = readFileSync('public/_headers', 'utf8');
+        const index = readFileSync('index.html', 'utf8');
+        expect(headers).toContain("script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'");
+        expect(index).toContain("script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'");
+    });
+
     it('caches self-hosted OCR assets as immutable files', () => {
         const headers = readFileSync('public/_headers', 'utf8');
         expect(headers).toContain('/ocr/*');
