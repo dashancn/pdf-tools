@@ -23,20 +23,6 @@ const currentYear = new Date().getFullYear();
                     {{ trans('All processing happens in your browser. Your files never leave your device.') }}
                 </p>
 
-                <!-- Buy me a coffee -->
-                <a
-                    href="https://paypal.me/fullo/2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 rounded-full bg-yellow-500 px-5 py-2 text-sm font-semibold text-gray-900 shadow transition-all duration-200 hover:bg-yellow-400 hover:shadow-md"
-                >
-                    <span class="text-lg">&#9749;</span>
-                    {{ trans('footer.buy_coffee') }}
-                </a>
-
-                <!-- Made in EU -->
-                <p class="text-xs text-gray-400">&#127466;&#127482; Proudly made in EU</p>
-
                 <!-- Sustainability -->
                 <a
                     href="https://www.w3.org/TR/web-sustainability-guidelines/"
