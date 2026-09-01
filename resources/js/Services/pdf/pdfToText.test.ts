@@ -72,7 +72,9 @@ describe('pdfToText', () => {
             'chi_sim',
             undefined,
             expect.objectContaining({
-                workerPath: expect.stringContaining('cdn.jsdelivr.net'),
+                workerPath: '/ocr/worker.min.js',
+                corePath: '/ocr/core',
+                langPath: '/ocr/lang',
             }),
         );
         expect(recognize).toHaveBeenCalledOnce();
