@@ -11,4 +11,8 @@ describe('HeroSection i方案引导', () => {
         expect(heroSource).toContain('aria-hidden="true">→</span>');
         expect(heroSource).not.toContain('class="text-lg">i</span>');
     });
+
+    it('attributes the promotional banner link to PDF tools', () => {
+        expect(heroSource).toContain('href="https://www.i41.cn?utm_source=pdf&utm_medium=tool_referral&utm_campaign=ifangan&utm_content=promo_banner"');
+    });
 });

@@ -14,6 +14,7 @@ const currentYear = new Date().getFullYear();
                     <span class="text-lg font-bold">PDF 工具箱</span>
                 </div>
                 <p class="text-xs text-gray-500">基于上游开源项目 PDF Worker 二次开发</p>
+                <p class="text-xs text-gray-500">i41 免费实用工具</p>
 
                 <!-- Privacy message -->
                 <p class="flex items-center gap-2 text-sm text-gray-400">

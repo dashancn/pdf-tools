@@ -9,7 +9,7 @@ const mobileMenuOpen = ref(false);
 const companyTools = [
     {
         name: 'i方案',
-        href: 'https://www.i41.cn',
+        href: 'https://www.i41.cn?utm_source=pdf&utm_medium=tool_referral&utm_campaign=ifangan&utm_content=ecosystem_nav',
         featured: true,
         tooltip: 'i方案是一套面向本地实体商家、内容运营人员和营销服务团队的智能内容工作平台。平台围绕行业、平台、品类、风格和使用场景，提供文案生成、文案诊断、客户跟单话术、文生图、视频包制作和精品模板等能力，帮助用户从内容构思、表单草稿、生成优化到后续复用形成完整工作链路。',
     },
