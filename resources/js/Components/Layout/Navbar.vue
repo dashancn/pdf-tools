@@ -29,6 +29,16 @@ const companyTools = [
         tooltip: '证件照工作室支持本地智能抠图、背景换色、常用证件尺寸和 300DPI 多图拼版，照片无需上传到业务服务器。',
     },
     {
+        name: '证件水印',
+        href: 'https://watermark.i41.cn',
+        tooltip: '证件水印工具支持为身份证、营业执照和合同截图添加用途水印，图片仅在浏览器本地处理。',
+    },
+    {
+        name: '临时剪贴板',
+        href: 'https://clip.i41.cn',
+        tooltip: '临时剪贴板支持客户端加密、自动过期、读取次数限制和阅后即焚，适合跨设备传递临时文本。',
+    },
+    {
         name: 'PDF 工具',
         href: '/',
         tooltip: 'PDF 工具箱提供 PDF 合并、拆分、压缩、转换、编辑和发票拼版等浏览器端工具，文件无需上传。',
@@ -49,12 +59,12 @@ function closeMobileMenu() {
                     <span>PDF 工具箱</span>
                 </RouterLink>
 
-                <div class="hidden items-center gap-1 lg:flex">
+                <div class="hidden items-center gap-0.5 xl:flex">
                     <template v-for="item in companyTools" :key="item.name">
                         <RouterLink
                             v-if="item.href === '/'"
                             to="/"
-                            class="group relative rounded-md px-3 py-2 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-blue-300 dark:hover:bg-gray-700"
+                            class="group relative rounded-md px-2 py-2 text-xs font-medium text-blue-700 transition-colors hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 2xl:px-3 2xl:text-sm dark:text-blue-300 dark:hover:bg-gray-700"
                         >
                             {{ item.name }}
                             <span role="tooltip" class="invisible absolute left-1/2 top-full z-50 mt-2 w-72 -translate-x-1/2 rounded-lg bg-gray-900 px-3 py-2 text-left text-xs font-normal leading-5 text-white opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100 group-focus-visible:visible group-focus-visible:opacity-100">{{ item.tooltip }}</span>
@@ -64,7 +74,7 @@ function closeMobileMenu() {
                             :href="item.href"
                             target="_blank"
                             rel="noopener noreferrer"
-                            :class="['group relative rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500', item.featured ? 'bg-blue-600 text-white hover:bg-blue-700' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white']"
+                            :class="['group relative rounded-md px-2 py-2 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 2xl:px-3 2xl:text-sm', item.featured ? 'bg-blue-600 text-white hover:bg-blue-700' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white']"
                         >
                             {{ item.name }}
                             <span role="tooltip" class="invisible absolute left-1/2 top-full z-50 mt-2 w-72 -translate-x-1/2 rounded-lg bg-gray-900 px-3 py-2 text-left text-xs font-normal leading-5 text-white opacity-0 shadow-xl transition group-hover:visible group-hover:opacity-100 group-focus-visible:visible group-focus-visible:opacity-100">{{ item.tooltip }}</span>
@@ -76,13 +86,13 @@ function closeMobileMenu() {
                     <LanguageSwitcher />
                 </div>
 
-                <button type="button" class="rounded-md p-2 text-gray-500 hover:bg-gray-100 lg:hidden dark:hover:bg-gray-700" aria-controls="mobile-menu" :aria-expanded="mobileMenuOpen" aria-label="打开工具导航" @click="mobileMenuOpen = !mobileMenuOpen">
+                <button type="button" class="rounded-md p-2 text-gray-500 hover:bg-gray-100 xl:hidden dark:hover:bg-gray-700" aria-controls="mobile-menu" :aria-expanded="mobileMenuOpen" aria-label="打开工具导航" @click="mobileMenuOpen = !mobileMenuOpen">
                     <span aria-hidden="true">{{ mobileMenuOpen ? '✕' : '☰' }}</span>
                 </button>
             </div>
         </div>
 
-        <div v-if="mobileMenuOpen" id="mobile-menu" class="border-t border-gray-200 bg-white px-4 py-3 lg:hidden dark:border-gray-700 dark:bg-gray-800">
+        <div v-if="mobileMenuOpen" id="mobile-menu" class="border-t border-gray-200 bg-white px-4 py-3 xl:hidden dark:border-gray-700 dark:bg-gray-800">
             <div class="grid gap-2 sm:grid-cols-2">
                 <template v-for="item in companyTools" :key="item.name">
                     <RouterLink v-if="item.href === '/'" to="/" :title="item.tooltip" class="rounded-md bg-blue-50 px-3 py-2 text-sm font-semibold text-blue-700 dark:bg-gray-700 dark:text-blue-300" @click="closeMobileMenu">{{ item.name }}<span class="block text-xs font-normal opacity-75">{{ item.tooltip }}</span></RouterLink>
