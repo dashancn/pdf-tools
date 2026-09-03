@@ -10,7 +10,7 @@
 - A4 发票拼版：支持多个 PDF 按文件及页码顺序进行 2 合 1 或 4 合 1 排版
 - 简体中文优先，并保留上游多语言界面
 - Web Worker 本地处理，无业务后端、无文件上传
-- 不加载广告或分析脚本
+- 不加载广告；保留 Cloudflare Web Analytics，并接入 i41 匿名统计
 - PWA 离线缓存与响应式界面
 
 ## 开发
@@ -33,7 +33,7 @@ npm audit
 
 ## 隐私与网络
 
-PDF 文件仅在浏览器内存和 Web Worker 中处理。应用没有业务 API、上传接口、广告或分析请求。PWA 安装和运行所需资源由同源静态站点提供。页面中的 i41 生态链接和上游 GitHub/W3C 等链接仅在用户主动点击时访问第三方站点。
+PDF 文件仍仅在浏览器内存和 Web Worker 中本地处理，应用没有业务 API 或上传接口。生产站点保留由 Cloudflare Pages 注入的 Cloudflare Web Analytics，并加载 `https://stats.i41.cn/analytics.js` 进行匿名访问、性能、UTM 与跨站点击统计。统计不包含文件、文件名、OCR 内容、用户输入或永久标识。PWA 资源由同源静态站点提供；用户主动点击 i41 生态、上游 GitHub 或 W3C 等外部链接时，浏览器会访问相应站点。
 
 ## 上游归属与许可证
 

@@ -44,7 +44,7 @@
         { "id": "3.3", "title": "Modularize bandwidth-heavy components", "status": "full", "detail": "Each tool is a lazy-loaded Web Worker. Only the selected tool's code is loaded on demand." },
         { "id": "3.4", "title": "Remove unnecessary code", "status": "full", "detail": "Vite tree-shaking + code splitting. Dead code elimination verified by grepping production bundles." },
         { "id": "3.5", "title": "Avoid redundancy and duplication in code", "status": "full", "detail": "Shared utilities (runInWorker, file helpers) are centralized. Tool implementations follow a uniform pattern." },
-        { "id": "3.6", "title": "Give third parties the same priority as first parties during assessment", "status": "partial", "detail": "No advertising or analytics scripts are loaded; production network access is limited to first-party static assets." },
+        { "id": "3.6", "title": "Give third parties the same priority as first parties during assessment", "status": "partial", "detail": "Cloudflare Web Analytics 与 i41 匿名统计纳入第三方评估；访问、性能、UTM 与跨站点击统计不包含文件、文件名、OCR 内容、用户输入或永久标识，文件仍在本地处理。" },
         { "id": "3.7", "title": "Ensure code follows good semantic practices", "status": "full", "detail": "Semantic HTML5 elements (main, nav, section, article). ARIA attributes where needed." },
         { "id": "3.8", "title": "Defer the loading of non-critical resources", "status": "full", "detail": "Route-based code splitting with dynamic imports. Tool workers load only when the user selects a tool." },
         { "id": "3.9", "title": "Provide information to help understand the usefulness of a page", "status": "full", "detail": "SEO meta tags on every page. Structured descriptions for each tool. Open Graph metadata for sharing." },
@@ -81,12 +81,12 @@
       "range": "5.1–5.27",
       "description": "Guidelines 5.1–5.27 — organizational sustainability practices.",
       "guidelines": [
-        { "id": "5.1", "title": "Have an ethical and sustainable product strategy", "status": "full", "detail": "Privacy-first by design. No data collection, no tracking, no user profiling. Open source codebase." },
+        { "id": "5.1", "title": "Have an ethical and sustainable product strategy", "status": "full", "detail": "Privacy-first by design: 文件仍在本地处理，匿名访问、性能、UTM 与跨站点击统计不包含文件、文件名、OCR 内容、用户输入或永久标识，也不用于用户画像。Open source codebase." },
         { "id": "5.4", "title": "Communicate the environmental impact of user choices", "status": "full", "detail": "SCI Report page publishes per-tool carbon emissions. Users can see the environmental cost of each operation." },
         { "id": "5.5", "title": "Calculate the environmental impact", "status": "full", "detail": "SCI profiler implements the Green Software Foundation specification to measure mgCO₂eq per tool invocation." },
         { "id": "5.11", "title": "Implement continuous improvement procedures", "status": "full", "detail": "SCI history tracking compares carbon emissions across commits. Regressions are detectable over time." },
         { "id": "5.13", "title": "Establish if a digital product or service is necessary", "status": "full", "detail": "PDF Worker replaces the need to upload files to remote servers for processing, reducing both privacy risk and network energy." },
-        { "id": "5.18", "title": "Promote responsible data practices", "status": "full", "detail": "Zero data collection by design. Files are processed in-browser and never transmitted. Privacy policy is explicit about this." },
+        { "id": "5.18", "title": "Promote responsible data practices", "status": "full", "detail": "文件仍在本地处理；匿名访问、性能、UTM 与跨站点击统计不包含文件、文件名、OCR 内容、用户输入或永久标识，隐私页对此作出明确说明。" },
         { "id": "5.23", "title": "Plan for a digital product or service's care and end-of-life", "status": "full", "detail": "Static site with no server dependency. Even if the project is abandoned, the hosted version continues to work." },
         { "id": "5.25", "title": "Define performance and environmental budgets", "status": "full", "detail": "SCI benchmarks define measurable carbon budgets per tool. Performance regressions are tracked in sci-history.json." },
         { "id": "5.26", "title": "Use open source where possible", "status": "full", "detail": "All core dependencies are open source. The SCI profiler itself is published as an open-source library." }

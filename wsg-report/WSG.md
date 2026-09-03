@@ -22,7 +22,7 @@ Guidelines not listed target server-side infrastructure or organizational proces
 | Zero server energy | No backend servers processing files 24/7. Energy cost limited to user's device. |
 | Zero network transfer | Files stay on device. No upload/download bandwidth per operation. |
 | Static hosting only | Served from CDN (GitHub Pages). No application servers, databases, or containers. |
-| Privacy by design | No data collection, no storage infrastructure, no data retention policies. |
+| Privacy by design | 文件仍在本地处理；匿名访问、性能、UTM 与跨站点击统计不包含文件、文件名、OCR 内容、用户输入或永久标识。 |
 
 ---
 
@@ -56,7 +56,7 @@ Guidelines not listed target server-side infrastructure or organizational proces
 | 3.3 | Modularize bandwidth-heavy components | ✅ Full | Each tool is a lazy-loaded Web Worker. Only the selected tool's code is loaded on demand. |
 | 3.4 | Remove unnecessary code | ✅ Full | Vite tree-shaking + code splitting. Dead code elimination verified by grepping production bundles. |
 | 3.5 | Avoid redundancy and duplication in code | ✅ Full | Shared utilities (runInWorker, file helpers) are centralized. Tool implementations follow a uniform pattern. |
-| 3.6 | Give third parties the same priority as first parties during assessment | ⚠️ Partial | No advertising or analytics scripts are loaded; production network access is limited to first-party static assets. |
+| 3.6 | Give third parties the same priority as first parties during assessment | ⚠️ Partial | Cloudflare Web Analytics 与 i41 匿名统计纳入第三方评估；访问、性能、UTM 与跨站点击统计不包含文件、文件名、OCR 内容、用户输入或永久标识，文件仍在本地处理。 |
 | 3.7 | Ensure code follows good semantic practices | ✅ Full | Semantic HTML5 elements (main, nav, section, article). ARIA attributes where needed. |
 | 3.8 | Defer the loading of non-critical resources | ✅ Full | Route-based code splitting with dynamic imports. Tool workers load only when the user selects a tool. |
 | 3.9 | Provide information to help understand the usefulness of a page | ✅ Full | SEO meta tags on every page. Structured descriptions for each tool. Open Graph metadata for sharing. |
@@ -87,12 +87,12 @@ Guidelines not listed target server-side infrastructure or organizational proces
 
 | ID | Guideline | Status | Detail |
 |---|---|---|---|
-| 5.1 | Have an ethical and sustainable product strategy | ✅ Full | Privacy-first by design. No data collection, no tracking, no user profiling. Open source codebase. |
+| 5.1 | Have an ethical and sustainable product strategy | ✅ Full | Privacy-first by design: 文件仍在本地处理，匿名访问、性能、UTM 与跨站点击统计不包含文件、文件名、OCR 内容、用户输入或永久标识，也不用于用户画像。Open source codebase. |
 | 5.4 | Communicate the environmental impact of user choices | ✅ Full | SCI Report page publishes per-tool carbon emissions. Users can see the environmental cost of each operation. |
 | 5.5 | Calculate the environmental impact | ✅ Full | SCI profiler implements the Green Software Foundation specification to measure mgCO₂eq per tool invocation. |
 | 5.11 | Implement continuous improvement procedures | ✅ Full | SCI history tracking compares carbon emissions across commits. Regressions are detectable over time. |
 | 5.13 | Establish if a digital product or service is necessary | ✅ Full | PDF Worker replaces the need to upload files to remote servers for processing, reducing both privacy risk and network energy. |
-| 5.18 | Promote responsible data practices | ✅ Full | Zero data collection by design. Files are processed in-browser and never transmitted. Privacy policy is explicit about this. |
+| 5.18 | Promote responsible data practices | ✅ Full | 文件仍在本地处理；匿名访问、性能、UTM 与跨站点击统计不包含文件、文件名、OCR 内容、用户输入或永久标识，隐私页对此作出明确说明。 |
 | 5.23 | Plan for a digital product or service's care and end-of-life | ✅ Full | Static site with no server dependency. Even if the project is abandoned, the hosted version continues to work. |
 | 5.25 | Define performance and environmental budgets | ✅ Full | SCI benchmarks define measurable carbon budgets per tool. Performance regressions are tracked in sci-history.json. |
 | 5.26 | Use open source where possible | ✅ Full | All core dependencies are open source. The SCI profiler itself is published as an open-source library. |

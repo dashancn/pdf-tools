@@ -12,7 +12,7 @@
 - 简体中文优先的本地化体验
 - A4 发票 2 合 1 / 4 合 1 拼版工具
 - `pdf.i41.cn` SEO、PWA 和 Cloudflare Pages 配置
-- 移除广告与分析网络请求
+- 移除广告网络请求，并保留 Cloudflare Web Analytics、接入 i41 匿名统计
 
 上述修改与上游代码一并按仓库 `LICENSE` 的 MIT 条款分发。
 

@@ -240,7 +240,7 @@
   "privacy.no_upload_title": "文件留在您的设备上",
   "privacy.no_upload_text": "合并、拆分、压缩、旋转等 PDF 操作均通过 JavaScript 和 Web Worker 在浏览器本地执行。我们没有文件上传接口，也无法访问您的文档。",
   "privacy.data_collected_title": "我们收集的数据",
-  "privacy.data_collected_text": "我们不收集个人数据。仅在您的设备本地保存以下偏好：",
+  "privacy.data_collected_text": "我们仅处理下列本地偏好和匿名统计信息：",
   "privacy.data_locale": "首选语言和主题（保存在 localStorage 中）",
   "privacy.cookies_title": "Cookie 与本地存储",
   "privacy.cookies_text": "本站不使用广告或分析 Cookie，仅使用：",

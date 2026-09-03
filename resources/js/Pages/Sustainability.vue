@@ -78,7 +78,7 @@ function statusColor(status: Guideline['status']): string {
                             </tr>
                             <tr>
                                 <td class="py-2 pr-4 font-semibold">Privacy by design</td>
-                                <td class="py-2">No data collection means no storage infrastructure, no data retention policies, and no processing of personal data.</td>
+                                <td class="py-2">Files stay local. Anonymous visits, performance, UTM, and cross-site click metrics exclude files, filenames, OCR content, user input, and persistent identifiers.</td>
                             </tr>
                         </tbody>
                     </table>
