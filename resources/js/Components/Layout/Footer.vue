@@ -6,65 +6,42 @@ const currentYear = new Date().getFullYear();
 
 <template>
     <footer class="bg-gray-900 text-gray-300">
-        <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-            <div class="flex flex-col items-center gap-4 text-center">
-                <!-- Branding: keep the upstream relationship visible. -->
-                <div class="flex items-center gap-2 text-white">
-                    <span class="text-xl">🧰</span>
-                    <span class="text-lg font-bold">PDF 工具箱</span>
-                </div>
-                <p class="text-xs text-gray-500">基于上游开源项目 PDF Worker 二次开发</p>
-                <p class="text-xs text-gray-500">i41 免费实用工具</p>
+        <div class="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center gap-3 text-center text-xs text-gray-500">
+                <p class="text-sm text-gray-300">PDF 工具箱 · i41 免费实用工具 · 文件本地处理</p>
 
-                <!-- Privacy message -->
-                <p class="flex items-center gap-2 text-sm text-gray-400">
-                    <svg aria-hidden="true" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                    {{ trans('All processing happens in your browser. Your files never leave your device.') }}
-                </p>
-
-                <!-- Sustainability -->
-                <a
-                    href="https://www.w3.org/TR/web-sustainability-guidelines/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex items-center gap-1.5 text-xs text-gray-500 underline-offset-2 transition-colors hover:text-green-400 hover:underline"
-                >
-                    <svg aria-hidden="true" class="h-3.5 w-3.5 shrink-0 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    {{ trans('footer.sustainability') }}
-                </a>
-
-                <!-- Copyright + Privacy -->
-                <div class="flex flex-wrap justify-center items-center gap-3 text-xs text-gray-500">
-                    <span>&copy; {{ currentYear }} PDF Worker. {{ trans('All rights reserved.') }}</span>
-                    <span class="text-gray-600">|</span>
-                    <RouterLink to="/blog" class="underline underline-offset-2 transition-colors hover:text-gray-300">
-                        {{ trans('nav.blog') }}
-                    </RouterLink>
-                    <span class="text-gray-600">|</span>
-                    <RouterLink to="/privacy" class="underline underline-offset-2 transition-colors hover:text-gray-300">
-                        {{ trans('privacy.title') }}
-                    </RouterLink>
-                    <span class="text-gray-600">|</span>
-                    <RouterLink to="/sci-report" class="underline underline-offset-2 transition-colors hover:text-gray-300">
-                        SCI Report
-                    </RouterLink>
-                    <span class="text-gray-600">|</span>
-                    <RouterLink to="/sustainability" class="underline underline-offset-2 transition-colors hover:text-gray-300">
-                        WSG Report
-                    </RouterLink>
-                    <span class="text-gray-600">|</span>
-                    <a href="https://github.com/fullo/pdf-worker/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 transition-colors hover:text-gray-300">
-                        GitHub
-                    </a>
-                    <span class="text-gray-600">|</span>
-                    <a href="https://github.com/fullo/pdf-worker/issues" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 transition-colors hover:text-gray-300">
-                        {{ trans('footer.report_bug') }}
-                    </a>
-                </div>
+                <details class="w-full max-w-3xl rounded-lg border border-gray-800 px-4 py-2">
+                    <summary class="cursor-pointer select-none font-medium text-gray-400 transition-colors hover:text-gray-200">
+                        查看隐私、开源与其他说明
+                    </summary>
+                    <div class="mt-4 flex flex-col items-center gap-3 border-t border-gray-800 pt-4">
+                        <p>所有 PDF 处理在浏览器本地完成；匿名访问、性能、UTM 与跨站点击统计不包含文件、文件名、OCR 内容、用户输入或永久标识。</p>
+                        <p>基于上游开源项目 PDF Worker 二次开发 · i41 免费实用工具</p>
+                        <a
+                            href="https://www.w3.org/TR/web-sustainability-guidelines/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="underline underline-offset-2 transition-colors hover:text-green-400"
+                        >
+                            {{ trans('footer.sustainability') }}
+                        </a>
+                        <div class="flex flex-wrap items-center justify-center gap-2">
+                            <span>&copy; {{ currentYear }} PDF Worker. {{ trans('All rights reserved.') }}</span>
+                            <span class="text-gray-700">|</span>
+                            <RouterLink to="/blog" class="underline underline-offset-2 hover:text-gray-300">{{ trans('nav.blog') }}</RouterLink>
+                            <span class="text-gray-700">|</span>
+                            <RouterLink to="/privacy" class="underline underline-offset-2 hover:text-gray-300">{{ trans('privacy.title') }}</RouterLink>
+                            <span class="text-gray-700">|</span>
+                            <RouterLink to="/sci-report" class="underline underline-offset-2 hover:text-gray-300">SCI Report</RouterLink>
+                            <span class="text-gray-700">|</span>
+                            <RouterLink to="/sustainability" class="underline underline-offset-2 hover:text-gray-300">WSG Report</RouterLink>
+                            <span class="text-gray-700">|</span>
+                            <a href="https://github.com/fullo/pdf-worker/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-gray-300">GitHub</a>
+                            <span class="text-gray-700">|</span>
+                            <a href="https://github.com/fullo/pdf-worker/issues" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-gray-300">{{ trans('footer.report_bug') }}</a>
+                        </div>
+                    </div>
+                </details>
             </div>
         </div>
     </footer>
