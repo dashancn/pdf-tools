@@ -8,7 +8,7 @@ const currentYear = new Date().getFullYear();
     <footer class="bg-gray-900 text-gray-300">
         <div class="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center gap-3 text-center text-xs text-gray-500">
-                <p class="text-sm text-gray-300">PDF 工具箱 · i41 免费实用工具 · 文件本地处理</p>
+                <p class="text-sm text-gray-300">PDF 工具箱 · i41 工具</p>
 
                 <details class="w-full max-w-3xl rounded-lg border border-gray-800 px-4 py-2">
                     <summary class="cursor-pointer select-none font-medium text-gray-400 transition-colors hover:text-gray-200">
@@ -19,8 +19,6 @@ const currentYear = new Date().getFullYear();
                         <p>基于上游开源项目 PDF Worker 二次开发 · i41 免费实用工具</p>
                         <a
                             href="https://www.w3.org/TR/web-sustainability-guidelines/"
-                            target="_blank"
-                            rel="noopener noreferrer"
                             class="underline underline-offset-2 transition-colors hover:text-green-400"
                         >
                             {{ trans('footer.sustainability') }}
@@ -36,9 +34,9 @@ const currentYear = new Date().getFullYear();
                             <span class="text-gray-700">|</span>
                             <RouterLink to="/sustainability" class="underline underline-offset-2 hover:text-gray-300">WSG Report</RouterLink>
                             <span class="text-gray-700">|</span>
-                            <a href="https://github.com/fullo/pdf-worker/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-gray-300">GitHub</a>
+                            <a href="https://github.com/fullo/pdf-worker/" class="underline underline-offset-2 hover:text-gray-300">GitHub</a>
                             <span class="text-gray-700">|</span>
-                            <a href="https://github.com/fullo/pdf-worker/issues" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-gray-300">{{ trans('footer.report_bug') }}</a>
+                            <a href="https://github.com/fullo/pdf-worker/issues" class="underline underline-offset-2 hover:text-gray-300">{{ trans('footer.report_bug') }}</a>
                         </div>
                     </div>
                 </details>

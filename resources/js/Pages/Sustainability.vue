@@ -36,7 +36,7 @@ function statusColor(status: Guideline['status']): string {
         </h1>
         <p class="mb-2 text-gray-700 leading-relaxed dark:text-gray-300">
             This page maps how PDF Worker aligns with the
-            <a href="https://www.w3.org/TR/web-sustainability-guidelines/" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.w3.org/TR/web-sustainability-guidelines/"
                class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">
                 W3C Web Sustainability Guidelines (WSG) 1.0</a>,
             a set of best practices for building digital products that put people and the planet first.
@@ -150,7 +150,7 @@ function statusColor(status: Guideline['status']): string {
                     PDF Worker goes beyond guidelines compliance by actively measuring its environmental impact.
                     The <a href="/#/sci-report" class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">SCI Report</a>
                     quantifies the carbon footprint of every tool using the
-                    <a href="https://sci-guide.greensoftware.foundation/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://sci-guide.greensoftware.foundation/"
                        class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">
                         Green Software Foundation SCI specification</a>.
                 </p>
@@ -158,7 +158,7 @@ function statusColor(status: Guideline['status']): string {
                     <li>Energy consumption estimated from wall-clock time and device TDP</li>
                     <li>Embodied carbon amortized from Apple LCA lifecycle data</li>
                     <li>Per-tool carbon emissions tracked across commits via sci-history.json</li>
-                    <li>SCI profiler published as an <a href="https://github.com/fullo/sci-profiler" target="_blank" rel="noopener noreferrer"
+                    <li>SCI profiler published as an <a href="https://github.com/fullo/sci-profiler"
                        class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">open-source library</a> for other projects</li>
                 </ul>
             </section>
@@ -168,22 +168,22 @@ function statusColor(status: Guideline['status']): string {
                 <h2 class="mb-3 text-xl font-semibold text-gray-900 dark:text-white">References</h2>
                 <ul class="ml-6 list-disc space-y-1">
                     <li>
-                        <a href="https://www.w3.org/TR/web-sustainability-guidelines/" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.w3.org/TR/web-sustainability-guidelines/"
                            class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400">
                             W3C — Web Sustainability Guidelines (WSG) 1.0</a>
                     </li>
                     <li>
-                        <a href="https://sci-guide.greensoftware.foundation/" target="_blank" rel="noopener noreferrer"
+                        <a href="https://sci-guide.greensoftware.foundation/"
                            class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400">
                             Green Software Foundation — SCI Specification</a>
                     </li>
                     <li>
-                        <a href="https://www.sustainablewebmanifesto.com/" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.sustainablewebmanifesto.com/"
                            class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400">
                             Sustainable Web Manifesto</a>
                     </li>
                     <li>
-                        <a href="https://github.com/fullo/sci-profiler" target="_blank" rel="noopener noreferrer"
+                        <a href="https://github.com/fullo/sci-profiler"
                            class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400">
                             SCI Profiler — Open Source Carbon Measurement Library</a>
                     </li>

@@ -47,7 +47,7 @@ const measuredTimeTotal = computed(() =>
         <p class="mb-2 text-gray-700 leading-relaxed dark:text-gray-300">
             This report measures the carbon footprint of every PDF processing tool in PDF Worker,
             following the
-            <a href="https://sci-guide.greensoftware.foundation/" target="_blank" rel="noopener noreferrer"
+            <a href="https://sci-guide.greensoftware.foundation/"
                class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">
                 Green Software Foundation SCI specification</a>.
             All processing runs entirely in your browser — no server involved.
@@ -121,7 +121,7 @@ const measuredTimeTotal = computed(() =>
                                 <td class="py-2 pr-4">Carbon Intensity</td>
                                 <td class="py-2 pr-4 font-mono">{{ report.constants.carbonIntensity }} gCO&#8322;eq/kWh</td>
                                 <td class="py-2">
-                                    <a href="https://carbonrunner.io/github-actions-carbon-calculator" target="_blank" rel="noopener noreferrer"
+                                    <a href="https://carbonrunner.io/github-actions-carbon-calculator"
                                        class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400">CarbonRunner</a>
                                 </td>
                             </tr>
@@ -146,7 +146,6 @@ const measuredTimeTotal = computed(() =>
                 <p class="mb-3">
                     Source:
                     <a href="https://www.apple.com/environment/pdf/products/notebooks/14-inch_MacBook_Pro_PER_Oct2021.pdf"
-                       target="_blank" rel="noopener noreferrer"
                        class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400">
                         Apple 14-inch MacBook Pro Product Environmental Report (Oct 2021)</a>
                     — M1 Pro, 8-core CPU, 14-core GPU, 512 GB.
@@ -274,18 +273,17 @@ const measuredTimeTotal = computed(() =>
                 <h2 class="mb-3 text-xl font-semibold text-gray-900 dark:text-white">References</h2>
                 <ul class="ml-6 list-disc space-y-1">
                     <li>
-                        <a href="https://sci-guide.greensoftware.foundation/" target="_blank" rel="noopener noreferrer"
+                        <a href="https://sci-guide.greensoftware.foundation/"
                            class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400">
                             Green Software Foundation — SCI Specification</a>
                     </li>
                     <li>
                         <a href="https://www.apple.com/environment/pdf/products/notebooks/14-inch_MacBook_Pro_PER_Oct2021.pdf"
-                           target="_blank" rel="noopener noreferrer"
                            class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400">
                             Apple 14-inch MacBook Pro Product Environmental Report (Oct 2021)</a>
                     </li>
                     <li>
-                        <a href="https://carbonrunner.io/github-actions-carbon-calculator" target="_blank" rel="noopener noreferrer"
+                        <a href="https://carbonrunner.io/github-actions-carbon-calculator"
                            class="text-blue-600 underline underline-offset-2 hover:text-blue-500 dark:text-blue-400">
                             CarbonRunner — GitHub Actions Carbon Calculator</a>
                     </li>

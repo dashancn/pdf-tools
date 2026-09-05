@@ -1,13 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import navbarSource from './Navbar.vue?raw';
 
+const allVueSources = Object.values(import.meta.glob('/resources/js/**/*.vue', {
+    eager: true,
+    import: 'default',
+    query: '?raw',
+})).join('\n');
+
 const entries = [
     ['i方案', 'https://www.i41.cn?utm_source=pdf&utm_medium=tool_referral&utm_campaign=ifangan&utm_content=ecosystem_nav'],
     ['开发者工具', 'https://tools.i41.cn'],
     ['图片压缩', 'https://imgzip.i41.cn'],
     ['智能抠图', 'https://imgzip.i41.cn/remove-background/'],
     ['多图拼接', 'https://imgzip.i41.cn/collage/'],
-    ['PDF 工具', '/'],
     ['证件水印', 'https://watermark.i41.cn'],
     ['临时剪贴板', 'https://clip.i41.cn'],
     ['证件照', 'https://idphoto.i41.cn'],
@@ -26,18 +31,22 @@ describe('统一生态导航', () => {
         }
     });
 
-    it('opens every external item safely in a new tab', () => {
-        expect(navbarSource).toContain('target="_blank"');
-        expect(navbarSource).toContain('rel="noopener noreferrer"');
-        expect(navbarSource).toContain('v-else');
+    it('opens every link in the application in the current window', () => {
+        expect(allVueSources).not.toContain('target=');
+        expect(allVueSources).not.toContain('rel="noopener noreferrer"');
     });
 
-    it('keeps i方案 as the primary solid-blue CTA and PDF as a quieter current item', () => {
+    it('uses the specified CTA, PDF branding, and accessible menu tips', () => {
         expect(navbarSource).toContain("primary: true");
-        expect(navbarSource).toContain("item.primary ? 'bg-blue-600 text-white font-semibold hover:bg-blue-700'");
-        expect(navbarSource).toContain("active: true");
-        expect(navbarSource).toContain('aria-current="page"');
-        expect(navbarSource).toContain('bg-blue-50 px-2 py-2 text-xs font-medium text-blue-700');
+        expect(navbarSource).toContain("item.primary ? 'min-w-[72px] bg-blue-600 text-white font-semibold hover:bg-blue-700'");
+        expect(navbarSource).not.toContain("name: 'PDF 工具'");
+        expect(navbarSource).not.toContain("active: true");
+        expect(navbarSource).not.toContain('aria-current="page"');
+        expect(navbarSource).toContain('<span>PDF 工具箱</span>');
+        expect(navbarSource).toContain('role="tooltip"');
+        expect(navbarSource).toContain('group-hover:visible');
+        expect(navbarSource).toContain('group-focus-visible:visible');
+        expect(navbarSource).toContain('{{ item.tooltip }}');
     });
 
     it('keeps the local PDF brand and uses a white 64px 1104px navigation shell', () => {

@@ -23,8 +23,11 @@ describe('Footer upstream attribution', () => {
         expect(footerSource).toContain('WSG Report');
     });
 
-    it('keeps the default footer compact', () => {
-        expect(footerSource).toContain('PDF 工具箱 · i41 免费实用工具 · 文件本地处理');
+    it('keeps the default footer compact with short copy and current-window links', () => {
+        expect(footerSource).toContain('PDF 工具箱 · i41 工具');
+        expect(footerSource).not.toContain('PDF 工具箱 · i41 免费实用工具 · 文件本地处理');
         expect(footerSource).not.toContain('py-10');
+        expect(footerSource).not.toContain('target=');
+        expect(footerSource).not.toContain('rel="noopener noreferrer"');
     });
 });

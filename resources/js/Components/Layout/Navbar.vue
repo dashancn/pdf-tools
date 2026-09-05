@@ -34,12 +34,6 @@ const companyTools = [
         tooltip: '将多张图片快速拼接为一张长图或网格图。',
     },
     {
-        name: 'PDF 工具',
-        href: '/',
-        active: true,
-        tooltip: 'PDF 合并、拆分、压缩、转换、编辑和发票拼版等工具。',
-    },
-    {
         name: '证件水印',
         href: 'https://watermark.i41.cn',
         tooltip: '为证件和合同截图添加用途水印。',
@@ -74,27 +68,22 @@ function closeMobileMenu() {
                 </div>
 
                 <div class="hidden items-center gap-1 lg:flex">
-                    <template v-for="item in companyTools" :key="item.name">
-                        <RouterLink
-                            v-if="item.active"
-                            to="/"
-                            aria-current="page"
-                            :title="item.tooltip"
-                            class="rounded-md bg-blue-50 px-2 py-2 text-xs font-medium text-blue-700 transition-colors hover:bg-blue-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 xl:px-2.5 dark:bg-blue-950/50 dark:text-blue-200"
+                    <a
+                        v-for="item in companyTools"
+                        :key="item.name"
+                        :href="item.href"
+                        :aria-describedby="`ecosystem-tip-${item.name}`"
+                        :class="['group relative inline-flex justify-center rounded-md px-2 py-2 text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 xl:px-2.5', item.primary ? 'min-w-[72px] bg-blue-600 text-white font-semibold hover:bg-blue-700' : 'font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white']"
+                    >
+                        {{ item.name }}
+                        <span
+                            :id="`ecosystem-tip-${item.name}`"
+                            role="tooltip"
+                            class="invisible absolute left-1/2 top-full z-50 mt-2 w-max max-w-64 -translate-x-1/2 rounded-md bg-gray-950 px-3 py-2 text-center text-xs font-normal leading-5 text-white opacity-0 shadow-lg transition-opacity group-hover:visible group-hover:opacity-100 group-focus-visible:visible group-focus-visible:opacity-100"
                         >
-                            {{ item.name }}
-                        </RouterLink>
-                        <a
-                            v-else
-                            :href="item.href"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            :title="item.tooltip"
-                            :class="['rounded-md px-2 py-2 text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 xl:px-2.5', item.primary ? 'bg-blue-600 text-white font-semibold hover:bg-blue-700' : 'font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white']"
-                        >
-                            {{ item.name }}
-                        </a>
-                    </template>
+                            {{ item.tooltip }}
+                        </span>
+                    </a>
                     <button type="button" :aria-label="isDark ? '切换浅色模式' : '切换深色模式'" class="rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700" @click="toggleDarkMode">
                         <span aria-hidden="true">{{ isDark ? '☀️' : '🌙' }}</span>
                     </button>
@@ -109,10 +98,16 @@ function closeMobileMenu() {
 
         <div v-if="mobileMenuOpen" id="mobile-menu" class="border-t border-gray-200 bg-white px-4 py-3 lg:hidden dark:border-gray-700 dark:bg-gray-800">
             <div class="mx-auto grid max-w-[1104px] gap-2 sm:grid-cols-2">
-                <template v-for="item in companyTools" :key="item.name">
-                    <RouterLink v-if="item.active" to="/" aria-current="page" :title="item.tooltip" class="rounded-md bg-blue-50 px-3 py-2 text-sm font-semibold text-blue-700 dark:bg-blue-950/50 dark:text-blue-200" @click="closeMobileMenu">{{ item.name }}</RouterLink>
-                    <a v-else :href="item.href" target="_blank" rel="noopener noreferrer" :title="item.tooltip" :class="['rounded-md px-3 py-2 text-sm font-semibold', item.primary ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-50 text-gray-700 dark:bg-gray-700 dark:text-gray-200']" @click="closeMobileMenu">{{ item.name }}</a>
-                </template>
+                <a
+                    v-for="item in companyTools"
+                    :key="item.name"
+                    :href="item.href"
+                    :class="['rounded-md px-3 py-2 text-sm font-semibold', item.primary ? 'min-w-[72px] bg-blue-600 text-center text-white hover:bg-blue-700' : 'bg-gray-50 text-gray-700 dark:bg-gray-700 dark:text-gray-200']"
+                    @click="closeMobileMenu"
+                >
+                    <span class="block">{{ item.name }}</span>
+                    <span class="mt-1 block text-xs font-normal opacity-75">{{ item.tooltip }}</span>
+                </a>
             </div>
             <div class="mx-auto mt-3 flex max-w-[1104px] items-center justify-between border-t border-gray-200 pt-3 dark:border-gray-700">
                 <LanguageSwitcher />

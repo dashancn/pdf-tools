@@ -24,8 +24,6 @@ import { trans } from '@/i18n';
                 </div>
                 <a
                     href="https://www.i41.cn?utm_source=pdf&utm_medium=tool_referral&utm_campaign=ifangan&utm_content=promo_banner"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     class="inline-flex shrink-0 items-center rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                     :title="trans('ecosystem.iplan_tip')"
                 >
