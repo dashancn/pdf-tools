@@ -24,6 +24,11 @@ const companyTools = [
         tooltip: '在线压缩、调整图片尺寸和转换格式。',
     },
     {
+        name: 'HEIC 转换',
+        href: 'https://imgzip.i41.cn/heic-converter/',
+        tooltip: '将 HEIC 图片转换为 JPG、PNG 等常用格式。',
+    },
+    {
         name: '智能抠图',
         href: 'https://imgzip.i41.cn/remove-background/',
         tooltip: '自动识别主体并移除图片背景。',

@@ -11,6 +11,7 @@ const entries = [
     ['i方案', 'https://www.i41.cn?utm_source=pdf&utm_medium=tool_referral&utm_campaign=ifangan&utm_content=ecosystem_nav'],
     ['开发者工具', 'https://tools.i41.cn'],
     ['图片压缩', 'https://imgzip.i41.cn'],
+    ['HEIC 转换', 'https://imgzip.i41.cn/heic-converter/'],
     ['智能抠图', 'https://imgzip.i41.cn/remove-background/'],
     ['多图拼接', 'https://imgzip.i41.cn/collage/'],
     ['证件水印', 'https://watermark.i41.cn'],
@@ -29,6 +30,10 @@ describe('统一生态导航', () => {
             expect(currentIndex, `${name} should follow the previous item`).toBeGreaterThan(previousIndex);
             previousIndex = currentIndex;
         }
+    });
+
+    it('gives the HEIC converter a Chinese tooltip', () => {
+        expect(navbarSource).toContain("tooltip: '将 HEIC 图片转换为 JPG、PNG 等常用格式。'");
     });
 
     it('opens every link in the application in the current window', () => {
