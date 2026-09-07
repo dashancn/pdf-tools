@@ -11,47 +11,47 @@ const companyTools = [
         name: 'i方案',
         href: 'https://www.i41.cn?utm_source=pdf&utm_medium=tool_referral&utm_campaign=ifangan&utm_content=ecosystem_nav',
         primary: true,
-        tooltip: '内容创作、客户跟单、文生图与视频制作方案。',
+        tooltip: 'i方案是一套面向本地实体商家、内容运营人员和营销服务团队的智能内容工作平台。平台围绕行业、平台、品类、风格和使用场景，提供文案生成、文案诊断、客户跟单话术、文生图、视频包制作和精品模板等能力，帮助用户从内容构思、表单草稿、生成优化到后续复用形成完整工作链路。',
     },
     {
         name: '开发者工具',
         href: 'https://tools.i41.cn',
-        tooltip: '编码转换、格式化、加密、网络、文本和图片等常用在线工具。',
+        tooltip: '开发者工具箱汇集编码转换、格式化、加密、网络、文本和图片等常用在线工具，强调快速、易用和浏览器端处理。',
     },
     {
         name: '图片压缩',
         href: 'https://imgzip.i41.cn',
-        tooltip: '在线压缩、调整图片尺寸和转换格式。',
+        tooltip: '图片修改压缩是一款浏览器端在线图片处理工具，支持压缩、调整尺寸和格式转换，图片尽量在本地处理，适合日常上传、分享和网页优化。',
     },
     {
         name: 'HEIC 转换',
         href: 'https://imgzip.i41.cn/heic-converter/',
-        tooltip: '将 HEIC 图片转换为 JPG、PNG 等常用格式。',
+        tooltip: 'HEIC 转换工具可在浏览器本地将 HEIC、HEIF 和 WebP 转为 JPG 或 PNG。',
     },
     {
         name: '智能抠图',
         href: 'https://imgzip.i41.cn/remove-background/',
-        tooltip: '自动识别主体并移除图片背景。',
+        tooltip: '智能抠图在浏览器中自动移除图片背景，适合人像和商品图快速换背景。',
     },
     {
         name: '多图拼接',
         href: 'https://imgzip.i41.cn/collage/',
-        tooltip: '将多张图片快速拼接为一张长图或网格图。',
+        tooltip: '多图拼接支持在浏览器中组合多张图片并调整布局。',
     },
     {
         name: '证件水印',
         href: 'https://watermark.i41.cn',
-        tooltip: '为证件和合同截图添加用途水印。',
+        tooltip: '证件水印工具支持为身份证、营业执照和合同截图添加用途水印，图片仅在浏览器本地处理。',
     },
     {
         name: '临时剪贴板',
         href: 'https://clip.i41.cn',
-        tooltip: '跨设备传递自动过期的临时文本。',
+        tooltip: '临时剪贴板支持客户端加密、自动过期、读取次数限制和阅后即焚，适合跨设备传递临时文本。',
     },
     {
         name: '证件照',
         href: 'https://idphoto.i41.cn',
-        tooltip: '制作常用尺寸和背景颜色的证件照。',
+        tooltip: '证件照工作室是一款浏览器端证件照制作工具，支持本地智能抠图、背景换色、常用证件尺寸和 300DPI 多图拼版，照片无需上传到业务服务器。',
     },
 ];
 
@@ -64,27 +64,26 @@ function closeMobileMenu() {
     <nav class="sticky top-0 z-50 w-full border-b border-gray-100 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800" aria-label="i41 工具导航">
         <div class="mx-auto max-w-[1104px] px-4">
             <div class="flex h-16 items-center justify-between gap-3">
-                <div class="flex shrink-0 items-center gap-3">
+                <div class="flex shrink-0 items-center">
                     <RouterLink to="/" class="flex items-center gap-2 text-lg font-bold text-gray-900 transition-opacity hover:opacity-80 dark:text-white">
                         <span class="text-2xl" aria-hidden="true">🧰</span>
                         <span>PDF 工具箱</span>
                     </RouterLink>
-                    <span class="hidden rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-medium text-emerald-700 xl:inline-flex dark:bg-emerald-950/40 dark:text-emerald-300">文件尽量在本地处理</span>
                 </div>
 
-                <div class="hidden items-center gap-1 lg:flex">
+                <div class="hidden items-center gap-1 whitespace-nowrap lg:flex">
                     <a
                         v-for="item in companyTools"
                         :key="item.name"
                         :href="item.href"
                         :aria-describedby="`ecosystem-tip-${item.name}`"
-                        :class="['group relative inline-flex justify-center rounded-md px-2 py-2 text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 xl:px-2.5', item.primary ? 'min-w-[72px] bg-blue-600 text-white font-semibold hover:bg-blue-700' : 'font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white']"
+                        :class="['group relative inline-flex whitespace-nowrap justify-center rounded-md px-2 py-2 text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 xl:px-2.5', item.primary ? 'min-w-[72px] bg-blue-600 text-white font-semibold hover:bg-blue-700' : 'font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white']"
                     >
                         {{ item.name }}
                         <span
                             :id="`ecosystem-tip-${item.name}`"
                             role="tooltip"
-                            class="invisible absolute left-1/2 top-full z-50 mt-2 w-max max-w-64 -translate-x-1/2 rounded-md bg-gray-950 px-3 py-2 text-center text-xs font-normal leading-5 text-white opacity-0 shadow-lg transition-opacity group-hover:visible group-hover:opacity-100 group-focus-visible:visible group-focus-visible:opacity-100"
+                            class="invisible absolute left-1/2 top-full z-50 mt-2 w-64 -translate-x-1/2 whitespace-normal rounded-md bg-gray-950 px-3 py-2 text-center text-xs font-normal leading-5 text-white opacity-0 shadow-lg transition-opacity group-hover:visible group-hover:opacity-100 group-focus-visible:visible group-focus-visible:opacity-100"
                         >
                             {{ item.tooltip }}
                         </span>
