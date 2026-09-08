@@ -111,4 +111,13 @@ describe('统一生态导航', () => {
         expect(navbarSource).toContain('min-w-0');
         expect(navbarSource).toContain('overflow-x-hidden');
     });
+
+    it('keeps a tall mobile menu fully reachable without nested scrollbars', () => {
+        expect(navbarSource).toContain('flex max-h-[calc(100dvh-4rem)] flex-col');
+        expect(navbarSource).toContain('overflow-y-auto');
+        expect(navbarSource).toContain('overscroll-contain');
+        expect(navbarSource).toContain('[scrollbar-width:none]');
+        expect(navbarSource).toContain('[&::-webkit-scrollbar]:hidden');
+        expect(navbarSource).not.toContain('overflow-y-scroll');
+    });
 });

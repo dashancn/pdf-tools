@@ -51,6 +51,10 @@ const puppeteer = require('puppeteer-core');
         menuRight: menu?.getBoundingClientRect().right ?? null,
         menuWidth: menu?.getBoundingClientRect().width ?? null,
         documentScrollWidthAfterOpen: document.documentElement.scrollWidth,
+        menuClientHeight: menu?.clientHeight ?? null,
+        menuScrollHeight: menu?.scrollHeight ?? null,
+        menuOverflowY: menu ? getComputedStyle(menu).overflowY : null,
+        menuScrollbarWidth: menu ? getComputedStyle(menu).scrollbarWidth : null,
         mobileLinks: menu ? [...menu.querySelectorAll('a')].map((link) => ({
           text: link.firstElementChild?.textContent,
           fontFamily: getComputedStyle(link).fontFamily,
@@ -72,7 +76,7 @@ const puppeteer = require('puppeteer-core');
   if (desktop.desktopDisplay !== 'flex' || !desktop.desktopLinksSingleLine || desktop.documentScrollWidth !== desktop.viewportWidth) throw new Error(`desktop geometry failed: ${JSON.stringify(desktop)}`);
   for (const mobile of results.slice(1)) {
     if (mobile.toggleDisplay === 'none' || mobile.toggleText !== '☰更多工具' || mobile.toggleAriaLabel !== '打开更多工具菜单' || mobile.toggleFontSize !== '12px' || mobile.toggleFontWeight !== '650' || mobile.togglePadding !== '7px 8px' || mobile.toggleRadius !== '8px') throw new Error(`mobile toggle failed: ${JSON.stringify(mobile)}`);
-    if (!mobile.menuOpen || mobile.toggleAriaLabelAfterOpen !== '关闭更多工具菜单' || mobile.documentScrollWidthAfterOpen !== mobile.viewportWidth || mobile.menuRight > mobile.viewportWidth) throw new Error(`mobile overflow failed: ${JSON.stringify(mobile)}`);
+    if (!mobile.menuOpen || mobile.toggleAriaLabelAfterOpen !== '关闭更多工具菜单' || mobile.documentScrollWidthAfterOpen !== mobile.viewportWidth || mobile.menuRight > mobile.viewportWidth || mobile.menuClientHeight > mobile.viewport.height - 64 || mobile.menuOverflowY !== 'auto' || mobile.menuScrollbarWidth !== 'none') throw new Error(`mobile overflow failed: ${JSON.stringify(mobile)}`);
     if (!mobile.mobileLinks.every((link) => link.fontFamily.includes('Inter') && link.fontSize === '12px' && link.fontWeight === '650' && link.textAlign === 'right' && link.padding === '7px 8px' && link.radius === '8px' && link.right <= mobile.viewportWidth && link.childTextAlignments.every((alignment) => alignment === 'right'))) throw new Error(`mobile links failed: ${JSON.stringify(mobile)}`);
   }
   console.log(JSON.stringify(results, null, 2));

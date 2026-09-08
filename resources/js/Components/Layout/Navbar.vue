@@ -101,8 +101,8 @@ function closeMobileMenu() {
             </div>
         </div>
 
-        <div v-if="mobileMenuOpen" id="mobile-menu" class="border-t border-gray-200 bg-white px-4 py-3 lg:hidden dark:border-gray-700 dark:bg-gray-800">
-            <div class="mx-auto grid max-w-[1104px] gap-2 sm:grid-cols-2">
+        <div v-if="mobileMenuOpen" id="mobile-menu" class="flex max-h-[calc(100dvh-4rem)] flex-col overflow-y-auto overscroll-contain border-t border-gray-200 bg-white px-4 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:hidden dark:border-gray-700 dark:bg-gray-800">
+            <div class="mx-auto grid w-full max-w-[1104px] gap-2 sm:grid-cols-2">
                 <a
                     v-for="item in companyTools"
                     :key="item.name"
