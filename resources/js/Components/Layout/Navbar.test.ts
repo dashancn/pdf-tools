@@ -61,7 +61,7 @@ describe('统一生态导航', () => {
 
     it('uses the specified CTA, PDF branding, and accessible menu tips', () => {
         expect(navbarSource).toContain("primary: true");
-        expect(navbarSource).toContain("item.primary ? 'min-w-[72px] bg-blue-600 text-white font-semibold hover:bg-blue-700'");
+        expect(navbarSource).toContain("item.primary ? 'min-w-[72px] bg-blue-600 text-white hover:bg-blue-700'");
         expect(navbarSource).not.toContain("name: 'PDF 工具'");
         expect(navbarSource).not.toContain("active: true");
         expect(navbarSource).not.toContain('aria-current="page"');
@@ -87,17 +87,28 @@ describe('统一生态导航', () => {
         expect(navbarSource).toContain('whitespace-normal');
     });
 
-    it('matches the watermark navigation font baseline', () => {
+    it('matches the watermark navigation font and desktop control baseline', () => {
         expect(navbarSource).toContain("font-['Inter','PingFang_SC','Microsoft_YaHei',sans-serif]");
-        expect(navbarSource).toContain('text-[13px]');
+        expect(navbarSource).toContain('rounded-lg px-2 py-[7px] text-[13px] font-[650]');
         expect(navbarSource).not.toContain('py-2 text-sm font-semibold');
     });
 
-    it('shows an explicit menu label inside the mobile toggle without allowing overflow', () => {
-        expect(navbarSource).toContain('<span>菜单</span>');
+    it('right-aligns every expanded mobile item at the 12px watermark baseline', () => {
+        expect(navbarSource).toContain("['rounded-lg px-2 py-[7px] text-right text-[12px] font-[650]'");
+        expect(navbarSource).toContain('<span class="block text-right">{{ item.name }}</span>');
+        expect(navbarSource).toContain('<span class="mt-1 block text-right text-[12px] font-normal opacity-75">{{ item.tooltip }}</span>');
+        expect(navbarSource).toContain('items-center justify-end');
+    });
+
+    it('names the mobile toggle 更多工具 and keeps its accessible name in sync with state', () => {
+        expect(navbarSource).toContain('<span>更多工具</span>');
+        expect(navbarSource).not.toContain('<span>菜单</span>');
+        expect(navbarSource).toContain(":aria-label=\"mobileMenuOpen ? '关闭更多工具菜单' : '打开更多工具菜单'\"");
+    });
+
+    it('keeps the explicit mobile toggle from overflowing', () => {
         expect(navbarSource).toContain('inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap');
         expect(navbarSource).toContain('min-w-0');
         expect(navbarSource).toContain('overflow-x-hidden');
-        expect(navbarSource).toContain('aria-label="打开工具导航"');
     });
 });

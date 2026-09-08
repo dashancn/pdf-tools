@@ -77,7 +77,7 @@ function closeMobileMenu() {
                         :key="item.name"
                         :href="item.href"
                         :aria-describedby="`ecosystem-tip-${item.name}`"
-                        :class="['group relative inline-flex whitespace-nowrap justify-center rounded-md px-2 py-2 text-[13px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 xl:px-2.5', item.primary ? 'min-w-[72px] bg-blue-600 text-white font-semibold hover:bg-blue-700' : 'font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white']"
+                        :class="['group relative inline-flex whitespace-nowrap justify-center rounded-lg px-2 py-[7px] text-[13px] font-[650] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500', item.primary ? 'min-w-[72px] bg-blue-600 text-white hover:bg-blue-700' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white']"
                     >
                         {{ item.name }}
                         <span
@@ -94,9 +94,9 @@ function closeMobileMenu() {
                     <LanguageSwitcher />
                 </div>
 
-                <button type="button" class="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md p-2 text-[13px] font-semibold text-gray-500 hover:bg-gray-100 lg:hidden dark:hover:bg-gray-700" aria-controls="mobile-menu" :aria-expanded="mobileMenuOpen" aria-label="打开工具导航" @click="mobileMenuOpen = !mobileMenuOpen">
+                <button type="button" class="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-lg px-2 py-[7px] text-[12px] font-[650] text-gray-500 hover:bg-gray-100 lg:hidden dark:hover:bg-gray-700" aria-controls="mobile-menu" :aria-expanded="mobileMenuOpen" :aria-label="mobileMenuOpen ? '关闭更多工具菜单' : '打开更多工具菜单'" @click="mobileMenuOpen = !mobileMenuOpen">
                     <span aria-hidden="true">{{ mobileMenuOpen ? '✕' : '☰' }}</span>
-                    <span>菜单</span>
+                    <span>更多工具</span>
                 </button>
             </div>
         </div>
@@ -107,14 +107,14 @@ function closeMobileMenu() {
                     v-for="item in companyTools"
                     :key="item.name"
                     :href="item.href"
-                    :class="['rounded-md px-3 py-2 text-[13px] font-semibold', item.primary ? 'min-w-[72px] bg-blue-600 text-center text-white hover:bg-blue-700' : 'bg-gray-50 text-gray-700 dark:bg-gray-700 dark:text-gray-200']"
+                    :class="['rounded-lg px-2 py-[7px] text-right text-[12px] font-[650]', item.primary ? 'min-w-[72px] bg-blue-600 text-white hover:bg-blue-700' : 'bg-gray-50 text-gray-700 dark:bg-gray-700 dark:text-gray-200']"
                     @click="closeMobileMenu"
                 >
-                    <span class="block">{{ item.name }}</span>
-                    <span class="mt-1 block text-xs font-normal opacity-75">{{ item.tooltip }}</span>
+                    <span class="block text-right">{{ item.name }}</span>
+                    <span class="mt-1 block text-right text-[12px] font-normal opacity-75">{{ item.tooltip }}</span>
                 </a>
             </div>
-            <div class="mx-auto mt-3 flex max-w-[1104px] items-center justify-between border-t border-gray-200 pt-3 dark:border-gray-700">
+            <div class="mx-auto mt-3 flex max-w-[1104px] items-center justify-end gap-2 border-t border-gray-200 pt-3 dark:border-gray-700">
                 <LanguageSwitcher />
                 <button type="button" :aria-label="isDark ? '切换浅色模式' : '切换深色模式'" class="rounded-md p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700" @click="toggleDarkMode">{{ isDark ? '☀️' : '🌙' }}</button>
             </div>
