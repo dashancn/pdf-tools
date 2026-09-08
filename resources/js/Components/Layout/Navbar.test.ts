@@ -86,4 +86,18 @@ describe('统一生态导航', () => {
         expect(navbarSource).toContain('whitespace-nowrap');
         expect(navbarSource).toContain('whitespace-normal');
     });
+
+    it('matches the watermark navigation font baseline', () => {
+        expect(navbarSource).toContain("font-['Inter','PingFang_SC','Microsoft_YaHei',sans-serif]");
+        expect(navbarSource).toContain('text-[13px]');
+        expect(navbarSource).not.toContain('py-2 text-sm font-semibold');
+    });
+
+    it('shows an explicit menu label inside the mobile toggle without allowing overflow', () => {
+        expect(navbarSource).toContain('<span>菜单</span>');
+        expect(navbarSource).toContain('inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap');
+        expect(navbarSource).toContain('min-w-0');
+        expect(navbarSource).toContain('overflow-x-hidden');
+        expect(navbarSource).toContain('aria-label="打开工具导航"');
+    });
 });

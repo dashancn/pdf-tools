@@ -61,10 +61,10 @@ function closeMobileMenu() {
 </script>
 
 <template>
-    <nav class="sticky top-0 z-50 w-full border-b border-gray-100 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800" aria-label="i41 工具导航">
+    <nav class="sticky top-0 z-50 w-full overflow-x-hidden border-b border-gray-100 bg-white font-['Inter','PingFang_SC','Microsoft_YaHei',sans-serif] shadow-sm dark:border-gray-700 dark:bg-gray-800" aria-label="i41 工具导航">
         <div class="mx-auto max-w-[1104px] px-4">
             <div class="flex h-16 items-center justify-between gap-3">
-                <div class="flex shrink-0 items-center">
+                <div class="flex min-w-0 shrink-0 items-center">
                     <RouterLink to="/" class="flex items-center gap-2 text-lg font-bold text-gray-900 transition-opacity hover:opacity-80 dark:text-white">
                         <span class="text-2xl" aria-hidden="true">🧰</span>
                         <span>PDF 工具箱</span>
@@ -77,7 +77,7 @@ function closeMobileMenu() {
                         :key="item.name"
                         :href="item.href"
                         :aria-describedby="`ecosystem-tip-${item.name}`"
-                        :class="['group relative inline-flex whitespace-nowrap justify-center rounded-md px-2 py-2 text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 xl:px-2.5', item.primary ? 'min-w-[72px] bg-blue-600 text-white font-semibold hover:bg-blue-700' : 'font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white']"
+                        :class="['group relative inline-flex whitespace-nowrap justify-center rounded-md px-2 py-2 text-[13px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 xl:px-2.5', item.primary ? 'min-w-[72px] bg-blue-600 text-white font-semibold hover:bg-blue-700' : 'font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white']"
                     >
                         {{ item.name }}
                         <span
@@ -94,8 +94,9 @@ function closeMobileMenu() {
                     <LanguageSwitcher />
                 </div>
 
-                <button type="button" class="rounded-md p-2 text-gray-500 hover:bg-gray-100 lg:hidden dark:hover:bg-gray-700" aria-controls="mobile-menu" :aria-expanded="mobileMenuOpen" aria-label="打开工具导航" @click="mobileMenuOpen = !mobileMenuOpen">
+                <button type="button" class="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md p-2 text-[13px] font-semibold text-gray-500 hover:bg-gray-100 lg:hidden dark:hover:bg-gray-700" aria-controls="mobile-menu" :aria-expanded="mobileMenuOpen" aria-label="打开工具导航" @click="mobileMenuOpen = !mobileMenuOpen">
                     <span aria-hidden="true">{{ mobileMenuOpen ? '✕' : '☰' }}</span>
+                    <span>菜单</span>
                 </button>
             </div>
         </div>
@@ -106,7 +107,7 @@ function closeMobileMenu() {
                     v-for="item in companyTools"
                     :key="item.name"
                     :href="item.href"
-                    :class="['rounded-md px-3 py-2 text-sm font-semibold', item.primary ? 'min-w-[72px] bg-blue-600 text-center text-white hover:bg-blue-700' : 'bg-gray-50 text-gray-700 dark:bg-gray-700 dark:text-gray-200']"
+                    :class="['rounded-md px-3 py-2 text-[13px] font-semibold', item.primary ? 'min-w-[72px] bg-blue-600 text-center text-white hover:bg-blue-700' : 'bg-gray-50 text-gray-700 dark:bg-gray-700 dark:text-gray-200']"
                     @click="closeMobileMenu"
                 >
                     <span class="block">{{ item.name }}</span>
