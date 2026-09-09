@@ -61,7 +61,7 @@ function closeMobileMenu() {
 </script>
 
 <template>
-    <nav class="sticky top-0 z-50 w-full overflow-x-hidden border-b border-gray-100 bg-white font-['Inter','PingFang_SC','Microsoft_YaHei',sans-serif] shadow-sm dark:border-gray-700 dark:bg-gray-800" aria-label="i41 工具导航">
+    <nav class="sticky top-0 z-50 w-full border-b border-gray-100 bg-white font-['Inter','PingFang_SC','Microsoft_YaHei',sans-serif] shadow-sm dark:border-gray-700 dark:bg-gray-800" aria-label="i41 工具导航">
         <div class="mx-auto max-w-[1104px] px-4">
             <div class="flex h-16 items-center justify-between gap-3">
                 <div class="flex min-w-0 shrink-0 items-center">

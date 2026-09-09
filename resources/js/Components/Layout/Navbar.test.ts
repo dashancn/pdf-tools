@@ -106,10 +106,13 @@ describe('统一生态导航', () => {
         expect(navbarSource).toContain(":aria-label=\"mobileMenuOpen ? '关闭更多工具菜单' : '打开更多工具菜单'\"");
     });
 
-    it('keeps the explicit mobile toggle from overflowing', () => {
+    it('keeps the explicit mobile toggle from overflowing without clipping desktop tooltips or creating a navbar scroll container', () => {
         expect(navbarSource).toContain('inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap');
         expect(navbarSource).toContain('min-w-0');
-        expect(navbarSource).toContain('overflow-x-hidden');
+        expect(navbarSource).not.toContain('w-full overflow-x-hidden border-b');
+        expect(navbarSource).not.toContain('w-full overflow-hidden border-b');
+        expect(navbarSource).not.toContain('w-full overflow-x-clip border-b');
+        expect(navbarSource).toContain('w-full border-b');
     });
 
     it('keeps a tall mobile menu fully reachable without nested scrollbars', () => {
