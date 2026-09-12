@@ -30,6 +30,8 @@ const currentYear = new Date().getFullYear();
                             <span class="text-gray-700">|</span>
                             <RouterLink to="/privacy" class="underline underline-offset-2 hover:text-gray-300">{{ trans('privacy.title') }}</RouterLink>
                             <span class="text-gray-700">|</span>
+                            <a href="/tools/" class="underline underline-offset-2 hover:text-gray-300">PDF 工具目录</a>
+                            <span class="text-gray-700">|</span>
                             <RouterLink to="/sci-report" class="underline underline-offset-2 hover:text-gray-300">SCI Report</RouterLink>
                             <span class="text-gray-700">|</span>
                             <RouterLink to="/sustainability" class="underline underline-offset-2 hover:text-gray-300">WSG Report</RouterLink>

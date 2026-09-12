@@ -4,7 +4,7 @@
     "license": "MIT",
     "type": "module",
     "scripts": {
-        "build": "vite build",
+        "build": "vite build && node scripts/generate-seo-landings.mjs dist",
         "dev": "vite",
         "audit:a11y": "lhci autorun",
         "test": "vitest run",
