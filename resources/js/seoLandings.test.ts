@@ -68,4 +68,31 @@ describe('static SEO tool landings', () => {
         expect(footer).toContain('href="/tools/"');
         expect(footer).toContain('PDF 工具目录');
     });
+
+    it('lets Cloudflare return a noindex 404 instead of rewriting unknown paths to the SPA', () => {
+        const redirects = readFileSync(join(root, 'public/_redirects'), 'utf8');
+        const notFound = readFileSync(join(root, 'public/404.html'), 'utf8');
+
+        expect(redirects).not.toMatch(/^\/\*\s+\/index\.html\s+200\s*$/m);
+        expect(notFound).toContain('<meta name="robots" content="noindex, nofollow">');
+        expect(notFound).toContain('404');
+        expect(notFound).toContain('href="/"');
+    });
+
+    it('includes a production-like Cloudflare routing browser test', () => {
+        const packageJson = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
+        const runner = readFileSync(join(root, 'scripts/run-routing-tests.mjs'), 'utf8');
+        const routingTest = readFileSync(join(root, 'scripts/verify-static-routing.mjs'), 'utf8');
+
+        expect(packageJson.scripts['test:routing']).toContain('npm run build');
+        expect(packageJson.scripts['test:routing']).toContain('run-routing-tests.mjs');
+        expect(runner).toContain("['wrangler', 'pages', 'dev', 'dist'");
+        expect(runner).toContain('verify-static-routing.mjs');
+        expect(routingTest).toContain("'/tools/'");
+        expect(routingTest).toContain('readToolInventory');
+        expect(routingTest).toContain('Expected exactly 40 static tool landings');
+        expect(routingTest).toContain('puppeteer');
+        expect(routingTest).toContain('.reload');
+        expect(routingTest).toContain('404');
+    });
 });

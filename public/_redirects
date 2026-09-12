@@ -1,1 +1,2 @@
-/* /index.html 200
+# The application uses hash routing; no server-side SPA fallback is required.
+# Cloudflare Pages should serve existing static files and return 404 otherwise.

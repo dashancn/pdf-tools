@@ -8,6 +8,7 @@
         "dev": "vite",
         "audit:a11y": "lhci autorun",
         "test": "vitest run",
+        "test:routing": "npm run build && node scripts/run-routing-tests.mjs",
         "test:watch": "vitest",
         "test:coverage": "vitest run --coverage"
     },
